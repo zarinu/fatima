@@ -1,4 +1,8 @@
 import './bootstrap';
+import.meta.glob([
+    '../images/**',
+    '../font/**',
+]);
 
 import Alpine from 'alpinejs';
 

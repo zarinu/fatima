@@ -1,0 +1,1 @@
+$(".countfect").each(function(){var t=$(this),o=t.attr("data-num");delayTo=t.attr("delay"),delayTo||(delayTo=8e3),$({countNum:t.text()}).animate({countNum:o},{duration:delayTo,easing:"linear",step:function(){t.text(Math.floor(this.countNum))},complete:function(){t.text(this.countNum)}})});
