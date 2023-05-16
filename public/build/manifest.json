@@ -5,7 +5,7 @@
     "src": "resources/css/all.min.css"
   },
   "resources/css/app.css": {
-    "file": "assets/app-d1ba4982.css",
+    "file": "assets/app-e3b0c442.css",
     "isEntry": true,
     "src": "resources/css/app.css"
   },
@@ -48,6 +48,10 @@
   "resources/images/TypeScript.jpg": {
     "file": "assets/TypeScript-3edf2450.jpg",
     "src": "resources/images/TypeScript.jpg"
+  },
+  "resources/images/Untitled.jpeg": {
+    "file": "assets/Untitled-0584ad36.jpeg",
+    "src": "resources/images/Untitled.jpeg"
   },
   "resources/images/article1.jpg": {
     "file": "assets/article1-b750e3ea.jpg",
