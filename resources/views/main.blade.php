@@ -3,9 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport"
-          content="width=device-width, initial-scale=1.0">@vite(['resources/css/bootstrap.rtl.css', 'resources/css/all.min.css', 'resources/css/owl.carousel.min.css', 'resources/css/owl.theme.default.min.css', 'resources/css/style.css', 'resources/css/app.css', 'resources/js/app.js'])
-    <title>قالب دانشیار | صفحه اصلی</title></head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="stylesheet" href="/assets/css/bootstrap.rtl.css">
+    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.carousel.min.css">
+    <link rel="stylesheet" href="/assets/css/owl.theme.default.min.css">
+    <link rel="stylesheet" href="/assets/css/style.css">
+
+    <title>قالب دانشیار | صفحه اصلی</title>
+</head>
 <body>
 <header class="d-none d-lg-block container"><!-- start header -->
     <div class="row py-2">
@@ -571,9 +578,9 @@
                         class="fab fa-telegram social-media"></i></a></div>
         </div><!-- end social media box --><a href="#" class="topbutton"></a><!-- bottom to top btn --></div>
 </footer><!-- end footer -->
-<script src="{{ Vite::asset('resources/js/jquery.min.js') }}"></script>
-<script src="{{ Vite::asset('resources/js/bootstrap.bundle.min.js') }}"></script>
-<script src="{{ Vite::asset('resources/js/owl.carousel.min.js') }}"></script>
-<script src="{{ Vite::asset('resources/js/script.js') }}"></script>
+<script src="/assets/js/jquery.min.js"></script>
+<script src="/assets/js/bootstrap.bundle.min.js"></script>
+<script src="/assets/js/owl.carousel.min.js"></script>
+<script src="/assets/js/script.js"></script>
 </body>
 </html>
