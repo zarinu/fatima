@@ -31,14 +31,16 @@ class RegisteredUserController extends Controller
     public function store(Request $request): RedirectResponse
     {
         $request->validate([
-            'name' => ['required', 'string', 'max:255'],
-            'email' => ['required', 'string', 'email', 'max:255', 'unique:'.User::class],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'name' => ['required', 'string', 'min:3', 'max:255'],
+            'mobile' => ['required', 'numeric', 'digits:11', 'regex:/(09)[0-9]{9}/', 'unique:'.User::class],
+            'password' => ['required', 'confirmed', 'string', 'min:8', Rules\Password::defaults()],
+        ], [
+            'numeric' => ":attribute باید شامل عدد باشد، لطفا صفحه کلید را انگلیسی نمایید.",
         ]);
 
         $user = User::create([
             'name' => $request->name,
-            'email' => $request->email,
+            'mobile' => $request->mobile,
             'password' => Hash::make($request->password),
         ]);
 
