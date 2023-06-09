@@ -26,7 +26,7 @@ return new class extends Migration
             $table->string('used')->nullable();
             $table->string('count')->nullable();
             $table->timestamps();
-            $table->timestamp('expired_at');
+            $table->timestamp('expired_at')->nullable();
             $table->softDeletes();
         });
     }
