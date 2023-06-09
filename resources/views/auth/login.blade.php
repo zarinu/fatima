@@ -1,4 +1,4 @@
-@extends('layouts.theme')
+@extends('layouts.auth')
 @section('title', 'ورود')
 
 @section('content')
@@ -44,7 +44,7 @@
 
                         <label class="form-check-label line-height font-12 ms-1" for="customCheck">
 
-                           مرا به خاطر داشته باش
+                            مرا به خاطر داشته باش
 
                         </label>
 
@@ -62,9 +62,9 @@
 
             <div class="col-lg-6 col-md-7 col-10 mx-auto bg-white mt-3 mb-5 rounded shadow-sm py-3 text-center"><!-- start remember box -->
 
-                <p class="font-13 mt-3">رمز عبور خود را فراموش کرده اید؟<a href="forgot-password" class="text-dark under-line ms-1">بازیابی رمز عبور  </a></p>
+                <p class="font-13 mt-3">رمز عبور خود را فراموش کرده اید؟<a href="forgot-password" class="text-dark under-line ms-1">بازیابی رمز عبور </a></p>
 
-                <p class="font-13 mt-2">هنوز در سایت ثبت نام نکرده اید ؟<a href="login" class="text-dark under-line ms-1">ثبت نام </a></p>
+                <p class="font-13 mt-2">هنوز در سایت ثبت نام نکرده اید ؟<a href="register" class="text-dark under-line ms-1">ثبت نام </a></p>
 
             </div><!-- end remember box -->
 

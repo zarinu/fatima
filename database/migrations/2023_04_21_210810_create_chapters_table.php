@@ -13,6 +13,7 @@ return new class extends Migration
     {
         Schema::create('chapters', function (Blueprint $table) {
             $table->id();
+            $table->integer('course_id');
             $table->string('name');
             $table->text('description')->nullable();
             $table->string('image_path')->nullable();

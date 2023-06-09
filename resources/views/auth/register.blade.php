@@ -1,4 +1,4 @@
-@extends('layouts.theme')
+@extends('layouts.auth')
 @section('title', 'ثبت نام')
 
 @section('content')
@@ -64,7 +64,7 @@
 
                         <label class="form-check-label line-height font-12" for="customCheck">
 
-                            <a href="#" class="text-dark under-line">حریم خصوصی</a> و <a href="#" class="text-dark under-line">شرایط و قوانین</a> استفاده از خدمات  سایت دانشیار را مطالعه نموده و با کلیه موارد آن موافقم.
+                            <a href="#" class="text-dark under-line">حریم خصوصی</a> و <a href="#" class="text-dark under-line">شرایط و قوانین</a> استفاده از خدمات سایت دانشیار را مطالعه نموده و با کلیه موارد آن موافقم.
 
                         </label>
 

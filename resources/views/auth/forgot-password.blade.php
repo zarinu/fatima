@@ -1,4 +1,4 @@
-@extends('layouts.theme')
+@extends('layouts.auth')
 @section('title', 'بازیابی رمز عبور')
 
 @section('content')
@@ -11,7 +11,7 @@
                 <a href="/"><img src="assets/images/logo.jpg" alt="آموزش عروسک سازی حیدری" class="d-block mx-auto mb-4"></a><!-- logo -->
 
                 @if($errors->any())
-                <div class="alert alert-success font-12 mb-3">{{$errors->first()}}</div>
+                    <div class="alert alert-success font-12 mb-3">{{$errors->first()}}</div>
                 @endif
 
                 <form method="POST" action="{{ route('password.mobile') }}"><!-- start remember form -->

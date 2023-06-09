@@ -1047,3 +1047,30 @@ input::placeholder , textarea::placeholder , select{
 
 /* ---------- end style for cart page ---------- */
 
+.lessons-list {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease;
+}
+
+.lessons-list.open {
+    max-height: 500px; /* ارتفاع مطلوب محتوا */
+}
+
+.lesson-field {
+    color: dimgrey;
+    font-size: 13px;
+}
+
+.lesson-check-complete {
+    font-family: vazir-font-fa;
+    font-size: 10px;
+}
+
+.color-red {
+    color: red;
+}
+
+.color-green {
+    color: green;
+}

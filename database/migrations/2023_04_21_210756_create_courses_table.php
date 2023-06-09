@@ -13,18 +13,22 @@ return new class extends Migration
     {
         Schema::create('courses', function (Blueprint $table) {
             $table->id();
+            $table->integer('user_id')->nullable();
             $table->string('name');
             $table->text('summery')->nullable();
+            $table->string('teacher_name')->nullable();
             $table->text('description')->nullable();
-            $table->string('image_path')->nullable();
+            $table->string('cover_path')->nullable();
+            $table->string('banner_path')->nullable();
             $table->integer('users_count')->default(0)->unsigned();
             $table->integer('views_count')->default(0)->unsigned();
-            $table->float('total_hours')->nullable();
-            $table->float('price')->nullable();
+            $table->integer('total_hours')->nullable();
+            $table->integer('price')->nullable();
             $table->integer('discount_percent')->nullable()->unsigned();
             $table->float('score')->nullable()->unsigned();
             $table->integer('order')->nullable();
-            $table->enum('status', ['active', 'inactive'])->default('inactive');
+            $table->enum('status', ['completed', 'pre-sell', 'presenting', 'inactive'])->default('completed');
+            $table->integer('uploaded_count')->nullable();
             $table->timestamps();
             $table->softDeletes();
         });
