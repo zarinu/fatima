@@ -23,11 +23,11 @@ class CoursesController extends Controller
         return view('lessons.show', ['course' => $course, 'lesson' => $lesson]);
     }
 
-    public function toggle_complete(Course $course, Lesson $lesson): View
+    public function toggle_complete(Course $course, Lesson $lesson): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         $lesson->is_complete = !$lesson->is_complete;
         $lesson->save();
 
-        return view('lessons.show', ['course' => $course, 'lesson' => $lesson]);
+        return back()->withInput();
     }
 }
