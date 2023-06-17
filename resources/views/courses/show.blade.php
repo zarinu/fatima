@@ -101,15 +101,16 @@
 
                     </div><!-- end course list item -->
                     <div class="mt-3 mb-3 rounded shadow-sm lessons-list bg-light">
-                        <p class="m-3">برای دیدن و دانلود کلیک کنید:</p>
+                        @if($chapter->lessons->first())
+                            <p class="m-3">برای دیدن و دانلود کلیک کنید:</p>
+                        @endif
                         @foreach($chapter->lessons as $lesson)
-
                             <div class="m-3">
                                 <i class="fa fa-video"></i>
 
                                 <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}" class="m-1 lesson-field">{{$lesson->title}}</a>
 
-                                @if($lesson->is_completed)
+                                @if($lesson->is_complete)
                                     <div class="float-end color-green">
                                         <i class="fa fa-check-circle"></i>
                                         <span class="lesson-check-complete"> تکمیل شده </span>

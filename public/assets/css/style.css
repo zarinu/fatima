@@ -1074,3 +1074,13 @@ input::placeholder , textarea::placeholder , select{
 .color-green {
     color: green;
 }
+
+.toggle-status-complete {
+    width: 200px;
+    margin: auto;
+}
+
+div .toggle-status-complete {
+    text-align: center;
+    float: left;
+}

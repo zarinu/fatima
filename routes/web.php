@@ -23,6 +23,9 @@ Route::get('/', function () {
 
 Route::prefix('courses')->group(function () {
     Route::get('/{course}', [CoursesController::class, 'show'])->name('courses.show');
+
+    Route::get('/{course}/lessons/{lesson}', [CoursesController::class, 'show_lessons'])->name('lessons.show');
+    Route::get('/{course}/lessons/{lesson}/toggle-complete', [CoursesController::class, 'toggle_complete']);
 });
 
 Route::get('/dashboard', function () {
