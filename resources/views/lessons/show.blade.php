@@ -45,5 +45,9 @@
             @endif
         </div>
 
+        <div class="row mb-2">
+            <a href="#">&rsaquo; درس بعدی: الگوی پویا</a>
+        </div>
+
     </div>
 @endsection
