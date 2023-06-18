@@ -119,7 +119,7 @@ return [
     "exists"           => ":attribute انتخاب شده، معتبر نیست.",
     "image"            => ":attribute باید تصویر باشد.",
     "in"               => ":attribute انتخاب شده، معتبر نیست.",
-    "integer"          => ":attribute باید نوع داده ای عددی (integer) باشد.",
+    "integer"          => ":attribute باید نوع داده ای عددی (انگلیسی) باشد.",
     "ip"               => ":attribute باید IP آدرس معتبر باشد.",
     "max"              => array(
         "numeric" => ":attribute نباید بزرگتر از :max باشد.",
@@ -187,6 +187,7 @@ return [
         'mobile' => 'موبایل',
         'password' => 'رمز عبور',
         'password_confirmation' => 'تکرار رمز عبور',
+        'verify_code' => 'کد تایید',
     ],
 
 ];

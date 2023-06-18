@@ -1,5 +1,5 @@
 @extends('layouts.auth')
-@section('title', 'بازیابی رمز عبور')
+@section('title', 'ورود با کد یکبار مصرف')
 
 @section('content')
     <div class="container">
@@ -10,15 +10,11 @@
 
                 <a href="/"><img src="assets/images/logo.jpg" alt="آموزش عروسک سازی حیدری" class="d-block mx-auto mb-4"></a><!-- logo -->
 
-                @if($errors->any())
-                    <div class="alert alert-success font-12 mb-3">{{$errors->first()}}</div>
-                @endif
-
                 <form method="POST" action="{{ route('password.mobile') }}"><!-- start remember form -->
                     @csrf
 
                     @error('mobile')
-                    <div class="alert alert-danger font-12 m-0">{{ $message }}</div>
+                        <div class="alert alert-danger font-12 m-0 mb-2">{{$message}}</div>
                     @enderror
                     <div class="input-group signup-form mb-4">
 
@@ -29,11 +25,23 @@
 
                     </div>
 
-                    <button type="submit" class="btn btn-lg btn-warning d-block mx-auto px-5 font-13 vazir-font my-3">بازیابی رمز عبور</button>
+                    <button type="submit" class="btn btn-lg btn-warning d-block mx-auto px-5 font-13 vazir-font my-3">دریافت کد یکبار مصرف </button>
 
                 </form><!-- end remember form -->
 
             </div>
+
+        </div>
+
+        <div class="row">
+
+            <div class="col-lg-6 col-md-7 col-10 mx-auto bg-white mt-3 mb-5 rounded shadow-sm py-3 text-center"><!-- start remember box -->
+
+                <p class="font-13 mt-2">هنوز در سایت ثبت نام نکرده اید؟<a href="/register" class="text-dark under-line ms-1">ثبت نام </a></p>
+
+                <p class="font-13 mt-3">ورود از طریق<a href="/login" class="text-dark under-line ms-1">رمز عبور </a></p>
+
+            </div><!-- end remember box -->
 
         </div>
 
