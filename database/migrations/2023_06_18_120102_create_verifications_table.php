@@ -19,7 +19,7 @@ return new class extends Migration
             $table->enum('action', ['forgot_password', 'verify'])->nullable();
             $table->timestamps();
             $table->timestamp('verified_at')->nullable();
-            $table->timestamp('expired_at');
+            $table->timestamp('expired_at')->nullable();
         });
     }
 
