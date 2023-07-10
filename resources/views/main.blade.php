@@ -17,7 +17,7 @@
 
     <div class="row py-2">
 
-        <div class="col-lg-2"><img src="assets/images/logo.png" alt="آموزش عروسک سازی حیدری"></div><!-- logo -->
+        <div class="col-lg-2"><a href="/"><img src="assets/images/logo.jpg" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
 
         <div class="col-lg-6 d-flex align-items-center ps-5 pe-0"><!-- start search box -->
 
@@ -149,7 +149,7 @@
 
     <div class="row">
 
-        <div class="col-6 ps-0"><img src="assets/images/logo.png" alt="آموزش عروسک سازی حیدری"></div><!-- logo -->
+        <div class="col-6 ps-0"><a href="/"><img src="assets/images/logo.png" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
 
         <div class="col-6 d-flex align-items-center justify-content-end">
 
@@ -261,67 +261,45 @@
 
                     <div class="d-flex align-items-center justify-content-center signup-login mt-5"><!-- start signup & login -->
 
-                        <a href="signup.html" class="btn-signup">ثبت نام</a>
+                        <a href="register" class="btn-signup">ثبت نام</a>
 
-                        <a href="login.html" class="btn-login">ورود</a>
+                        <a href="login" class="btn-login">ورود</a>
 
                     </div><!-- end signup & login -->
 
                     <ul class="responsive-menu-level-1 ps-0 mt-5"><!-- start menu level 1 -->
 
-                        <li class="menu-item"><a href="#">صفحه اصلی</a></li>
+                        <li class="menu-item"><a href="/">صفحه اصلی</a></li>
 
                         <li class="menu-item has-sub-menu"><a href="#">دوره های آموزشی</a>
 
                             <ul class="responsive-menu-level-2 ps-0"><!-- start menu level 2 -->
 
-                                <li class="menu-item-2 has-sub-menu-2"><a href="#">دوره های آموزش برنامه نویسی</a>
+                                <li class="menu-item-2 has-sub-menu-2"><a href="#">دوره های آموزش عروسک سازی</a>
 
                                     <ul class="responsive-menu-level-3 ps-0"><!-- start menu level 3 -->
 
-                                        <li class="menu-item-3"><a href="course.html">آموزش برنامه نویسی</a></li>
+                                        <li class="menu-item-3"><a href="/courses">آموزش عروسک روسی</a></li>
 
-                                        <li class="menu-item-3"><a href="course.html">آموزش برنامه نویسی</a></li>
+                                        <li class="menu-item-3"><a href="/courses">آموزش عروسک فندق</a></li>
 
-                                        <li class="menu-item-3"><a href="course.html">آموزش برنامه نویسی</a></li>
+                                        <li class="menu-item-3"><a href="/courses">آموزش صورت برجسته</a></li>
 
                                     </ul><!-- end menu level 3 -->
 
                                 </li>
 
-                                <li class="menu-item-2"><a href="category.html">دوره های آموزش برنامه نویسی</a></li>
+                                <li class="menu-item-2"><a href="/courses">دوره های آموزش لباس عروسک</a></li>
 
-                                <li class="menu-item-2"><a href="category.html">دوره های آموزش برنامه نویسی</a></li>
-
-                            </ul><!-- end menu level 2 -->
-
-                        </li>
-
-                        <li class="menu-item has-sub-menu"><a href="#">صفحات </a>
-
-                            <ul class="responsive-menu-level-2 ps-0"><!-- start menu level 2 -->
-
-                                <li class="menu-item-2"><a href="signup.html">ثبت نام</a></li>
-
-                                <li class="menu-item-2"><a href="login.html">ورود</a></li>
-
-                                <li class="menu-item-2"><a href="remember.html">فراموشی رمز عبور</a></li>
-
-                                <li class="menu-item-2"><a href="profile.html">پروفایل کاربر</a></li>
-
-                                <li class="menu-item-2"><a href="teach.html">درخواست تدریس</a></li>
-
-                                <li class="menu-item-2"><a href="cart.html">سبد خرید </a></li>
-
-                                <li class="menu-item-2"><a href="404.html">صفحه 404</a></li>
+                                <li class="menu-item-2"><a href="/courses">دوره های آموزش متفرقه</a></li>
 
                             </ul><!-- end menu level 2 -->
 
                         </li>
 
-                        <li class="menu-item"><a href="blog.html">بلاگ</a></li>
+                        <li class="menu-item"><a href="/">بلاگ</a></li>
 
-                        <li class="menu-item"><a href="contactus.html">تماس با ما</a></li>
+                        <li class="menu-item"><a href="/">تماس با ما</a></li>
 
                     </ul><!-- end menu level 1 -->
 
@@ -358,7 +336,7 @@
 
         <ul class="main-menu">
 
-            <li><a href="#">صفحه اصلی</a></li>
+            <li><a href="/">صفحه اصلی</a></li>
 
             <li><a href="#">دوره های آموزشی<i class="fa fa-angle-down align-middle ms-1"></i></a>
 
@@ -368,15 +346,11 @@
 
                         <ul class="ps-0">
 
-                            <li class="menu-title"><a href="category.html"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش برنامه نویسی</a></li>
+                            <li class="menu-title"><a href="/courses"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش عروسک سازی</a></li>
 
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
+                            <li><a href="/courses">آموزش عروسک روسی</a></li>
 
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
+                            <li><a href="/courses">آموزش عروسک فندق</a></li>
 
                         </ul>
 
@@ -386,33 +360,11 @@
 
                         <ul class="ps-0">
 
-                            <li class="menu-title"><a href="category.html"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش برنامه نویسی</a></li>
+                            <li class="menu-title"><a href="/courses"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش لباس</a></li>
 
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
+                            <li><a href="/courses">آموزش لباس عروسک</a></li>
 
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                        </ul>
-
-                    </li>
-
-                    <li class="col-4 mega-menu-box">
-
-                        <ul class="ps-0">
-
-                            <li class="menu-title"><a href="category.html"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
-
-                            <li><a href="course.html">آموزش برنامه نویسی</a></li>
+                            <li><a href="/courses">آموزش لباس عروسک</a></li>
 
                         </ul>
 
@@ -422,31 +374,9 @@
 
             </li>
 
-            <li><a href="#">صفحات<i class="fa fa-angle-down align-middle ms-1"></i></a>
+            <li><a href="/">بلاگ</a></li>
 
-                <ul class="sub-menu"><!-- start sub menu -->
-
-                    <li><a href="signup.html">ثبت نام</a></li>
-
-                    <li><a href="login.html">ورود</a></li>
-
-                    <li><a href="remember.html">فراموشی رمز عبور</a></li>
-
-                    <li><a href="profile.html">پروفایل کاربر</a></li>
-
-                    <li><a href="teach.html">درخواست تدریس</a></li>
-
-                    <li><a href="cart.html">سبد خرید </a></li>
-
-                    <li><a href="404.html">صفحه 404</a></li>
-
-                </ul><!-- end sub menu -->
-
-            </li>
-
-            <li><a href="blog.html">بلاگ</a></li>
-
-            <li><a href="contactus.html">تماس با ما</a></li>
+            <li><a href="/">تماس با ما</a></li>
 
         </ul>
 
@@ -463,11 +393,11 @@
 
             <div class="col-lg-6">
 
-                <h1>داستان برنامه‌نویس شدنت از اینجا شروع میشه!</h1>
+                <h1>داستان عروسک‌ساز شدنت از اینجا شروع میشه!</h1>
 
-                <h6>یادگیری برنامه‌نویسی آرزو نیست، فقط نیاز هست، تلاش و تمرین داشته باشید، بقیه‌اش با دانشیار</h6>
+                <h6>یادگیری عروسک‌سازی آرزو نیست، فقط نیاز هست، تلاش و تمرین داشته باشید، بقیه‌اش با من</h6>
 
-                <a href="category.html" class="btn btn-custom-info">شروع یادگیری برنامه نویسی <i class="fa fa-arrow-left align-middle mt-1"></i></a>
+                <a href="/courses" class="btn btn-custom-info">شروع یادگیری عروسک‌سازی <i class="fa fa-arrow-left align-middle mt-1"></i></a>
 
                 <div class="row pb-3"><!-- start banner icons -->
 
@@ -509,7 +439,7 @@
 
             <div class="col-lg-6">
 
-                <img src="assets/images/298654-min.jpg" class="img-fluid">
+                <img src="assets/images/hanie_heydari.png" class="img-fluid">
 
             </div>
 
@@ -523,13 +453,13 @@
 
     <div class="row pt-5">
 
-        <div class="col-md-3 col-6 mb-3"><a href="category.html"><img src="assets/images/graphics.png" class="img-fluid rounded"></a></div>
+        <div class="col-md-3 col-6 mb-3"><a href="/courses/1"><img src="assets/images/arosak_dress.png" class="img-fluid rounded"></a></div>
 
-        <div class="col-md-3 col-6 mb-3"><a href="category.html"><img src="assets/images/footage.png" class="img-fluid rounded"></a></div>
+        <div class="col-md-3 col-6 mb-3"><a href="/register"><img src="assets/images/login.png" class="img-fluid rounded"></a></div>
 
-        <div class="col-md-3 col-6 mb-3"><a href="category.html"><img src="assets/images/sound.png" class="img-fluid rounded"></a></div>
+        <div class="col-md-3 col-6 mb-3"><a href="/courses"><img src="assets/images/arosak_rosi.png" class="img-fluid rounded"></a></div>
 
-        <div class="col-md-3 col-6 mb-3"><a href="category.html"><img src="assets/images/premiere.png" class="img-fluid rounded"></a></div>
+        <div class="col-md-3 col-6 mb-3"><a href="/courses"><img src="assets/images/fandogh.png" class="img-fluid rounded"></a></div>
 
     </div>
 
@@ -546,7 +476,7 @@
 
     </div>
 
-    <a href="category.html" class="title-btn align-self-start">همه دوره ها <i class="fa fa-arrow-left align-middle"></i></a>
+    <a href="/courses" class="title-btn align-self-start">همه دوره ها <i class="fa fa-arrow-left align-middle"></i></a>
 
 </div><!-- end title-->
 
@@ -889,134 +819,15 @@
 
 </div>
 
-
-<div class="container d-flex justify-content-between mt-5 mb-3"><!-- start title-->
-
-    <div class="title">
-
-        <p class="font-14 ps-2">عضو ویژه شوید </p>
-
-        <p class="font-12 ps-3 text-muted">با تهیه اشتراک ویژه به تمام آموزش های ویژه سایت دسترسی دارید!</p>
-
-    </div>
-
-</div><!-- end title-->
-
-<div class="container"><!-- start price plans -->
-
-    <div class="row">
-
-        <div class="col-lg-4 col-sm-6"><!-- start plan item -->
-
-            <div class="card custom-card-signup shadow-sm card-1">
-
-                <div class="circle">
-
-                    <h5>اشتراک یکماهه</h5>
-
-                    <p class="text-white">120.000 تومان</p>
-
-                </div>
-
-                <div class="card-body">
-
-                    <p class="font-14 line-height">شما می توانید به مدت یک ماه به دوره های ویژه سایت دسترسی داشته باشید.</p>
-
-                    <p class="font-13 text-secondary"><i class="fa fa-check align-middle me-1 text-secondary"></i>دسترسی به تمام آموزش های ویژه سایت</p>
-
-                    <p class="font-13 text-secondary"><i class="fa fa-check align-middle me-1 text-secondary"></i>هزینه کم و دسترسی کامل</p>
-
-                    <div class="w-100 text-center">
-
-                        <a href="signup.html" class="btn btn-sm btn-outline-secondary px-3 mt-2"> ثبت نام <i class="fa fa-arrow-left align-middle"></i></a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div><!-- end plan item -->
-
-
-        <div class="col-lg-4 col-sm-6"><!-- start plan item -->
-
-            <div class="card custom-card-signup shadow-sm card-2">
-
-                <div class="circle">
-
-                    <h5>اشتراک 3 ماهه</h5>
-
-                    <p class="text-white">300.000 تومان</p>
-
-                </div>
-
-                <div class="card-body">
-
-                    <p class="font-14 line-height">شما می توانید به مدت 3 ماه به دوره های ویژه سایت دسترسی داشته باشید.</p>
-
-                    <p class="font-13  text-secondary"><i class="fa fa-check align-middle me-1 text-secondary"></i>دسترسی به تمام آموزش های ویژه سایت</p>
-
-                    <p class="font-13  text-secondary"><i class="fa fa-check align-middle me-1 text-secondary"></i>سه روز مهلت تست رایگان !</p>
-
-                    <div class="w-100 text-center">
-
-                        <a href="signup.html" class="btn btn-sm btn-outline-warning px-3 mt-2" id="contact2"> ثبت نام <i class="fa fa-arrow-left align-middle"></i></a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div><!-- end plan item -->
-
-        <div class="col-lg-4 col-sm-6"><!-- start plan item -->
-
-            <div class="card custom-card-signup shadow-sm card-3">
-
-                <div class="circle">
-
-                    <h5>اشتراک یکساله</h5>
-
-                    <p class="text-white">700.000 تومان</p>
-
-                </div>
-
-                <div class="card-body">
-
-                    <p class="font-14 line-height">شما می توانید به مدت یک سال به دوره های ویژه سایت دسترسی داشته باشید.</p>
-
-                    <p class="font-13 text-secondary"><i class="fa fa-check align-middle me-1 text-secondary"></i>دسترسی به تمام آموزش های ویژه سایت</p>
-
-                    <p class="font-13 text-secondary"><i class="fa fa-check align-middle me-1 text-secondary"></i>محبوب و مقرون به صرفه</p>
-
-                    <div class="w-100 text-center">
-
-                        <a href="signup.html" class="btn btn-sm btn-outline-primary px-3 mt-2" id="contact3"> ثبت نام <i class="fa fa-arrow-left align-middle"></i></a>
-
-                    </div>
-
-                </div>
-
-            </div>
-
-        </div><!-- end plan item -->
-
-    </div>
-
-</div><!-- end price plans -->
-
-
 <div class="team-box"><!-- start comment slider -->
 
     <div class="container d-flex justify-content-between"><!-- start title-->
 
         <div class="title mt-5 mb-3">
 
-            <p class="font-14 ps-2">دستاورد های ما</p>
+            <p class="font-14 ps-2">نظرات کاربران</p>
 
-            <p class="font-12 ps-3 text-muted">موفقیت شما با ما !</p>
+            <p class="font-12 ps-3 text-muted">موفقیت شما با من !</p>
 
         </div>
 
@@ -1041,15 +852,15 @@
 
                                     <div>
 
-                                        <img src="assets/images/user-1.png" class="comment-pic">
+                                        <img src="assets/images/user-1.jpeg" class="comment-pic">
 
                                     </div>
 
                                     <div>
 
-                                        <span class="font-13 d-block ms-2">آرش سبحانی</span>
+                                        <span class="font-13 d-block ms-2">هنرجو عروسک سازی</span>
 
-                                        <span class="font-12 d-block ms-2 text-muted mt-1">برنامه نویس گوگل</span>
+                                        <span class="font-12 d-block ms-2 text-muted mt-1">لیسانس فناوری اطلاعات</span>
 
                                         <span class="student-rating"><i class="fa fa-star font-12 me-1"></i>4.9</span>
 
@@ -1061,8 +872,8 @@
 
                             </div>
 
-                            <p class="font-13 line-height vazir-font px-3 text-justify">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                            <p class="font-13 line-height vazir-font px-3 text-justify">
+                                راستش من لیسانس فناوری اطلاعات دارم ولی چون بچه کوچک دارم نمیتونم برم سرکار اما حالا دیگه از نظر روحی خیلی حالم خوب شده چون با عروسک سازی میتونم واسه خودم درآمد داشته باشم.
                             </p>
 
                         </div>
@@ -1079,15 +890,15 @@
 
                                     <div>
 
-                                        <img src="assets/images/user-2.jpg" class="comment-pic">
+                                        <img src="assets/images/user-2.png" class="comment-pic">
 
                                     </div>
 
                                     <div>
 
-                                        <span class="font-13 d-block ms-2">زهرا حسینی</span>
+                                        <span class="font-13 d-block ms-2">هنرجو دوره فندق</span>
 
-                                        <span class="font-12 d-block ms-2 text-muted mt-1">مدیر مایکروسافت</span>
+                                        <span class="font-12 d-block ms-2 text-muted mt-1">عروسک ساز</span>
 
                                         <span class="student-rating"><i class="fa fa-star font-12 me-1"></i>4.5</span>
 
@@ -1099,8 +910,9 @@
 
                             </div>
 
-                            <p class="font-13 line-height vazir-font px-3 text-justify">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                            <p class="font-13 line-height vazir-font px-3 text-justify">
+                                من باورم نمیشد عروسک فندق درست کنم چون خیلی لرزش دست شدید داشتم و با آموزش های شما تا الان ۲ تا عروسک فندق درست کردم
+                                و همه اینها رو مدیون خانم حیدری هستم.
                             </p>
 
                         </div>
@@ -1117,55 +929,17 @@
 
                                     <div>
 
-                                        <img src="assets/images/user-3.jpg" class="comment-pic">
+                                        <img src="assets/images/user-3.jpeg" class="comment-pic">
 
                                     </div>
 
                                     <div>
 
-                                        <span class="font-13 d-block ms-2">رضاعظیمی</span>
+                                        <span class="font-13 d-block ms-2">نعیمه</span>
 
-                                        <span class="font-12 d-block ms-2 text-muted mt-1">مدیر لینکدین</span>
+                                        <span class="font-12 d-block ms-2 text-muted mt-1">خانه دار</span>
 
                                         <span class="student-rating"><i class="fa fa-star font-12 me-1"></i>4.3</span>
-
-                                    </div>
-
-                                </div>
-
-                                <img src="assets/images/c-3.png" class="comment-icon">
-
-                            </div>
-
-                            <p class="font-13 line-height vazir-font px-3 text-justify">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
-                            </p>
-
-                        </div>
-
-                    </div><!-- end comment item -->
-
-                    <div class="item"><!-- start comment item -->
-
-                        <div class="card border-0 bg-white p-3 shadow-sm">
-
-                            <div class="d-flex align-items-center justify-content-between mb-3">
-
-                                <div class="d-flex">
-
-                                    <div>
-
-                                        <img src="assets/images/user-1.png" class="comment-pic">
-
-                                    </div>
-
-                                    <div>
-
-                                        <span class="font-13 d-block ms-2">آرش سبحانی</span>
-
-                                        <span class="font-12 d-block ms-2 text-muted mt-1">برنامه نویس گوگل</span>
-
-                                        <span class="student-rating"><i class="fa fa-star font-12 me-1"></i>4.9</span>
 
                                     </div>
 
@@ -1175,8 +949,46 @@
 
                             </div>
 
-                            <p class="font-13 line-height vazir-font px-3 text-justify">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
+                            <p class="font-13 line-height vazir-font px-3 text-justify">
+                                من خودم تدریس کار هنری کردم و میدونم نکات چقدر مهمه. اما ماشالا خانم حیدری تمام ریزه کاری ها رو هم توی دوره هاشون میگن.
+                            </p>
+
+                        </div>
+
+                    </div><!-- end comment item -->
+
+                    <div class="item"><!-- start comment item -->
+
+                        <div class="card border-0 bg-white p-3 shadow-sm">
+
+                            <div class="d-flex align-items-center justify-content-between mb-3">
+
+                                <div class="d-flex">
+
+                                    <div>
+
+                                        <img src="assets/images/user-4.jpeg" class="comment-pic">
+
+                                    </div>
+
+                                    <div>
+
+                                        <span class="font-13 d-block ms-2">زهرا</span>
+
+                                        <span class="font-12 d-block ms-2 text-muted mt-1">دانش آموز</span>
+
+                                        <span class="student-rating"><i class="fa fa-star font-12 me-1"></i>4.9</span>
+
+                                    </div>
+
+                                </div>
+
+                                <img src="assets/images/c-2.png" class="comment-icon">
+
+                            </div>
+
+                            <p class="font-13 line-height vazir-font px-3 text-justify">
+                                من از اولین فیلمی که داشتین بدن عروسک رو پر میکردین فهمیدم که آموزش هاتون با بقیه فرق داره. همش منتظر بودم فیلم قطع بشه ولی دیدم که چقدر با حوصله تا آخر آخر فیلم گرفتین.
                             </p>
 
                         </div>
@@ -1193,108 +1005,6 @@
 
 </div><!-- end comment slider -->
 
-
-<div class="container d-flex justify-content-between mt-5 mb-4"><!-- start title-->
-
-    <div class="title">
-
-        <p class="font-14 ps-2"> مقالات تخصصی </p>
-
-        <p class="font-12 ps-3 text-muted"> همیشه به روز باش!</p>
-
-    </div>
-
-    <a href="blog.html" class="title-btn align-self-start">همه مقالات<i class="fa fa-arrow-left align-middle ms-1"></i></a>
-
-</div><!-- end title-->
-
-
-<div class="container"><!-- start article box -->
-
-    <div class="row">
-
-        <div class="col-lg-4 col-sm-6"><!-- start article item -->
-
-            <div class="card shadow-sm mb-3 article-card">
-
-                <img src="assets/images/article1.jpg" class="img-fluid">
-
-                <div class="card-body">
-
-                    <a href="article.html" class="text-dark d-block my-2">چگونه مطالعه آنلاین را شروع کنیم ؟ </a>
-
-                    <p class="font-13 text-justify line-height vazir-font">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                        استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
-                    </p>
-
-                    <span class="font-12 vazir-font"><i class="fa fa-pen font-12 text-secondary align-middlle"></i> علی نوروزی</span>
-
-                    <a href="article.html" class="btn btn-info font-12 float-end">ادامه مطلب</a>
-
-                </div>
-
-            </div>
-
-        </div><!-- end article item -->
-
-
-        <div class="col-lg-4 col-sm-6"><!-- start article item -->
-
-            <div class="card shadow-sm mb-3 article-card">
-
-                <img src="assets/images/article2.jpg" class="img-fluid">
-
-                <div class="card-body">
-
-                    <a href="article.html" class="text-dark d-block my-2">بهترین زمان ارسال پست در اینستاگرام</a>
-
-                    <p class="font-13 text-justify line-height vazir-font">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                        استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
-                    </p>
-
-                    <span class="font-12 vazir-font"><i class="fa fa-pen font-12 text-secondary align-middlle"></i> علی نوروزی</span>
-
-                    <a href="article.html" class="btn btn-info font-12 float-end">ادامه مطلب</a>
-
-                </div>
-
-            </div>
-
-        </div><!-- end article item -->
-
-
-        <div class="col-lg-4 col-sm-6"><!-- start article item -->
-
-            <div class="card shadow-sm mb-3 article-card">
-
-                <img src="assets/images/article3.jpg" class="img-fluid">
-
-                <div class="card-body">
-
-                    <a href="article.html" class="text-dark d-block my-2">تله های خطرناک در سخنرانی</a>
-
-                    <p class="font-13 text-justify line-height vazir-font">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                        استفاده از طراحان گرافیک است.
-                        چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
-                    </p>
-
-                    <span class="font-12 vazir-font"><i class="fa fa-pen font-12 text-secondary align-middlle"></i> علی نوروزی</span>
-
-                    <a href="article.html" class="btn btn-info font-12 float-end">ادامه مطلب</a>
-
-                </div>
-
-            </div>
-
-        </div><!-- end article item -->
-
-    </div>
-
-</div><!-- end article box -->
-
-
 <footer class="bg-light"><!-- start footer -->
 
     <div class="container py-3">
@@ -1303,17 +1013,19 @@
 
             <div class="col-lg-4"><!-- start footer info -->
 
-                <img src="assets/images/footer-logo.jpg" alt="Daneshar" class="mb-2">
+                <img src="assets/images/logo.jpg" width="184px" height="66px" alt="Daneshar" class="mb-2">
 
+                <p class="line-height font-13 mb-1">
+                    اینجا یاد میگیری حرفه ای عروسک بسازی
+                    <i class="fa fa-heart"></i>
+                </p>
                 <p class="line-height font-13 mb-4">
-                    لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                    استفاده از طراحان گرافیک است.
-                    چاپگرها و متون بلکه روزنامه و مجله در ستون و سطر آنچنان که لازم است.
+                    فقط کافیه نخ، سوزن و یه تیکه پارچه برداری و با من همراه شی
                 </p>
 
-                <p class="font-13"><i class="fas fa-map-marker-alt text-muted me-2"></i>استان تهران شهر تهران - خیابان گاندی جنوبی - پلاک ۲۸</p>
+                <p class="font-13"><i class="fas fa-map-marker-alt text-muted me-2"></i>من، حانیه حیدری، ۵ سال عروسک ساختم و توی اینکار حرفه ایم و کنارتم تا تو هم حرفه ای بشی.</p>
 
-                <p class="font-13"><i class="fas fa-envelope text-muted me-2"></i> info@sitename.com</p>
+                <p class="font-13"><i class="fas fa-envelope text-muted me-2"></i> info@aroosak.com</p>
 
                 <p class="font-13"><i class="fa fa-phone text-muted me-2"></i>021-12345678</p>
 
@@ -1321,17 +1033,17 @@
 
             <div class="col-lg-4 col-md-6 text-center footer-links mb-4"><!-- start footer links -->
 
-                <span class="mt-5 pt-2 d-block">با دانشیار </span>
+                <span class="mt-5 pt-2 d-block">با آکادمی حیدری </span>
 
                 <ul class="ps-0">
 
-                    <li class="my-3"><a href="contactus.html" class="font-13 text-dark">درباره دانشیار</a></li>
+                    <li class="my-3"><a href="/" class="font-13 text-dark">درباره من</a></li>
 
-                    <li class="my-3"><a href="contactus.html" class="font-13 text-dark">تماس با دانشیار</a></li>
+                    <li class="my-3"><a href="/" class="font-13 text-dark">تماس با من</a></li>
 
-                    <li class="my-3"><a href="contactus.html" class="font-13 text-dark">شرایط استفاده</a></li>
+                    <li class="my-3"><a href="/" class="font-13 text-dark">شرایط استفاده</a></li>
 
-                    <li class="my-3"><a href="contactus.html" class="font-13 text-dark">پاسخ به پرسش‌های متداول</a></li>
+                    <li class="my-3"><a href="/" class="font-13 text-dark">پاسخ به پرسش‌های متداول</a></li>
 
                 </ul>
 
@@ -1371,7 +1083,7 @@
 
             <div class="col-md-12 text-center py-2">
 
-                <p class="font-13 my-4"> کلیه حقوق این سایت متعلق به یاس دیزاین است .</p>
+                <p class="font-13 my-4"> کلیه حقوق این سایت متعلق به شخص حانیه حیدری می باشد .</p>
 
                 <a href="#"><i class="fab fa-instagram social-media"></i></a>
 
