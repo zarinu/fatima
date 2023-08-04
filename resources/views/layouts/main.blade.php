@@ -18,7 +18,7 @@
 
     <div class="row py-2">
 
-        <div class="col-lg-2"><img src="/assets/images/logo.jpg" alt="آموزش عروسک سازی حیدری"></div><!-- logo -->
+        <div class="col-lg-2"><a href="/"><img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
 
         <div class="col-lg-6 d-flex align-items-center ps-5 pe-0"><!-- start search box -->
 
@@ -150,7 +150,7 @@
 
     <div class="row">
 
-        <div class="col-6 ps-0"><img src="/assets/images/logo.jpg" alt="آموزش عروسک سازی حیدری"></div><!-- logo -->
+        <div class="col-6 ps-0"><a href="/"><img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
 
         <div class="col-6 d-flex align-items-center justify-content-end">
 
@@ -465,7 +465,7 @@
 
             <div class="col-lg-4"><!-- start footer info -->
 
-                <img src="/assets/images/footer-logo.jpg" alt="Daneshar" class="mb-2">
+                <div class="col-lg-2"><a href="/"><img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
 
                 <p class="line-height font-13 mb-4">
                     لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با

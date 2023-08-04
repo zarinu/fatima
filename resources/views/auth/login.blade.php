@@ -8,7 +8,7 @@
 
             <div class="col-lg-6 col-md-7 col-10 mx-auto bg-white mt-5 rounded shadow-sm py-3">
 
-                <a href="/"><img src="assets/images/logo.jpg" alt="آموزش عروسک سازی حیدری" class="d-block mx-auto mb-4"></a><!-- logo -->
+                <div class="col-lg-2"><a href="/"><img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
 
                 <form method="POST" action="{{ route('login') }}"><!-- start login form -->
                     @csrf
