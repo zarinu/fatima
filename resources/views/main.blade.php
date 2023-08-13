@@ -1057,7 +1057,8 @@
 
                         <img src="assets/images/footer1.png" class="footer-pic">
 
-                        <img src="assets/images/footer2.png" class="footer-pic">
+                        <!-- <img src="assets/images/footer2.png" class="footer-pic"> -->
+                        <a referrerpolicy="origin" target="_blank" href="https://trustseal.enamad.ir/?id=354882&amp;Code=9EmJUlbh8TT7btpjstaW"><img referrerpolicy="origin" src="https://Trustseal.eNamad.ir/logo.aspx?id=354882&amp;Code=9EmJUlbh8TT7btpjstaW" alt="" style="cursor:pointer" id="9EmJUlbh8TT7btpjstaW"></a>
 
                     </div><!-- end footer pics -->
 
