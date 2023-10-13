@@ -20,6 +20,9 @@ class CoursesController extends Controller
 
     public function show_lessons(Course $course, Lesson $lesson): View
     {
+        if(!auth()->user()->is_my_course($course)) {
+            return abort(403);
+        }
         return view('lessons.show', ['course' => $course, 'lesson' => $lesson]);
     }
 

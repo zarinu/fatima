@@ -101,29 +101,34 @@
 
                     </div><!-- end course list item -->
                     <div class="mt-3 mb-3 rounded shadow-sm lessons-list bg-light">
-                        @if($chapter->lessons->first())
-                            <p class="m-3">برای دیدن و دانلود کلیک کنید:</p>
+                        @if(auth()->check() && auth()->user()->is_my_course($course))
+
+                            @if($chapter->lessons->first())
+                                <p class="m-3">برای دیدن و دانلود کلیک کنید:</p>
+                            @endif
+                            @foreach($chapter->lessons as $lesson)
+                                <div class="m-3">
+                                    <i class="fa fa-video"></i>
+
+                                    <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}" class="m-1 lesson-field">{{$lesson->title}}</a>
+
+                                    @if($lesson->is_complete)
+                                        <div class="float-end color-green">
+                                            <i class="fa fa-check-circle"></i>
+                                            <span class="lesson-check-complete"> تکمیل شده </span>
+                                        </div>
+                                    @else
+                                        <div class="float-end color-red">
+                                            <i class="fa fa-check-circle"></i>
+                                            <span class="lesson-check-complete"> تکمیل نشده </span>
+                                        </div>
+                                    @endif
+                                </div>
+                            @endforeach
+
+                        @else
+                            <p class="m-3 font-13">این بخش خصوصی می باشد. برای دسترسی کامل به دروس این دوره باید این دوره را خریداری نمایید.</p>
                         @endif
-                        @foreach($chapter->lessons as $lesson)
-                            <div class="m-3">
-                                <i class="fa fa-video"></i>
-
-                                <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}" class="m-1 lesson-field">{{$lesson->title}}</a>
-
-                                @if($lesson->is_complete)
-                                    <div class="float-end color-green">
-                                        <i class="fa fa-check-circle"></i>
-                                        <span class="lesson-check-complete"> تکمیل شده </span>
-                                    </div>
-                                @else
-                                    <div class="float-end color-red">
-                                        <i class="fa fa-check-circle"></i>
-                                        <span class="lesson-check-complete"> تکمیل نشده </span>
-                                    </div>
-                                @endif
-                            </div>
-
-                        @endforeach
                     </div>
                 @endforeach
 

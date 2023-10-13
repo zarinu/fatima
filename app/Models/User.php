@@ -41,4 +41,10 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+
+    public function is_my_course($course): bool
+    {
+        return UserCourse::where('user_id', auth()->id())
+            ->where('course_id', $course->id)->count();
+    }
 }
