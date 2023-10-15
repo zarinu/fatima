@@ -1,15 +1,7 @@
-<!DOCTYPE html>
-<html lang="fa" dir="rtl">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/assets/css/bootstrap.rtl.css">
-    <link rel="stylesheet" href="/assets/fontawesome/css/all.min.css">
-    <link rel="stylesheet" href="/assets/css/style.css">
-    <title>آموزش عروسک سازی حانیه | 404</title>
-</head>
-<body>
+@extends('layouts.auth')
+@section('title', '404')
+
+@section('content')
 
     <div class="container">
 
@@ -29,7 +21,4 @@
 
     </div>
 
-
-<script src="/assets/js/bootstrap.bundle.min.js"></script>
-</body>
-</html>
+@endsection

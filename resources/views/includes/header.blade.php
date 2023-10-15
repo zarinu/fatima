@@ -29,77 +29,28 @@
 
                 <div class="offcanvas-header mb-3"><!-- start bag header -->
 
-                    <p class="offcanvas-title font-12">سبد خرید (4 کالا)</p>
+                    <p class="offcanvas-title font-12">سبد خرید (0 کالا)</p>
 
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
 
                 </div><!-- end bag header -->
 
                 <div class="offcanvas-body"><!-- start bag body -->
+{{--                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->--}}
 
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
+{{--                        <a href="course.html"><img src="/assets/images/flutter.png"></a>--}}
 
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
+{{--                        <div class="cart-item-detail">--}}
 
-                        <div class="cart-item-detail">
+{{--                            <a href="course.html">آموزش حرفه ای Flutter</a>--}}
 
-                            <a href="course.html">آموزش حرفه ای Flutter</a>
+{{--                            <p class="font-12 text-muted mt-3">320.000 تومان</p>--}}
 
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
+{{--                        </div>--}}
 
-                        </div>
+{{--                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>--}}
 
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
-
-                    </div><!-- end cart item -->
-
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
-
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
-
-                        <div class="cart-item-detail">
-
-                            <a href="course.html">آموزش حرفه ای Flutter</a>
-
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
-
-                        </div>
-
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
-
-                    </div><!-- end cart item -->
-
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
-
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
-
-                        <div class="cart-item-detail">
-
-                            <a href="course.html">آموزش حرفه ای Flutter</a>
-
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
-
-                        </div>
-
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
-
-                    </div><!-- end cart item -->
-
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
-
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
-
-                        <div class="cart-item-detail">
-
-                            <a href="course.html">آموزش حرفه ای Flutter</a>
-
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
-
-                        </div>
-
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
-
-                    </div><!-- end cart item -->
+{{--                    </div><!-- end cart item -->--}}
 
                 </div><!-- end bag body -->
 
@@ -107,7 +58,7 @@
 
                     <p class="font-13">مبلغ کل :</p>
 
-                    <p class="font-13">1,350,000 تومان</p>
+                    <p class="font-13">0 ریال</p>
 
                 </div>
 
@@ -160,7 +111,7 @@
 
                 <div class="offcanvas-header mb-3"><!-- start bag header -->
 
-                    <p class="offcanvas-title font-12">سبد خرید (4 کالا)</p>
+                    <p class="offcanvas-title font-12">سبد خرید (0 کالا)</p>
 
                     <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
 
@@ -168,69 +119,21 @@
 
                 <div class="offcanvas-body"><!-- start bag body -->
 
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
+{{--                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->--}}
 
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
+{{--                        <a href="course.html"><img src="/assets/images/flutter.png"></a>--}}
 
-                        <div class="cart-item-detail">
+{{--                        <div class="cart-item-detail">--}}
 
-                            <a href="contactus.html">آموزش حرفه ای Flutter</a>
+{{--                            <a href="contactus.html">آموزش حرفه ای Flutter</a>--}}
 
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
+{{--                            <p class="font-12 text-muted mt-3">320.000 تومان</p>--}}
 
-                        </div>
+{{--                        </div>--}}
 
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
+{{--                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>--}}
 
-                    </div><!-- end cart item -->
-
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
-
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
-
-                        <div class="cart-item-detail">
-
-                            <a href="course.html">آموزش حرفه ای Flutter</a>
-
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
-
-                        </div>
-
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
-
-                    </div><!-- end cart item -->
-
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
-
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
-
-                        <div class="cart-item-detail">
-
-                            <a href="course.html">آموزش حرفه ای Flutter</a>
-
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
-
-                        </div>
-
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
-
-                    </div><!-- end cart item -->
-
-                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
-
-                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
-
-                        <div class="cart-item-detail">
-
-                            <a href="course.html">آموزش حرفه ای Flutter</a>
-
-                            <p class="font-12 text-muted mt-3">320.000 تومان</p>
-
-                        </div>
-
-                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>
-
-                    </div><!-- end cart item -->
+{{--                    </div><!-- end cart item -->--}}
 
                 </div><!-- end bag body -->
 
@@ -238,7 +141,7 @@
 
                     <p class="font-13">مبلغ کل :</p>
 
-                    <p class="font-13">1,350,000 تومان</p>
+                    <p class="font-13">0 ریال</p>
 
                 </div>
 
