@@ -2,13 +2,12 @@
 @section('title', 'ورود با کد یکبار مصرف')
 
 @section('content')
-    <div class="container">
 
         <div class="row px-2">
 
             <div class="col-lg-6 col-md-7 col-10 mx-auto bg-white mt-5 rounded shadow-sm py-3">
 
-                <div class="col-lg-2"><a href="/"><img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
+                @include('includes.logo')
 
                 <form method="POST" action="{{ route('password.mobile') }}"><!-- start remember form -->
                     @csrf
@@ -45,5 +44,4 @@
 
         </div>
 
-    </div>
 @endsection

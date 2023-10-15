@@ -3,6 +3,7 @@
 use App\Http\Controllers\CoursesController;
 use App\Http\Controllers\PaymentsController;
 //use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\UserPanelController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
@@ -20,7 +21,7 @@ use Illuminate\Support\Facades\Route;
 require __DIR__.'/auth.php';
 
 Route::get('/', function () {
-    return view('main');
+    return view('web.home.index');
 });
 
 Route::prefix('courses')->group(function () {
@@ -28,9 +29,16 @@ Route::prefix('courses')->group(function () {
     Route::get('/{course}', [CoursesController::class, 'show'])->name('courses.show');
 });
 
-Route::middleware('auth')->prefix('panel')->group(function () {
+
+Route::middleware(['auth', 'verified'])->prefix('panel')->group(function () {
+    Route::get('/', [UserPanelController::class, 'dashboard'])->name('dashboard');
+    Route::get('/my-courses', [CoursesController::class, 'myCourses'])->name('courses.my');
+    Route::get('/profile', [UserPanelController::class, 'showProfile'])->name('profile.show');
+    Route::post('/update-profile', [UserPanelController::class, 'updateProfile'])->name('profile.update');
+
     Route::prefix('courses')->group(function () {
-        Route::get('/{course}/lessons/{lesson}', [CoursesController::class, 'show_lessons'])->name('lessons.show');
+        Route::get('/{course}/{lesson}', [CoursesController::class, 'show_lessons'])->name('lessons.show');
+        Route::get('/{course}/{lesson}/download', [CoursesController::class, 'download'])->name('lessons.download');
 //        Route::get('/{course}/lessons/{lesson}/toggle-complete', [CoursesController::class, 'toggle_complete']);
     });
 

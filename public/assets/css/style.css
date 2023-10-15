@@ -67,6 +67,11 @@ input::placeholder , textarea::placeholder , select{
     font-family: vazir-font !important;
 }
 
+input.form-control {
+    font-size: 14px !important;
+    font-family: vazir-font !important;
+}
+
 [type="tel"], [type="url"], [type="email"], [type="number"]{
     direction: rtl !important;
 }

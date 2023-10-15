@@ -1,20 +1,9 @@
-@extends('layouts.main')
+@extends('layouts.app')
 @section('title', $course->name)
 
 @section('content')
-    <div class="container my-3"><!-- start breadcrumb -->
 
-        <ul class="breadcrumb shadow-sm bg-light p-2">
-
-            <li class="breadcrumb-item"><a href="/" class="font-12 vazir-font text-secondary">صفحه اصلی</a></li>
-
-            <li class="breadcrumb-item"><a href="/courses" class="ps-2 font-12 vazir-font  text-secondary">دوره های عروسک سازی</a></li>
-
-            <li class="breadcrumb-item"><a href="#" class="ps-2 font-12 vazir-font  text-secondary">{{$course->name}}</a></li>
-
-        </ul>
-
-    </div><!-- end breadcrumb -->
+    @include('includes.user_panel.breadcrumb')
 
     <div class="container">
 
@@ -26,7 +15,7 @@
 
                     <div class="sub-video-layer">
 
-                        <img src="/assets/images/courses/{{$course->id}}/{{$course->cover_path}}" class="video-img">
+                        <img src="{{$course->get_cover()}}" class="video-img">
 
                         <div class="over-video-layer">
 
@@ -44,11 +33,11 @@
 
                     <li class="list-group-item font-13 py-3">مدرس : {{$course->teacher_name}}</li>
 
-                    <li class="list-group-item font-13 py-3">وضعیت دوره : تکمیل شده</li>
+                    <li class="list-group-item font-13 py-3">وضعیت دوره : {{\App\Models\Course::$statuses[$course->status]}}</li>
 
-                    <li class="list-group-item font-13 py-3">قسمت های ارسالی : {{$course->uploaded_count}}</li>
+                    <li class="list-group-item font-13 py-3">تعداد جلسات : {{$course->uploaded_count}} جلسه </li>
 
-                    <li class="list-group-item font-13 py-3">قیمت دوره : {{$course->price}} تومان</li>
+                    <li class="list-group-item font-13 py-3">قیمت دوره : {{number_format($course->price)}} تومان</li>
 
                 </ul>
 
@@ -74,13 +63,13 @@
 
             <div class="col-lg-8"><!-- start course content -->
 
-                <img src="/assets/images/courses/{{$course->id}}/{{$course->banner_path}}" class="img-fluid rounded mb-3" width="730" height="450">
+                <img src="{{$course->get_banner()}}" class="img-fluid rounded mb-3" width="730" height="450">
 
                 <h1 class="font-14 my-3">{{$course->name}}</h1>
 
                 <p class="vazir-font font-13 text-justify line-height">{{$course->description}}</p>
 
-                <p class="font-14 my-3">سر فصل ها  :</p>
+                <p class="font-14 my-3">سر فصل ها :</p>
 
                 @foreach($course->chapters as $chapter)
                     <div class="d-flex align-items-center justify-content-between bg-light rounded shadow-sm mb-3 p-3 show-lessons-button"><!-- start course list item -->
@@ -176,7 +165,7 @@
 
                             <div class="col-12">
 
-                                <textarea  class="form-control" rows="5" placeholder="متن دیدگاه شما"></textarea>
+                                <textarea class="form-control" rows="5" placeholder="متن دیدگاه شما"></textarea>
 
                                 <button type="submit" class="btn btn-lg btn-info float-end font-13 my-3">ثبت دیدگاه</button>
 
@@ -194,13 +183,13 @@
 
                                         <div>
 
-                                            <img src="/assets/images/user-1.png" class="comment-pic">
+                                            <img src="/assets/images/user-2.png" class="comment-pic">
 
                                         </div>
 
                                         <div>
 
-                                            <span class="font-13 d-block ms-3 mt-3">آرش سبحانی</span>
+                                            <span class="font-13 d-block ms-3 mt-3">کاربر دوره</span>
 
                                             <div class="d-flex ms-3 mt-3">
 
@@ -220,22 +209,19 @@
 
                                     </div>
 
-                                    <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> 20 بهمن 1401 </span>
+                                    <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> 18 مهر 1402 </span>
 
                                 </div>
 
-                                <p class="font-13 vazir-font line-height px-5 mt-3">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                    از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
-                                    شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-                                </p>
+                                <p class="font-13 vazir-font line-height px-5 mt-3">باسلام. خیلی ممنونم از دوره بسیار خوبتون توضیحات خیلی کمک کننده بود.</p>
 
                                 <div class="d-fex px-5">
 
-                                    <span class="font-12 me-4"><i class="far fa-heart text-danger font-15 me-1"></i>(12)</span>
+                                    <span class="font-12 me-4"><i class="far fa-heart text-danger me-1"></i>(0)</span>
 
-                                    <span class="font-12 me-4"><i class="far fa-thumbs-up text-success font-15 me-1"></i>(8)</span>
+                                    <span class="font-12 me-4"><i class="far fa-thumbs-up text-success me-1"></i>(0)</span>
 
-                                    <span class="font-12 me-4"><i class="far fa-thumbs-down text-muted font-15 me-1"></i>(0)</span>
+                                    <span class="font-12 me-4"><i class="far fa-thumbs-down text-muted me-1"></i>(0)</span>
 
                                 </div>
 
@@ -245,14 +231,11 @@
 
                                         <p class="font-13 text-danger">مدیر سایت</p>
 
-                                        <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> 21 بهمن 1401 </span>
+                                        <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> 20 مهر 1402 </span>
 
                                     </div>
 
-                                    <p class="font-13 vazir-font line-height">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با استفاده
-                                        از طراحان گرافیک است. چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است و برای
-                                        شرایط فعلی تکنولوژی مورد نیاز و کاربردهای متنوع با هدف بهبود ابزارهای کاربردی می باشد.
-                                    </p>
+                                    <p class="font-13 vazir-font line-height">نظر لطف شماست عزیز</p>
 
                                 </div><!-- end reply box -->
 
@@ -276,11 +259,11 @@
 
                                         <p class="mt-4">حانیه حیدری</p>
 
-                                        <span class="font-12 text-muted me-4"><i class="fa fa-video me-1 text-danger"></i>72 ویدئو</span>
+                                        <span class="font-12 text-muted me-4"><i class="fa fa-video me-1 text-danger"></i> {{\App\Models\Lesson::count()}} ویدئو </span>
 
-                                        <span class="font-12 text-muted me-4"><i class="fa fa-forward me-1 text-success"></i>2 دوره</span>
+                                        <span class="font-12 text-muted me-4"><i class="fa fa-forward me-1 text-success"></i> {{\App\Models\Course::count()}} دوره </span>
 
-                                        <span class="font-12 text-muted me-4"><i class="fa fa-user me-1"></i> عضویت 5سال</span>
+                                        <span class="font-12 text-muted me-4"><i class="fa fa-user me-1"></i> 5 سال تجربه </span>
 
                                         <p class="font-13 line-height vazir-font text-justify my-3">من، حانیه حیدری، ۵ سال عروسک ساختم و تو اینکار حرفه ایم و کنارتم تا تو هم حرفه ای بشی</p>
 
@@ -324,163 +307,22 @@
 
         </div>
 
-        <a href="blog.html" class="title-btn align-self-start">همه دوره ها <i class="fa fa-arrow-left align-middle"></i></a>
+        <a href="/courses" class="title-btn align-self-start">همه دوره ها <i class="fa fa-arrow-left align-middle"></i></a>
 
     </div><!-- end title-->
 
-    <div class="container"><!-- start course box -->
+    @include('includes.suggested_courses')
 
-        <div class="row">
+@endsection
 
-            <div class="col-lg-4 col-sm-6 "><!-- start course item -->
-
-                <div class="card custom-card mb-3 shadow-sm">
-
-                    <div class="sub-layer">
-
-                        <img src="/assets/images/html.jpg" class="img-fluid" >
-
-                        <div class="over-layer">
-
-                            <a href="course.html" class="btn btn-info">مشاهده و خرید</a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <a href="course.html" class="text-dark d-block mb-2"> آموزش HTML </a>
-
-                        <p class="font-13 text-justify line-height vazir-font">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                            استفاده از طراحان گرافیک است.
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
-                        </p>
-
-                    </div>
-
-                    <div class="card-footer">
-
-                        <img src="/assets/images/team_2.jpg" class="team-icon">
-
-                        <span class="font-12 vazir-font">علی نوروزی</span>
-
-                        <div class="float-end mt-1">
-
-                            <span class="text-success font-12">رایگان !</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div><!-- end course item -->
-
-
-            <div class="col-lg-4 col-sm-6"><!-- start course item -->
-
-                <div class="card custom-card mb-3 shadow-sm">
-
-                    <div class="sub-layer">
-
-                        <img src="/assets/images/flutter.png" class="img-fluid" >
-
-                        <div class="over-layer">
-
-                            <a href="course.html" class="btn btn-info">مشاهده و خرید</a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <a href="course.html" class="text-dark d-block mb-2"> آموزش حرفه ای Flutter</a>
-
-                        <p class="font-13 text-justify line-height vazir-font">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                            استفاده از طراحان گرافیک است.
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
-                        </p>
-
-                    </div>
-
-                    <div class="card-footer">
-
-                        <img src="/assets/images/team_4.jpg" class="team-icon">
-
-                        <span class="font-12 vazir-font">سارا رضایی</span>
-
-                        <div class="float-end mt-1">
-
-                            <del class="text-muted font-12 me-2">320.000 تومان</del>
-
-                            <span class="text-success font-12">200.000 تومان</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div><!-- end course item -->
-
-
-            <div class="col-lg-4 col-sm-6"><!-- start course item -->
-
-                <div class="card custom-card mb-3 shadow-sm">
-
-                    <div class="sub-layer">
-
-                        <img src="/assets/images/js.png" class="img-fluid">
-
-                        <div class="over-layer">
-
-                            <a href="course.html" class="btn btn-info">مشاهده و خرید</a>
-
-                        </div>
-
-                    </div>
-
-                    <div class="card-body">
-
-                        <a href="course.html" class="text-dark d-block mb-2">آموزش پیشرفته جاوا اسکریپت</a>
-
-                        <p class="font-13 text-justify line-height vazir-font">لورم ایپسوم متن ساختگی با تولید سادگی نامفهوم از صنعت چاپ و با
-                            استفاده از طراحان گرافیک است.
-                            چاپگرها و متون بلکه روزنامه و مجله در ستون و سطرآنچنان که لازم است.
-                        </p>
-
-                    </div>
-
-                    <div class="card-footer">
-
-                        <img src="/assets/images/team_2.jpg" class="team-icon">
-
-                        <span class="font-12 vazir-font">علی نوروزی</span>
-
-                        <div class="float-end mt-1">
-
-                            <span class="text-success font-12">400.000 تومان</span>
-
-                        </div>
-
-                    </div>
-
-                </div>
-
-            </div><!-- end course item -->
-
-        </div>
-
-    </div><!-- end course box -->
+@push('scripts')
     <script>
         var toggleButtons = document.querySelectorAll('.show-lessons-button');
-        toggleButtons.forEach(function(button) {
-            button.addEventListener('click', function() {
+        toggleButtons.forEach(function (button) {
+            button.addEventListener('click', function () {
                 var content = this.nextElementSibling;
                 content.classList.toggle('open');
             });
         });
     </script>
-@endsection
+@endpush

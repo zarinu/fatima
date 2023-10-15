@@ -2,7 +2,9 @@
 
     <div class="row py-2">
 
-        <div class="col-lg-2"><a href="/"><img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
+        <div class="col-lg-2">
+            @include('includes.logo')
+        </div><!-- logo -->
 
         <div class="col-lg-6 d-flex align-items-center ps-5 pe-0"><!-- start search box -->
 
@@ -10,7 +12,7 @@
 
                 <input type="search" class="form-control form-control-lg"  placeholder="چی دوست داری یاد بگیری ؟! ...">
 
-                <button type="submit" class="btn btn-secondary"><img src="assets/images/search.png" class="search-btn"></button>
+                <button type="submit" class="btn btn-secondary"><img src="/assets/images/search.png" class="search-btn"></button>
 
             </div>
 
@@ -18,7 +20,7 @@
 
         <div class="col-lg-2 d-flex align-items-center justify-content-end"><!-- start shopping bag-->
 
-            <a href="#shopping-bag" class="position-relative me-5" data-bs-toggle="offcanvas"><img src="assets/images/bag.png" class="shopping-bag-icon">
+            <a href="#shopping-bag" class="position-relative me-5" data-bs-toggle="offcanvas"><img src="/assets/images/bag.png" class="shopping-bag-icon">
 
                 <div class="count">2</div>
             </a>
@@ -37,7 +39,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -53,7 +55,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -69,7 +71,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -85,7 +87,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -126,9 +128,9 @@
         @else
             <div class="col-lg-2 d-flex align-items-center justify-content-end signup-login"><!-- start signup & login -->
 
-                <a href="register" class="btn-signup">ثبت نام</a>
+                <a href="/register" class="btn-signup">ثبت نام</a>
 
-                <a href="login" class="btn-login">ورود</a>
+                <a href="/login" class="btn-login">ورود</a>
 
             </div><!-- end signup & login -->
         @endif
@@ -142,11 +144,13 @@
 
     <div class="row">
 
-        <div class="col-6 ps-0"><a href="/"><img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="آموزش عروسک سازی حیدری"></a></div><!-- logo -->
+        <div class="col-6 ps-0">
+            @include('includes.logo')
+        </div><!-- logo -->
 
         <div class="col-6 d-flex align-items-center justify-content-end">
 
-            <a href="#shopping-bag-responsive" class="position-relative me-4" data-bs-toggle="offcanvas"><img src="assets/images/bag.png" class="shopping-bag-icon"><!-- start shopping bag-->
+            <a href="#shopping-bag-responsive" class="position-relative me-4" data-bs-toggle="offcanvas"><img src="/assets/images/bag.png" class="shopping-bag-icon"><!-- start shopping bag-->
 
                 <div class="count">2</div>
 
@@ -166,7 +170,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -182,7 +186,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -198,7 +202,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -214,7 +218,7 @@
 
                     <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-                        <a href="course.html"><img src="assets/images/flutter.png"></a>
+                        <a href="course.html"><img src="/assets/images/flutter.png"></a>
 
                         <div class="cart-item-detail">
 
@@ -320,7 +324,7 @@
 
                 <input type="search" class="form-control form-control-lg"  placeholder="چی دوست داری یاد بگیری ؟! ...">
 
-                <button type="submit" class="btn btn-secondary"><img src="assets/images/search.png" class="search-btn"></button>
+                <button type="submit" class="btn btn-secondary"><img src="/assets/images/search.png" class="search-btn"></button>
 
             </div>
 

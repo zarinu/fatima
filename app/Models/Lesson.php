@@ -12,4 +12,12 @@ class Lesson extends Model
     public function course() {
         return $this->belongsTo(Course::class);
     }
+
+    public function show_url() {
+        return '/panel/courses/' . $this->course->id . '/' . $this->id;
+    }
+
+    public function download_url() {
+        return $this->content_path;
+    }
 }
