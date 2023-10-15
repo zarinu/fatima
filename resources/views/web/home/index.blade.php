@@ -77,7 +77,7 @@
 
             <div class="col-md-3 col-6 mb-3"><a href="/courses"><img src="/assets/images/arosak_rosi.png" class="img-fluid rounded"></a></div>
 
-            <div class="col-md-3 col-6 mb-3"><a href="/courses"><img src="/assets/images/fandogh.png" class="img-fluid rounded"></a></div>
+            <div class="col-md-3 col-6 mb-3"><a href="/courses/2"><img src="/assets/images/fandogh.png" class="img-fluid rounded"></a></div>
 
         </div>
 

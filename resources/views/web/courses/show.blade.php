@@ -99,7 +99,7 @@
                                 <div class="m-3">
                                     <i class="fa fa-video"></i>
 
-                                    <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}" class="m-1 lesson-field">{{$lesson->title}}</a>
+                                    <a href="{{$lesson->show_url()}}" class="m-1 lesson-field">{{$lesson->title}}</a>
 
                                     @if($lesson->is_complete)
                                         <div class="float-end color-green">
