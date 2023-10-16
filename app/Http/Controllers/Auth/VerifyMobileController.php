@@ -22,7 +22,7 @@ class VerifyMobileController extends Controller
         if(empty($request->mobile)) {
             return redirect()->route('password.request');
         }
-        return view('auth.check-code', ['mobile' => $request->mobile]);
+        return view('auth.verify', ['mobile' => $request->mobile]);
     }
 
     /**
