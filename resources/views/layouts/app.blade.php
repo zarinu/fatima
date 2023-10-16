@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/owl.carousel.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/owl.theme.default.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <title>آموزش عروسک سازی حیدری | @yield('title')</title>
 </head>
 <body>

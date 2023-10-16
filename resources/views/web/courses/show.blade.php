@@ -15,9 +15,14 @@
 
                     <div class="sub-video-layer">
 
-                        <img src="{{$course->get_cover()}}" class="video-img">
+                        <video class="video-img" id="introduction-video" loop>
 
-                        <div class="over-video-layer">
+                            <source src="{{$course->get_video()}}" type="video/mp4">
+                            Your browser does not support the video tag.
+
+                        </video>
+
+                        <div class="over-video-layer" id="play-pause-button">
 
                             <i class="fa fa-play play-video-icon"></i>
 
@@ -63,7 +68,7 @@
 
             <div class="col-lg-8"><!-- start course content -->
 
-                <img src="{{$course->get_banner()}}" class="img-fluid rounded mb-3" width="730" height="450">
+                <img src="{{$course->get_cover()}}" class="img-fluid rounded mb-3" width="730" height="450">
 
                 <h1 class="font-14 my-3">{{$course->name}}</h1>
 
@@ -325,4 +330,20 @@
             });
         });
     </script>
+
+        <script>
+            $(document).ready(function () {
+                const video = $('#introduction-video')[0]; // Convert the jQuery object to a regular DOM element
+                const playPauseButton = $('#play-pause-button');
+
+                playPauseButton.click(function () {
+                    if (video.paused) {
+                        video.play();
+                        playPauseButton.removeClass('over-video-layer')
+                    } else {
+                        video.pause();
+                    }
+                });
+            });
+        </script>
 @endpush

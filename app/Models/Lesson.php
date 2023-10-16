@@ -18,6 +18,6 @@ class Lesson extends Model
     }
 
     public function download_url() {
-        return $this->content_path;
+        return 'media/courses/' . $this->course->id . '/' . $this->content_path;
     }
 }

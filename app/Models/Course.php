@@ -22,15 +22,15 @@ class Course extends Model
     ];
 
     public function get_cover() {
-        if(!empty($this->cover_path)) {
-            return '/assets/images/courses/' . $this->id . '/' . $this->cover_path;
+        if($this->has_cover) {
+            return '/media/courses/' . $this->id . '/cover.jpg';
         }
         return '/assets/images/default/cover.jpg';
     }
 
-    public function get_banner() {
-        if(!empty($this->banner_path)) {
-            return '/assets/images/courses/' . $this->id . '/' . $this->banner_path;
+    public function get_video() {
+        if($this->has_video) {
+            return '/media/courses/' . $this->id . '/video.mp4';
         }
         return '/assets/images/default/banner.jpg';
     }

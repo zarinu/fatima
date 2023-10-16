@@ -18,8 +18,8 @@ return new class extends Migration
             $table->text('summery')->nullable();
             $table->string('teacher_name')->nullable();
             $table->text('description')->nullable();
-            $table->string('cover_path')->nullable();
-            $table->string('banner_path')->nullable();
+            $table->boolean('has_cover')->nullable();
+            $table->boolean('has_video')->nullable();
             $table->integer('users_count')->default(0)->unsigned();
             $table->integer('views_count')->default(0)->unsigned();
             $table->integer('total_hours')->nullable();

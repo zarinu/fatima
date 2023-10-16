@@ -16,7 +16,7 @@ return new class extends Migration
             $table->integer('course_id');
             $table->string('name');
             $table->text('description')->nullable();
-            $table->string('image_path')->nullable();
+            $table->boolean('has_image')->nullable();
             $table->integer('order')->nullable();
             $table->timestamps();
             $table->softDeletes();

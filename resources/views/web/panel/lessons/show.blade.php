@@ -13,7 +13,7 @@
 
         <div class="row">
             <video controls>
-                <source src="{{'/' . $lesson->content_path}}" type="video/mp4">
+                <source src="{{'/' . $lesson->download_url()}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>
@@ -21,20 +21,20 @@
         <div class="row">
             <p class="font-14 my-3">توضیحات جلسه :</p>
 
-            <p class="vazir-font font-13 text-justify line-height">{{$lesson->description ?: '.......'}}</p>
+            <b class="vazir-font font-15 text-justify line-height">{{$lesson->description ?: '.........'}}</b>
         </div>
 
-{{--        <div class="row">--}}
-{{--            @if($lesson->is_complete)--}}
-{{--                <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete" class="btn btn-lg btn-outline-success float-end font-13 my-3 toggle-status-complete">انجام شد</a>--}}
-{{--            @else--}}
-{{--                <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete" class="btn btn-lg btn-outline-info float-end font-13 my-3 toggle-status-complete">علامت بزن اگر انجام شده</a>--}}
-{{--            @endif--}}
-{{--        </div>--}}
+        {{--        <div class="row">--}}
+        {{--            @if($lesson->is_complete)--}}
+        {{--                <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete" class="btn btn-lg btn-outline-success float-end font-13 my-3 toggle-status-complete">انجام شد</a>--}}
+        {{--            @else--}}
+        {{--                <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete" class="btn btn-lg btn-outline-info float-end font-13 my-3 toggle-status-complete">علامت بزن اگر انجام شده</a>--}}
+        {{--            @endif--}}
+        {{--        </div>--}}
 
-{{--        <div class="row mb-2">--}}
-{{--            <a href="#">&rsaquo; درس بعدی: الگوی پویا</a>--}}
-{{--        </div>--}}
+        {{--        <div class="row mb-2">--}}
+        {{--            <a href="#">&rsaquo; درس بعدی: الگوی پویا</a>--}}
+        {{--        </div>--}}
 
     </div>
 @endsection

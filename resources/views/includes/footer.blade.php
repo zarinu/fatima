@@ -77,7 +77,8 @@
 
             <div class="col-md-12 text-center py-2">
 
-                <p class="font-13 my-4"> کلیه حقوق این سایت متعلق به شخص حانیه حیدری می باشد .</p>
+                <p class="font-13 my-4"> کلیه حقوق این سایت محفوظ است.</p>
+                <p class="font-18 my-4"> طراحی و توسعه توسط <a href="https://eitaa.com/mrs_zarin">زهرا حیدری</a> </p>
 
                 <a href="#"><i class="fab fa-instagram social-media"></i></a>
 
