@@ -123,7 +123,7 @@
                                 <div class="m-3">
                                     <i class="fa fa-video"></i>
 
-                                    <a href="{{$lesson->show_url()}}" class="m-1 lesson-field">{{$lesson->title}}</a>
+                                    <a href="{{route('lessons.show', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="m-1 lesson-field">{{$lesson->title}}</a>
 
                                     @if($lesson->is_complete)
                                         <div class="float-end color-green">

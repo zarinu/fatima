@@ -36,8 +36,4 @@ class Course extends Model
         }
         return null;
     }
-
-    public function get_url() {
-        return '/courses/' . $this->id;
-    }
 }

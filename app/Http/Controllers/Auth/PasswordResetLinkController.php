@@ -26,7 +26,7 @@ class PasswordResetLinkController extends Controller
      *
      * @throws ValidationException
      */
-    public function send_code(Request $request): RedirectResponse
+    public function sendCode(Request $request): RedirectResponse
     {
         $request->validate([
             'mobile' => ['required', 'numeric', 'digits:11', 'regex:/(09)[0-9]{9}/', 'exists:'.User::class],

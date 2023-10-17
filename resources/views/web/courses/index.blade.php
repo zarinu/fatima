@@ -78,7 +78,7 @@
 
                                     <div class="over-layer">
 
-                                        <a href="{{$course->get_url()}}" class="btn btn-info">مشاهده و خرید</a>
+                                        <a href="{{route('courses.show', ['course' => $course->id])}}" class="btn btn-info">مشاهده و خرید</a>
 
                                     </div>
 
@@ -86,7 +86,7 @@
 
                                 <div class="card-body">
 
-                                    <a href="{{$course->get_url()}}" class="text-dark d-block mb-2">{{$course->name}}</a>
+                                    <a href="{{route('courses.show', ['course' => $course->id])}}" class="text-dark d-block mb-2">{{$course->name}}</a>
 
                                     <p class="font-13 text-justify line-height vazir-font">{{$course->summery ?: 'برای توضیحات بیشتر کلیک کنید.'}}</p>
 

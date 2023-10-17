@@ -33,7 +33,7 @@
 
                                         <div class="col-lg-8">
 
-                                            <a href="{{$course->get_url()}}" class="my-3 d-block font-14 text-dark">{{$course->name}}</a>
+                                            <a href="{{route('courses.show', ['course' => $course->id])}}" class="my-3 d-block font-14 text-dark">{{$course->name}}</a>
 
                                             <p class="font-13 line-height text-justify">{{$course->description}}</p>
 
@@ -69,9 +69,9 @@
                                                         @foreach($chapter->lessons as $lesson)
                                                             <tr>
 
-                                                                <td><a href="{{$lesson->show_url()}}">{{$lesson->title}}</a></td>
+                                                                <td><a href="{{route('lessons.show', ['course' => $course->id, 'lesson' => $lesson->id])}}">{{$lesson->title}}</a></td>
 
-                                                                <td><a href="/panel/courses/{{$course->id}}/{{$lesson->id}}/download" class="btn btn-warning text-white float-end font-12"><i class="fa fa-download align-middle me-2"></i>دانلود</a></td>
+                                                                <td><a href="{{route('lessons.download', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-warning text-white float-end font-12"><i class="fa fa-download align-middle me-2"></i>دانلود</a></td>
 
                                                             </tr>
                                                         @endforeach

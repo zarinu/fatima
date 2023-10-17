@@ -13,7 +13,7 @@
 
         <div class="row">
             <video controls>
-                <source src="{{'/' . $lesson->download_url()}}" type="video/mp4">
+                <source src="{{'/' . $lesson->get_url()}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
         </div>

@@ -17,7 +17,7 @@ class VerifyMobileController extends Controller
     /**
      * Display the password reset link request view.
      */
-    public function enter_code(Request $request)
+    public function enterCode(Request $request)
     {
         if(empty($request->mobile)) {
             return redirect()->route('password.request');
@@ -28,7 +28,7 @@ class VerifyMobileController extends Controller
     /**
      * @throws ValidationException
      */
-    public function check_code(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
+    public function checkCode(Request $request): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
     {
         if(empty($request->mobile)) {
             return redirect()->route('password.request');
