@@ -15,12 +15,16 @@
 
                     <div class="sub-video-layer">
 
+                        @if(!empty($course->get_video()))
                         <video class="video-img" id="introduction-video" loop>
 
                             <source src="{{$course->get_video()}}" type="video/mp4">
                             Your browser does not support the video tag.
 
                         </video>
+                        @else
+                            <img class="video-img" src="/assets/images/default/video-imgae.jpg">
+                        @endif
 
                         <div class="over-video-layer" id="play-pause-button">
 

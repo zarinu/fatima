@@ -32,7 +32,7 @@ class Course extends Model
         if($this->has_video) {
             return '/media/courses/' . $this->id . '/video.mp4';
         }
-        return '/assets/images/default/banner.jpg';
+        return null;
     }
 
     public function get_url() {
