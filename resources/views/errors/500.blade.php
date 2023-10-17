@@ -1,5 +1,5 @@
 @extends('layouts.app')
-@section('title', '404')
+@section('title', '500')
 
 @section('content')
 
@@ -9,9 +9,9 @@
 
             <div class="col-lg-7 mx-auto text-center mt-5">
 
-                <p class="mt-3">صفحه مورد نظر یافت نشد!</p>
+                <p class="mt-3">خطایی رخ داد. تیم پشتیبانی در حال بررسی می باشد.</p>
 
-                <img src="/assets/images/404.jpg" alt="Error 404" class="img-fluid">
+                <img src="/assets/images/500.png" alt="Error 404" class="img-fluid">
 
                 <a href="/" class="btn btn-lg btn-info font-13 my-3">بازگشت به صفحه اصلی</a>
 
