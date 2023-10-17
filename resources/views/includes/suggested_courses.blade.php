@@ -38,7 +38,9 @@
 
                         <div class="float-end mt-1">
 
-                            @if(!empty($course->price))
+                            @if($course->status == 'not_for_sale')
+                                <span class="text-danger font-12"> نامشخص </span>
+                            @elseif(!empty($course->price))
                                 @if(!empty($course->discount_percent))
 
                                     <del class="text-muted font-12 me-2">{{number_format($course->price) . ' تومان '}}</del>

@@ -19,6 +19,8 @@ class Course extends Model
         'completed' => 'تکمیل شده',
         'pre-sell' => 'پیش فروش',
         'presenting' => 'در حال تکمیل',
+        'not_for_sale' => 'غیر قابل فروش',
+        'inactive' => 'غیر فعال',
     ];
 
     public function get_cover() {

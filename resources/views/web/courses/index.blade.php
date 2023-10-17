@@ -100,7 +100,21 @@
 
                                     <div class="float-end mt-1">
 
-                                        <span class="text-success font-12">{{number_format($course->price) . ' تومان ' ?: 'رایگان!'}}</span>
+                                        @if($course->status == 'not_for_sale')
+                                            <span class="text-danger font-12"> نامشخص </span>
+                                        @elseif(!empty($course->price))
+                                            @if(!empty($course->discount_percent))
+
+                                                <del class="text-muted font-12 me-2">{{number_format($course->price) . ' تومان '}}</del>
+
+                                                <span class="text-success font-12">{{number_format($course->price * (100 - $course->discount_percent) / 100) . ' تومان '}}</span>
+
+                                            @else
+                                                <span class="text-success font-12">{{number_format($course->price) . ' تومان '}}</span>
+                                            @endif
+                                        @else
+                                            <span class="text-success font-12"> رایگان! </span>
+                                        @endif
 
                                     </div>
 

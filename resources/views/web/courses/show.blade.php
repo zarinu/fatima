@@ -16,12 +16,12 @@
                     <div class="sub-video-layer">
 
                         @if(!empty($course->get_video()))
-                        <video class="video-img" id="introduction-video" loop>
+                            <video class="video-img" id="introduction-video" loop>
 
-                            <source src="{{$course->get_video()}}" type="video/mp4">
-                            Your browser does not support the video tag.
+                                <source src="{{$course->get_video()}}" type="video/mp4">
+                                Your browser does not support the video tag.
 
-                        </video>
+                            </video>
                         @else
                             <img class="video-img" src="/assets/images/default/video-imgae.jpg">
                         @endif
@@ -46,7 +46,22 @@
 
                     <li class="list-group-item font-13 py-3">تعداد جلسات : {{$course->uploaded_count}} جلسه </li>
 
-                    <li class="list-group-item font-13 py-3">قیمت دوره : {{number_format($course->price)}} تومان</li>
+                    @if($course->status == 'not_for_sale')
+                        <li class="list-group-item font-13 py-3"> قیمت دوره : نامشخص </li>
+                    @elseif(!empty($course->price))
+                        @if(!empty($course->discount_percent))
+
+                            <li class="list-group-item font-13 py-3">
+                                <del class="text-muted font-12 me-2">{{number_format($course->price) . ' تومان '}}</del>
+
+                                <span class="text-success font-14">{{number_format($course->price * (100 - $course->discount_percent) / 100) . ' تومان '}}</span>
+                            </li>
+                        @else
+                            <li class="list-group-item font-13 py-3"> قیمت دوره : {{number_format($course->price)}} تومان</li>
+                        @endif
+                    @else
+                        <li class="list-group-item font-13 py-3">قیمت دوره : رایگان </li>
+                    @endif
 
                 </ul>
 
@@ -335,19 +350,19 @@
         });
     </script>
 
-        <script>
-            $(document).ready(function () {
-                const video = $('#introduction-video')[0]; // Convert the jQuery object to a regular DOM element
-                const playPauseButton = $('#play-pause-button');
+    <script>
+        $(document).ready(function () {
+            const video = $('#introduction-video')[0]; // Convert the jQuery object to a regular DOM element
+            const playPauseButton = $('#play-pause-button');
 
-                playPauseButton.click(function () {
-                    if (video.paused) {
-                        video.play();
-                        playPauseButton.removeClass('over-video-layer')
-                    } else {
-                        video.pause();
-                    }
-                });
+            playPauseButton.click(function () {
+                if (video.paused) {
+                    video.play();
+                    playPauseButton.removeClass('over-video-layer')
+                } else {
+                    video.pause();
+                }
             });
-        </script>
+        });
+    </script>
 @endpush

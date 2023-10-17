@@ -9,7 +9,6 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Response;
 use Illuminate\Support\Facades\Storage;
 
-
 class CoursesController extends Controller
 {
     public function index() {
@@ -35,6 +34,8 @@ class CoursesController extends Controller
         if($course->status == 'inactive') {
             return abort(403);
         }
+
+        $course->increment('views_count');
 
         $data['breadcrumbs'] = [
             ['title' => 'صفحه اصلی', 'link' => '/'],
