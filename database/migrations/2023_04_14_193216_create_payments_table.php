@@ -14,14 +14,10 @@ return new class extends Migration
         Schema::create('payments', function (Blueprint $table) {
             $table->id();
             $table->integer('user_id')->unsigned()->nullable();
-            $table->integer('buyer_id')->unsigned()->nullable();
             $table->integer('order_id')->unsigned()->nullable();
-            $table->integer('gateway_id')->unsigned()->nullable();
             $table->string('amount');
             $table->string('ref_id')->nullable();
-            $table->string('tracking_code')->nullable();
-            $table->string('first_name')->nullable();
-            $table->string('last_name')->nullable();
+            $table->string('name')->nullable();
             $table->string('mobile')->nullable();
             $table->text('description')->nullable();
             $table->enum('status', ['pending', 'success', 'failed'])->default('pending');

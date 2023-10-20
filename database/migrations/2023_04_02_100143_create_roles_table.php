@@ -15,8 +15,6 @@ return new class extends Migration
             $table->id();
             $table->string('name', 64)->unique();
             $table->string('caption', 64);
-            $table->boolean('is_default')->default(false);
-            $table->boolean('is_operator')->default(false);
         });
     }
 

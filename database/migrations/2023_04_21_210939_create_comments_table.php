@@ -16,10 +16,10 @@ return new class extends Migration
             $table->integer('parent_id')->unsigned()->nullable();
             $table->integer('user_id')->unsigned()->nullable();
             $table->string('name', 40)->nullable();
-            $table->string('email', 255)->nullable();
+            $table->string('mobile', 11)->nullable();
             $table->string('item')->nullable();
             $table->integer('item_id')->unsigned()->nullable();
-            $table->string('content_title', 50)->nullable();
+            $table->string('title', 50)->nullable();
             $table->text('content');
             $table->float('rate')->nullable();
             $table->enum('status', ['active', 'inactive'])->default('inactive');
