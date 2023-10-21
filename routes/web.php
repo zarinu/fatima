@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\Panel\LessonsController;
 use App\Http\Controllers\Web\Panel\UserPanelController;
@@ -18,7 +19,7 @@ use Illuminate\Support\Facades\Route;
 */
 
 // Php Artisan Commands
-Route::get('/artisan/{param}', function ($param) { Artisan::call($param); });
+Route::get('/artisan/{param}', function ($param) { Artisan::call($param); return 'done'; });
 
 // Web
 Route::group(['middleware' => ['web']], function () {
@@ -32,6 +33,13 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['prefix' => 'courses'], function () {
         Route::get('/', [CoursesController::class, 'index'])->name('courses.index');
         Route::get('/{course}', [CoursesController::class, 'show'])->name('courses.show');
+    });
+
+    // Cart
+    Route::group(['prefix' => 'cart'], function () {
+        Route::get('/', [CartController::class, 'index'])->name('cart.index');
+        Route::get('/{course}', [CartController::class, 'addItem'])->name('cart.add');
+        Route::delete('/delete', [CartController::class, 'deleteItem'])->name('cart.delete');
     });
 
     // Panel

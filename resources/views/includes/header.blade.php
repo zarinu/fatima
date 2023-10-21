@@ -22,49 +22,85 @@
 
             <a href="#shopping-bag" class="position-relative me-5" data-bs-toggle="offcanvas"><img src="/assets/images/bag.png" class="shopping-bag-icon">
 
-                <div class="count">2</div>
+                <div class="count">{{ count((array) session('cart')) }}</div>
             </a>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="shopping-bag"><!-- start shopping bag side bar -->
 
-                <div class="offcanvas-header mb-3"><!-- start bag header -->
+                @if(session('cart'))
 
-                    <p class="offcanvas-title font-12">سبد خرید (0 کالا)</p>
+                    <div class="offcanvas-header mb-3"><!-- start bag header -->
 
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                        <p class="offcanvas-title font-12">سبد خرید ({{ count((array) session('cart')) }} دوره)</p>
 
-                </div><!-- end bag header -->
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
 
-                <div class="offcanvas-body"><!-- start bag body -->
-{{--                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->--}}
+                    </div><!-- end bag header -->
 
-{{--                        <a href="course.html"><img src="/assets/images/flutter.png"></a>--}}
+                    <div class="offcanvas-body"><!-- start bag body -->
 
-{{--                        <div class="cart-item-detail">--}}
+                        @foreach(session('cart') as $id => $details)
 
-{{--                            <a href="course.html">آموزش حرفه ای Flutter</a>--}}
+                            <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-{{--                            <p class="font-12 text-muted mt-3">320.000 تومان</p>--}}
+                                <a href="/courses/{{$id}}"><img src="{{$details['image']}}"></a>
 
-{{--                        </div>--}}
+                                <div class="cart-item-detail">
 
-{{--                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>--}}
+                                    <a href="/courses/{{$id}}">{{$details['name']}}</a>
 
-{{--                    </div><!-- end cart item -->--}}
+                                    @if(!empty($details['discount_percent']))
+                                        <del class="font-12 text-muted mt-3">{{number_format($details['price'])}} تومان </del>
+                                    @endif
 
-                </div><!-- end bag body -->
+                                    <p class="font-12 text-success mt-3">{{number_format($details['discounted_price'])}} تومان </p>
 
-                <div class="d-flex justify-content-between align-items-center px-3">
+                                </div>
 
-                    <p class="font-13">مبلغ کل :</p>
+                                <a href="#" data-item-id="{{$id}}" class="delete-item"><i class="fa fa-times"></i></a>
 
-                    <p class="font-13">0 ریال</p>
+                            </div><!-- end cart item -->
 
-                </div>
+                        @endforeach
 
-                <a href="#" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
+                    </div><!-- end bag body -->
 
-                <a href="cart.html" class="btn btn-secondary font-13 m-2 p-2">مشاهده سبد خرید</a>
+                    @php $discounted_price = 0; @endphp
+                    @foreach(session('cart') as $item)
+                        @php $discounted_price += $item['discounted_price']; @endphp
+                    @endforeach
+
+                    <div class="d-flex justify-content-between align-items-center px-3">
+
+                        <p class="font-13">مبلغ کل :</p>
+
+                        <p class="font-13">{{number_format($discounted_price)}} تومان </p>
+
+                    </div>
+
+                    @if(auth()->check())
+                        <a href="#" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
+                    @else
+                        <a href="/login" class="btn btn-info font-13 m-2 p-2"> ادامه </a>
+                    @endif
+
+                    <a href="{{ route('cart.index') }}" class="btn btn-secondary font-13 m-2 p-2">مشاهده سبد خرید</a>
+
+                @else
+
+                    <div class="d-flex justify-content-between align-items-center px-3">
+
+                        <img src="/assets/images/empty-cart.png" alt="empty cart" width="200px" class="img-fluid">
+
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center px-3">
+
+                        <p class="font-13">سبد خرید خالی است.</p>
+
+                    </div>
+
+                @endif
 
             </div><!-- end shopping bag side bar -->
 
@@ -103,51 +139,84 @@
 
             <a href="#shopping-bag-responsive" class="position-relative me-4" data-bs-toggle="offcanvas"><img src="/assets/images/bag.png" class="shopping-bag-icon"><!-- start shopping bag-->
 
-                <div class="count">2</div>
+                <div class="count">{{ count((array) session('cart')) }}</div>
 
             </a><!-- end shopping bag-->
 
             <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="shopping-bag-responsive"><!-- start shopping bag side bar -->
 
-                <div class="offcanvas-header mb-3"><!-- start bag header -->
+                @if(session('cart'))
 
-                    <p class="offcanvas-title font-12">سبد خرید (0 کالا)</p>
+                    <div class="offcanvas-header mb-3"><!-- start bag header -->
 
-                    <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
+                        <p class="offcanvas-title font-12">سبد خرید ({{ count((array) session('cart')) }} دوره)</p>
 
-                </div><!-- end bag header -->
+                        <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
 
-                <div class="offcanvas-body"><!-- start bag body -->
+                    </div><!-- end bag header -->
 
-{{--                    <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->--}}
+                    <div class="offcanvas-body"><!-- start bag body -->
 
-{{--                        <a href="course.html"><img src="/assets/images/flutter.png"></a>--}}
+                        @foreach(session('cart') as $id => $details)
 
-{{--                        <div class="cart-item-detail">--}}
+                            <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
-{{--                            <a href="contactus.html">آموزش حرفه ای Flutter</a>--}}
+                                <a href="/courses/{{$id}}"><img src="{{$details['image']}}"></a>
 
-{{--                            <p class="font-12 text-muted mt-3">320.000 تومان</p>--}}
+                                <div class="cart-item-detail">
 
-{{--                        </div>--}}
+                                    <a href="/courses/{{$id}}">{{$details['name']}}</a>
 
-{{--                        <a href="#" class="delete-item"><i class="fa fa-times"></i></a>--}}
+                                    @if(!empty($details['discount_percent']))
+                                        <del class="font-12 text-muted mt-3">{{number_format($details['price'])}} تومان </del>
+                                    @endif
 
-{{--                    </div><!-- end cart item -->--}}
+                                    <p class="font-12 text-success mt-3">{{number_format($details['discounted_price'])}} تومان </p>
 
-                </div><!-- end bag body -->
+                                </div>
 
-                <div class="d-flex justify-content-between align-items-center px-3 pt-3">
+                                <a href="#" data-item-id="{{$id}}" class="delete-item"><i class="fa fa-times"></i></a>
 
-                    <p class="font-13">مبلغ کل :</p>
+                            </div><!-- end cart item -->
 
-                    <p class="font-13">0 ریال</p>
+                        @endforeach
 
-                </div>
+                    </div><!-- end bag body -->
 
-                <a href="#" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
+                    @php $discounted_price = 0; @endphp
+                    @foreach(session('cart') as $item)
+                        @php $discounted_price += $item['discounted_price']; @endphp
+                    @endforeach
 
-                <a href="cart" class="btn btn-secondary font-13 m-2 p-2">مشاهده سبد خرید</a>
+                    <div class="d-flex justify-content-between align-items-center px-3 pt-3">
+
+                        <p class="font-13">مبلغ کل :</p>
+
+                        <p class="font-13">{{number_format($discounted_price)}} تومان </p>
+
+                    </div>
+
+                    @if(auth()->check())
+                        <a href="#" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
+                    @else
+                        <a href="/login" class="btn btn-info font-13 m-2 p-2"> ادامه </a>
+                    @endif
+
+                    <a href="{{ route('cart.index') }}" class="btn btn-secondary font-13 m-2 p-2">مشاهده سبد خرید</a>
+
+                @else
+                    <div class="d-flex justify-content-between align-items-center px-3 pt-3">
+
+                        <img src="/assets/images/empty-cart.png" alt="empty cart" width="200px" class="img-fluid">
+
+                    </div>
+
+                    <div class="d-flex justify-content-between align-items-center px-3 pt-3">
+
+                        <p class="font-13">سبد خرید خالی است.</p>
+
+                    </div>
+                @endif
 
             </div><!-- end shopping bag side bar -->
 
@@ -168,9 +237,9 @@
                     @else
                         <div class="d-flex align-items-center justify-content-center signup-login mt-5"><!-- start signup & login -->
 
-                            <a href="register" class="btn-signup">ثبت نام</a>
+                            <a href="/register" class="btn-signup">ثبت نام</a>
 
-                            <a href="login" class="btn-login">ورود</a>
+                            <a href="/login" class="btn-login">ورود</a>
 
                         </div><!-- end signup & login -->
                     @endif
@@ -189,7 +258,7 @@
 
                                         <li class="menu-item-3"><a href="/courses">آموزش عروسک روسی</a></li>
 
-                                        <li class="menu-item-3"><a href="/courses">آموزش عروسک فندق</a></li>
+                                        <li class="menu-item-3"><a href="/courses/2">آموزش عروسک فندق</a></li>
 
                                         <li class="menu-item-3"><a href="/courses">آموزش صورت برجسته</a></li>
 
@@ -197,7 +266,7 @@
 
                                 </li>
 
-                                <li class="menu-item-2"><a href="/courses">دوره های آموزش لباس عروسک</a></li>
+                                <li class="menu-item-2"><a href="/courses/1">دوره های آموزش لباس عروسک</a></li>
 
                                 <li class="menu-item-2"><a href="/courses">دوره های آموزش متفرقه</a></li>
 
@@ -256,9 +325,9 @@
 
                             <li class="menu-title"><a href="/courses"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش عروسک سازی</a></li>
 
-                            <li><a href="/courses">آموزش عروسک روسی</a></li>
+                            <li><a href="/courses/2">آموزش عروسک فندق</a></li>
 
-                            <li><a href="/courses">آموزش عروسک فندق</a></li>
+                            <li><a href="/courses">آموزش عروسک روسی</a></li>
 
                         </ul>
 
@@ -270,9 +339,7 @@
 
                             <li class="menu-title"><a href="/courses"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش لباس</a></li>
 
-                            <li><a href="/courses">آموزش لباس عروسک</a></li>
-
-                            <li><a href="/courses">آموزش لباس عروسک</a></li>
+                            <li><a href="/courses/1">آموزش لباس عروسک</a></li>
 
                         </ul>
 
@@ -291,3 +358,27 @@
     </div>
 
 </nav><!-- end nav menu -->
+
+@push('scripts')
+    <script type="text/javascript">
+
+        $(".delete-item").click(function (e) {
+            e.preventDefault();
+
+            var ele = $(this);
+
+            $.ajax({
+                url: '{{ route('cart.delete') }}',
+                method: "DELETE",
+                data: {
+                    _token: '{{ csrf_token() }}',
+                    course_id: ele.data('item-id')
+                },
+                success: function (response) {
+                    window.location.reload();
+                }
+            });
+        });
+
+    </script>
+@endpush

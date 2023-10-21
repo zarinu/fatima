@@ -5,6 +5,14 @@
 
     @include('includes.user_panel.breadcrumb')
 
+    <div class="container mt-4">
+        @if(session('status'))
+            <div class="alert alert-{{session('status')}}">
+                <span class="font-15">{{ session('message') }}</span>
+            </div>
+        @endif
+    </div>
+
     <div class="container">
 
         <div class="row">
@@ -54,7 +62,7 @@
                             <li class="list-group-item font-13 py-3">
                                 <del class="text-muted font-12 me-2">{{number_format($course->price) . ' تومان '}}</del>
 
-                                <span class="text-success font-14">{{number_format($course->price * (100 - $course->discount_percent) / 100) . ' تومان '}}</span>
+                                <span class="text-success font-14">{{number_format(\App\Models\Course::calculate_discounted_price($course->price, $course->discount_percent)) . ' تومان '}}</span>
                             </li>
                         @else
                             <li class="list-group-item font-13 py-3"> قیمت دوره : {{number_format($course->price)}} تومان</li>
@@ -65,7 +73,7 @@
 
                 </ul>
 
-                <button class="btn btn-info btn-block mt-3 py-2 font-13"><i class="fa fa-cart-plus align-middle"></i> افزودن به سبد خرید</button>
+                <a class="btn btn-info btn-block mt-3 py-2 font-13" href="{{ route('cart.add', $course->id) }}"><i class="fa fa-cart-plus align-middle"></i> افزودن به سبد خرید</a>
 
                 <div class="card my-3 p-3"><!-- start tags -->
 

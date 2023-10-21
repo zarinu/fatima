@@ -36,4 +36,9 @@ class Course extends Model
         }
         return null;
     }
+
+    public static function calculate_discounted_price($price, $discount_percent): float|int
+    {
+        return $price * (100 - $discount_percent) / 100;
+    }
 }
