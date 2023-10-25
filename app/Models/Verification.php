@@ -11,6 +11,9 @@ class Verification extends Model
 {
     use HasFactory, Notifiable;
 
+    public $timestamps = true;
+    protected $table = 'verifications';
+
     protected $fillable = [
         'user_id', 'mobile', 'code', 'action', 'redirect_url',
         'created_at', 'updated_at', 'verified_at', 'expired_at'
