@@ -14,9 +14,24 @@ class Course extends Model
     public $timestamps = true;
     protected $table = 'courses';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'user_id', 'name', 'summery', 'teacher_name', 'description', 'has_cover', 'has_video',
+        'total_hours', 'price', 'discount_percent', 'order', 'status',
+    ];
+
     public function chapters(): HasMany
     {
         return $this->hasMany(Chapter::class);
+    }
+
+    public function lessons(): HasMany
+    {
+        return $this->hasMany(Lesson::class);
     }
 
     public static array $statuses = [
@@ -25,6 +40,14 @@ class Course extends Model
         'presenting' => 'در حال تکمیل',
         'not_for_sale' => 'غیر قابل فروش',
         'inactive' => 'غیر فعال',
+    ];
+
+    public static array $statusesLabels = [
+        'completed' => 'badge badge-success',
+        'pre-sell' => 'badge badge-info',
+        'presenting' => 'badge badge-warning',
+        'not_for_sale' => 'badge badge-light',
+        'inactive' => 'badge badge-dark',
     ];
 
     public function get_cover() {

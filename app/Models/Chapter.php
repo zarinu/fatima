@@ -14,6 +14,15 @@ class Chapter extends Model
     public $timestamps = true;
     protected $table = 'chapters';
 
+    /**
+     * The attributes that are mass assignable.
+     *
+     * @var array<int, string>
+     */
+    protected $fillable = [
+        'name', 'order', 'has_image', 'description', 'course_id',
+    ];
+
     public function lessons(): HasMany
     {
         return $this->hasMany(Lesson::class);

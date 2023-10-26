@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\Admin\DashboardController;
+use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\Panel\LessonsController;
@@ -63,6 +65,67 @@ Route::group(['middleware' => ['web']], function () {
     });
 });
 
+// Admin
+Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function () {
+    // Dashboard
+    Route::get('/', [DashboardController::class, 'index']);
+
+    // Users Management
+    Route::prefix('users')->controller(UsersController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::post('/store', 'store');
+        Route::prefix('{user}')->group(function() {
+            Route::get('/edit', 'edit');
+            Route::post('/update', 'update');
+            Route::get('/delete', 'delete');
+        });
+    });
+
+    // Courses Management
+    Route::prefix('courses')->group(function () {
+
+        // Courses
+        Route::controller(App\Http\Controllers\Admin\CoursesController::class)->group(function () {
+            Route::get('/', 'index');
+            Route::get('/create', 'create');
+            Route::post('/store', 'store');
+            Route::prefix('{course}')->group(function() {
+                Route::get('/edit', 'edit');
+                Route::post('/update', 'update');
+                Route::get('/delete', 'delete');
+            });
+        });
+
+        // Chapters
+        Route::controller(App\Http\Controllers\Admin\ChaptersController::class)
+            ->prefix('{course}/chapters')->group(function () {
+
+            Route::get('/', 'index');
+            Route::get('/create', 'create');
+            Route::post('/store', 'store');
+            Route::prefix('{chapter}')->group(function() {
+                Route::get('/edit', 'edit');
+                Route::post('/update', 'update');
+                Route::get('/delete', 'delete');
+            });
+        });
+
+        // Lessons
+        Route::controller(App\Http\Controllers\Admin\LessonsController::class)
+            ->prefix('{course}/lessons')->group(function () {
+
+            Route::get('/', 'index');
+            Route::get('/create', 'create');
+            Route::post('/store', 'store');
+            Route::prefix('{lesson}')->group(function() {
+                Route::get('/edit', 'edit');
+                Route::post('/update', 'update');
+                Route::get('/delete', 'delete');
+            });
+        });
+    });
+});
 
 //Route::middleware('auth')->group(function () {
 //    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

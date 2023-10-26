@@ -109,7 +109,7 @@
         @if(auth()->check())
             <div class="col-lg-2 d-flex align-items-center justify-content-end"><!-- start profile button -->
 
-                <a href="/panel" class="btn-panel">پنل کاربری</a>
+                <a href="{{auth()->user()->isAdmin() ? '/admin' : '/panel'}}" class="btn-panel">پنل کاربری</a>
 
             </div><!-- end profile button -->
         @else
@@ -231,7 +231,7 @@
                     @if(auth()->check())
                         <div class="d-flex align-items-center justify-content-center mt-5"><!-- start profile button -->
 
-                            <a href="/panel" class="btn-panel">پنل کاربری</a>
+                            <a href="{{auth()->user()->isAdmin() ? '/admin' : '/panel'}}" class="btn-panel">پنل کاربری</a>
 
                         </div><!-- end profile button -->
                     @else
