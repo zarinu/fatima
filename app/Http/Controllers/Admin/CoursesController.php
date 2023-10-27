@@ -33,6 +33,7 @@ class CoursesController extends Controller
             'order' => 'nullable|integer',
             'status' => 'required|in:completed,pre-sell,presenting,not_for_sale,inactive',
             'summery' => 'nullable|string|between:150,200',
+            'private_description' => 'nullable|string',
             'description' => 'nullable|string',
             'cover' => 'nullable|image|mimes:jpg|max:2048', // 2MB
             'video' => 'nullable|file|mimes:mp4|max:65536', // 10MB
@@ -74,6 +75,7 @@ class CoursesController extends Controller
             'order' => 'nullable|integer',
             'status' => 'required|in:completed,pre-sell,presenting,not_for_sale,inactive',
             'summery' => 'nullable|string|between:150,200',
+            'private_description' => 'nullable|string',
             'description' => 'nullable|string',
             'cover' => 'nullable|image|mimes:jpg|max:2048', // 2MB
             'video' => 'nullable|file|mimes:mp4|max:65536', // 10MB

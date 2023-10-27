@@ -102,6 +102,17 @@
                                 @enderror
                             </div>
 
+                            <div class="col-sm-6 mb-3">
+                                <div class="form-group">
+                                    <label for="private_description" class="control-label mr-2">توضیحات خصوصی</label>
+                                    <textarea id="private_description" class="form-control @error('summery') is-invalid @enderror" name="private_description">{{old('private_description', !empty($course) ? $course->private_description : null) ?: 'شماره تماس خانم حیدری پشتیبان : 09377819036'}}</textarea>
+                                </div>
+                                <span style="font-size: 12px"> 👆 محتوای این فیلد بالا را فقط اعضای این دوره خواهند دید: اطلاعاتی مثل شماره موبایل مدرس دوره</span>
+                                @error('private_description')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                             <div class="col-sm-12">
                                 <div class="form-group">
                                     <label for="description" class="control-label mr-2">توضیحات</label>
