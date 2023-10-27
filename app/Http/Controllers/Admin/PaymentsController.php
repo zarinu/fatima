@@ -39,18 +39,10 @@ class PaymentsController extends Controller
         $validated['paid_at'] = time();
 
         $payment = Payment::create($validated);
-
         $order->status = $payment->status;
         $order->save();
 
-        if($order->status == 'success') {
-            foreach ($order->items as $item) {
-                UserCourse::updateOrCreate([
-                    'user_id' => $item->user_id,
-                    'course_id' => $item->course_id,
-                ]);
-            }
-        }
+        $this->success_payment($order);
 
         return redirect('/admin/payments')->with([
             'status' => 'success',
@@ -81,14 +73,7 @@ class PaymentsController extends Controller
         $order->status = $payment->status;
         $order->save();
 
-        if($order->status == 'success') {
-            foreach ($order->items as $item) {
-                UserCourse::updateOrCreate([
-                    'user_id' => $item->user_id,
-                    'course_id' => $item->course_id,
-                ]);
-            }
-        }
+        $this->success_payment($order);
 
         return redirect('/admin/payments')->with([
             'status' => 'success',
@@ -107,5 +92,26 @@ class PaymentsController extends Controller
             'status' => 'success',
             'message' => 'پرداخت با موفقیت حذف شد.',
         ]);
+    }
+
+    /**
+     * @param $payment
+     * @param $order
+     * @return void
+     */
+    private function success_payment($order): void
+    {
+        if ($order->status == 'success') {
+            foreach ($order->items as $item) {
+                $user_course_item = [
+                    'user_id' => $item->user_id,
+                    'course_id' => $item->course_id,
+                ];
+                if (!UserCourse::where($user_course_item)->first()) {
+                    UserCourse::create($user_course_item);
+                    $item->course->increment('users_count');
+                }
+            }
+        }
     }
 }
