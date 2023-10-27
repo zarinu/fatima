@@ -11383,7 +11383,7 @@
 			 *      } );
 			 *    } );
 			 */
-			"sEmptyTable": "No data available in table",
+			"sEmptyTable": "داده ای در این جدول وجود ندارد.",
 	
 	
 			/**

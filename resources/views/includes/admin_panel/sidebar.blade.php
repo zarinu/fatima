@@ -55,6 +55,7 @@
                             </li>
                         </ul>
                     </li>
+
                     <li class="nav-item has-treeview {{in_array($sidebar_item, ['courses', 'courses_create']) ? 'menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-laptop"></i>
@@ -74,6 +75,54 @@
                                 <a href="/admin/courses/create" class="nav-link {{$sidebar_item == 'courses_create' ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>ایجاد دوره جدید</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['orders', 'orders_create']) ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-shopping-bag"></i>
+                            <p>
+                                سفارشات
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/orders" class="nav-link {{$sidebar_item == 'orders' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست سفارشات</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/orders/create" class="nav-link {{$sidebar_item == 'orders_create' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد سفارش جدید</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['payments', 'payments_create']) ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-money"></i>
+                            <p>
+                                پرداخت ها
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/payments" class="nav-link {{$sidebar_item == 'payments' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست پرداخت ها</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/payments/create" class="nav-link {{$sidebar_item == 'payments_create' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد پرداخت جدید</p>
                                 </a>
                             </li>
                         </ul>

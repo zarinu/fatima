@@ -43,14 +43,7 @@ class CoursesController extends Controller
         $validated['user_id'] = auth()->id();
 
         if($course = Course::create($validated)) {
-            if(!empty($validated['video'])) {
-                $course->has_video = true;
-                $validated['video']->storeAs('/courses/'. $course->id, 'video.mp4', 'public_media');
-            }
-            elseif(!empty($validated['cover'])) {
-                $course->has_cover = true;
-                $validated['cover']->storeAs('/courses/'. $course->id, 'cover.jpg', 'public_media');
-            }
+            $this->store_media($validated, $course);
 
             $course->save();
 
@@ -86,14 +79,7 @@ class CoursesController extends Controller
             'video' => 'nullable|file|mimes:mp4|max:65536', // 10MB
         ]);
 
-        if(!empty($validated['video'])) {
-            $course->has_video = true;
-            $validated['video']->storeAs('/courses/'. $course->id, 'video.mp4', 'public_media');
-        }
-        elseif(!empty($validated['cover'])) {
-            $course->has_cover = true;
-            $validated['cover']->storeAs('/courses/'. $course->id, 'cover.jpg', 'public_media');
-        }
+        $this->store_media($validated, $course);
 
         $course->fill($validated);
         $course->save();
@@ -115,5 +101,21 @@ class CoursesController extends Controller
             'status' => 'success',
             'message' => 'دوره با موفقیت حذف شد.',
         ]);
+    }
+
+    /**
+     * @param array $validated
+     * @param $course
+     * @return void
+     */
+    private function store_media(array $validated, $course): void
+    {
+        if (!empty($validated['video'])) {
+            $course->has_video = true;
+            $validated['video']->storeAs('/courses/' . $course->id, 'video.mp4', 'public_media');
+        } elseif (!empty($validated['cover'])) {
+            $course->has_cover = true;
+            $validated['cover']->storeAs('/courses/' . $course->id, 'cover.jpg', 'public_media');
+        }
     }
 }
