@@ -31,7 +31,7 @@
 
                             <i class="fas fa-wallet" id="wallet-icon"></i>
 
-                            <span>ضمانت بازگشت وجه</span>
+                            <span>رضایت 100 درصدی</span>
 
                         </div>
 
@@ -67,17 +67,25 @@
 
     </div><!-- end banner -->
 
+    <div class="d-lg-none container" style="background-image: url('/assets/images/background1.jpg')"><!-- start category boxes -->
+        <row class="row">
+            <div class="col-md-4 col-9">
+                <img src="/assets/images/hanie_heydary_responsive.png" width="400px" height="100px" class="img-fluid">
+            </div>
+        </row>
+    </div>
+
     <div class="container"><!-- start category boxes -->
 
-        <div class="row pt-5">
+        <div class="row pt-3">
 
-            <div class="col-md-3 col-6 mb-3"><a href="/courses/1"><img src="/assets/images/arosak_dress.png" class="img-fluid rounded"></a></div>
+            <div class="col-md-3 col-6 mb-3"><a href="/courses/2"><img src="/assets/images/fandogh.png" class="img-fluid rounded"></a></div>
 
             <div class="col-md-3 col-6 mb-3"><a href="/register"><img src="/assets/images/login.png" class="img-fluid rounded"></a></div>
 
             <div class="col-md-3 col-6 mb-3"><a href="/courses"><img src="/assets/images/arosak_rosi.png" class="img-fluid rounded"></a></div>
 
-            <div class="col-md-3 col-6 mb-3"><a href="/courses/2"><img src="/assets/images/fandogh.png" class="img-fluid rounded"></a></div>
+            <div class="col-md-3 col-6 mb-3"><a href="/courses/1"><img src="/assets/images/arosak_dress.png" class="img-fluid rounded"></a></div>
 
         </div>
 
