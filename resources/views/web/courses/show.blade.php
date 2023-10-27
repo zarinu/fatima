@@ -99,7 +99,7 @@
 
                 <h1 class="font-14 my-3">{{$course->name}}</h1>
 
-                <p class="vazir-font font-13 text-justify line-height">{{$course->description}}</p>
+                <p class="vazir-font font-13 text-justify line-height">{!! $course->description !!}</p>
 
                 <p class="font-14 my-3">سر فصل ها :</p>
 

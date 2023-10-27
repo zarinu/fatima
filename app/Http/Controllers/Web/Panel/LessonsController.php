@@ -34,7 +34,7 @@ class LessonsController extends Controller
         if(!auth()->user()->is_my_course($course)) {
             return abort(403);
         }
-        return Response::download($lesson->get_url());
+        return Response::download($lesson->get_url(), str_replace(' ', '_', $lesson->title));
     }
 
 //    public function toggle_complete(Course $course, Lesson $lesson): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application

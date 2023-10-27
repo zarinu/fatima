@@ -12,7 +12,7 @@
         </div>
 
         <div class="row">
-            <video controls>
+            <video controls oncontextmenu="return false;">
                 <source src="{{'/' . $lesson->get_url()}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -21,7 +21,7 @@
         <div class="row">
             <p class="font-14 my-3">توضیحات جلسه :</p>
 
-            <b class="vazir-font font-15 text-justify line-height">{{$lesson->description ?: '.........'}}</b>
+            <b class="vazir-font font-15 text-justify line-height">{!! $lesson->description ?: '.........' !!}</b>
         </div>
 
         {{--        <div class="row">--}}

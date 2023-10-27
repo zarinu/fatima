@@ -86,7 +86,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     Route::prefix('courses')->group(function () {
 
         // Courses
-        Route::controller(App\Http\Controllers\Admin\PaymentsController::class)->group(function () {
+        Route::controller(App\Http\Controllers\Admin\CoursesController::class)->group(function () {
             Route::get('/', 'index');
             Route::get('/create', 'create');
             Route::post('/store', 'store');
