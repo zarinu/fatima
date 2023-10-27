@@ -15,6 +15,26 @@
 
                 <div class="row mt-4 mx-1  bg-light rounded p-3 shadow-sm"><!-- start notifications -->
 
+                    <span class="font-13"><i class="fa fa-bell align-middle text-warning font-18 me-1"></i>دوره ها</span>
+
+                    <div class="col-12">
+
+                        <div class="d-flex justify-content-between align-items-center mt-4">
+
+                            <strong class="font-18">برای دیدن دوره های ثبت نام شده <a href="/panel/courses">اینجا</a> کلیک کنید</strong>
+
+                        </div>
+
+                    </div>
+
+                </div><!-- end notifications -->
+
+            </div>
+
+            <div class="card my-3 p-3 shadow-sm">
+
+                <div class="row mt-4 mx-1  bg-light rounded p-3 shadow-sm"><!-- start notifications -->
+
                     <span class="font-13"><i class="fa fa-bell align-middle text-warning font-18 me-1"></i>جدیدترین اطلاعیه ها</span>
 
                     <div class="col-12">

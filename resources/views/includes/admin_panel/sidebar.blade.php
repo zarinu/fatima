@@ -29,7 +29,7 @@
                     <li class="nav-item">
                         <a href="/admin" class="nav-link {{$sidebar_item == 'dashboard' ? 'active' : ''}}">
                             <i class="nav-icon fa fa-dashboard"></i>
-                            <p>داشبوردها</p>
+                            <p>داشبورد</p>
                         </a>
                     </li>
                     <li class="nav-item has-treeview {{in_array($sidebar_item, ['users', 'users_create']) ? 'menu-open' : ''}}">
@@ -126,6 +126,12 @@
                                 </a>
                             </li>
                         </ul>
+                    </li>
+                    <li class="nav-item">
+                        <a href="/logout" class="nav-link">
+                            <i class="nav-icon fa fa-sign-out"></i>
+                            <p>خروج</p>
+                        </a>
                     </li>
                 </ul>
             </nav>

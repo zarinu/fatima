@@ -12,6 +12,7 @@
             <form method="POST" action="{{ route('register') }}"><!-- start signup form -->
                 @csrf
 
+                <label for="name">لطفا نام خود را وارد کنید</label>
                 @error('name')
                 <div class="alert alert-danger font-12 m-0">{{ $message }}</div>
                 @enderror
@@ -20,10 +21,11 @@
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
 
                     <input type="text" class="form-control form-control-lg @error('name') is-invalid @enderror"
-                           name="name" placeholder=" نام و نام خانوادگی " value="{{old('name')}}" required autofocus>
+                           name="name" placeholder=" نام و نام خانوادگی را وارد کنید " value="{{old('name')}}" required autofocus>
 
                 </div>
 
+                <label for="mobile">لطفا موبایل خود را وارد کنید</label>
                 @error('mobile')
                 <div class="alert alert-danger font-12 m-0">{{ $message }}</div>
                 @enderror
@@ -32,10 +34,11 @@
                     <span class="input-group-text"><i class="fa fa-phone"></i></span>
 
                     <input type="tel" class="form-control form-control-lg @error('mobile') is-invalid @enderror"
-                           name="mobile" placeholder=" شماره موبایل " value="{{old('mobile')}}" required autofocus>
+                           name="mobile" placeholder=" شماره موبایل را وارد کنید " value="{{old('mobile')}}" required autofocus>
 
                 </div>
 
+                <label for="password">لطفا یک رمز عبور شامل 8 رقم انتخاب کنید</label>
                 @error('password')
                 <div class="alert alert-danger font-12 m-0">{{ $message }}</div>
                 @enderror
@@ -44,16 +47,17 @@
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
 
                     <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror"
-                           name="password" placeholder=" رمز عبور " required autofocus>
+                           name="password" placeholder=" رمز عبور را وارد کنید " required autofocus>
 
                 </div>
 
+                <label>لطفا تکرار رمز عبور انتخابی را وارد کنید</label>
                 <div class="input-group signup-form mb-4">
 
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
 
                     <input type="password" class="form-control form-control-lg" name="password_confirmation"
-                           placeholder=" تکرار رمز عبور " required autofocus>
+                           placeholder=" تکرار رمز عبور را وارد کنید " required autofocus>
 
                 </div>
 

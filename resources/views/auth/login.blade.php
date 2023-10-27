@@ -12,6 +12,7 @@
             <form method="POST" action="{{ route('login') }}"><!-- start login form -->
                 @csrf
 
+                <label for="mobile">برای ورود شماره موبایل را وارد کنید</label>
                 @error('mobile')
                 <div class="alert alert-danger font-12 m-0">{{ $message }}</div>
                 @enderror
@@ -20,20 +21,19 @@
                     <span class="input-group-text"><i class="fa fa-user"></i></span>
 
                     <input type="text" class="form-control form-control-lg @error('mobile') is-invalid @enderror"
-                           placeholder="موبایل" name="mobile" value="{{old('mobile')}}" required autofocus>
+                           placeholder=" برای ورود شماره موبایل را وارد کنید " name="mobile" value="{{old('mobile')}}" required autofocus>
 
                 </div>
 
-
+                <label for="password">برای ورود رمز عبور را وارد کنید</label>
                 @error('password')
                 <div class="alert alert-danger font-12 m-0">{{ $message }}</div>
                 @enderror
                 <div class="input-group signup-form mb-4">
 
                     <span class="input-group-text"><i class="fa fa-lock"></i></span>
-
                     <input type="password" class="form-control form-control-lg @error('password') is-invalid @enderror"
-                           placeholder=" رمز عبور " name="password" value="{{old('password')}}" required autofocus>
+                           placeholder=" لطفا رمز عبور را وارد کنید " name="password" value="{{old('password')}}" required autofocus>
 
                 </div>
 
