@@ -45,4 +45,8 @@ class Payment extends Model
     {
         return $this->belongsTo(Order::class);
     }
+
+    public static function paymentUrl($url_type) {
+        return config('payment.zarinpal')[env('ZARINPAL_STATUS')][$url_type];
+    }
 }

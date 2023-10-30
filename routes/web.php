@@ -5,6 +5,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\Panel\LessonsController;
+use App\Http\Controllers\Web\Panel\PaymentsController;
 use App\Http\Controllers\Web\Panel\UserPanelController;
 use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
@@ -59,9 +60,10 @@ Route::group(['middleware' => ['web']], function () {
             });
         });
 
-//        Route::group(['prefix' => 'payments'], function () {
-//            Route::get('first-step', [PaymentsController::class, 'firstStep']);
-//        });
+        Route::group(['prefix' => 'payments'], function () {
+            Route::get('create', [PaymentsController::class, 'create']);
+            Route::get('verify', [PaymentsController::class, 'verify']);
+        });
     });
 });
 

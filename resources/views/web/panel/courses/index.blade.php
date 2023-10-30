@@ -13,7 +13,7 @@
 
                 <div class="card my-3 p-3 shadow-sm">
 
-                    <p class="font-14">دوره های شما :</p>
+                    <p class="font-14">دوره های شما</p>
 
                     <div class="row">
 
@@ -33,7 +33,7 @@
 
                                         <div class="col-lg-8">
 
-                                            <a href="{{route('courses.show', ['course' => $course->id])}}" class="my-3 d-block font-14 text-dark">{{$course->name}}</a>
+                                            <a href="{{route('courses.show', ['course' => $course->id])}}" class="my-3 d-block font-25 text-dark">{{$course->name}}</a>
 
                                             <p class="font-13 line-height text-justify">{!! $course->description !!}</p>
                                             <p class="font-15 line-height text-justify">{{ $course->private_description }}</p>

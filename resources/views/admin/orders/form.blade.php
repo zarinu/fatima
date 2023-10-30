@@ -69,7 +69,7 @@
                                 <div class="form-group">
                                     <label for="items" class="control-label mr-2">دوره های سفارش</label>
                                     <select class="form-control" id="items" name="items[]" multiple {{!empty($order) ? 'disabled' : ''}}>
-                                        <option disabled selected>انتخاب کنید</option>
+                                        <option disabled>انتخاب کنید</option>
                                         @foreach(\App\Models\Course::all() as $course)
                                             <option {{in_array($course->id, old('items', !empty($order) ? $order->items()->pluck('course_id')->toArray() : [])) ? 'selected' : ''}} value="{{$course->id}}">{{$course->name}}</option>
                                         @endforeach

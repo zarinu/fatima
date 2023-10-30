@@ -138,7 +138,7 @@
                             <p class="font-14">{{number_format($discounted_price)}} تومان </p>
 
                             @if(auth()->check())
-                                <a href="#" class="btn btn-lg btn-block btn-info font-13 mb-3">پرداخت </a>
+                                <a href="/panel/payments/create" class="btn btn-lg btn-block btn-info font-13 mb-3">پرداخت </a>
                             @else
                                 <a href="/login" class="btn btn-lg btn-block btn-info font-13 mb-3">ادامه </a>
                             @endif

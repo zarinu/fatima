@@ -79,7 +79,7 @@
                     </div>
 
                     @if(auth()->check())
-                        <a href="#" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
+                        <a href="/panel/payments/create" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
                     @else
                         <a href="/login" class="btn btn-info font-13 m-2 p-2"> ادامه </a>
                     @endif
@@ -197,7 +197,7 @@
                     </div>
 
                     @if(auth()->check())
-                        <a href="#" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
+                        <a href="/panel/payments/create" class="btn btn-info font-13 m-2 p-2">پرداخت</a>
                     @else
                         <a href="/login" class="btn btn-info font-13 m-2 p-2"> ادامه </a>
                     @endif
