@@ -74,7 +74,14 @@
 
                                 <div class="sub-layer">
 
-                                    <img src="{{$course->get_cover()}}" class="img-fluid" >
+                                    <img src="{{$course->get_cover()}}" class="img-fluid">
+
+                                    <!-- discount percent icon -->
+                                    @if($course->discount_percent)
+                                        <div class="over-layer-discount">
+                                            <img src="/assets/images/discount.png" width="100px">
+                                        </div>
+                                    @endif
 
                                     <div class="over-layer">
 
@@ -105,7 +112,9 @@
                                         @elseif(!empty($course->price))
                                             @if(!empty($course->discount_percent))
 
-                                                <del class="text-muted font-12 me-2">{{number_format($course->price) . ' تومان '}}</del>
+                                                <span class="text-success m-2">{{$course->discount_percent}}<i class="fa fa-percent"></i></span>
+
+                                                <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
 
                                                 <span class="text-success font-12">{{number_format($course->price * (100 - $course->discount_percent) / 100) . ' تومان '}}</span>
 
@@ -150,3 +159,18 @@
     </div>
 
 @endsection
+
+@push('styles')
+    <style>
+        .over-layer-discount {
+            position: absolute;
+            top: -8px;
+            right: 70%;
+            width: 100%;
+            height: 100%;
+            visibility: visible;
+            opacity: 1;
+            transition: all ease-in-out 0.2s;
+        }
+    </style>
+@endpush

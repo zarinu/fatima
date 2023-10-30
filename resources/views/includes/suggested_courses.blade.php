@@ -12,6 +12,13 @@
 
                         <img src="{{$course->get_cover()}}" class="img-fluid" >
 
+                        <!-- discount percent icon -->
+                        @if($course->discount_percent)
+                            <div class="over-layer-discount">
+                                <img src="/assets/images/discount.png" width="100px">
+                            </div>
+                        @endif
+
                         <div class="over-layer">
 
                             <a href="{{route('courses.show', ['course' => $course->id])}}" class="btn btn-info">مشاهده و خرید</a>
@@ -42,8 +49,9 @@
                                 <span class="text-danger font-12"> نامشخص </span>
                             @elseif(!empty($course->price))
                                 @if(!empty($course->discount_percent))
+                                    <span class="text-success m-3">{{$course->discount_percent}}<i class="fa fa-percent"></i> تخفیف </span>
 
-                                    <del class="text-muted font-12 me-2">{{number_format($course->price) . ' تومان '}}</del>
+                                    <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
 
                                     <span class="text-success font-12">{{number_format($course->price * (100 - $course->discount_percent) / 100) . ' تومان '}}</span>
 
@@ -67,3 +75,18 @@
     </div>
 
 </div><!-- end course box -->
+
+@push('styles')
+    <style>
+        .over-layer-discount {
+            position: absolute;
+            top: -8px;
+            right: 75%;
+            width: 100%;
+            height: 100%;
+            visibility: visible;
+            opacity: 1;
+            transition: all ease-in-out 0.2s;
+        }
+    </style>
+@endpush

@@ -60,9 +60,11 @@
                         @if(!empty($course->discount_percent))
 
                             <li class="list-group-item font-13 py-3">
-                                <del class="text-muted font-12 me-2">{{number_format($course->price) . ' تومان '}}</del>
+                                <span class="text-success text-bold font-18 m-3">{{$course->discount_percent}}<i class="fa fa-percent"></i> تخفیف </span>
 
-                                <span class="text-success font-14">{{number_format(\App\Models\Course::calculate_discounted_price($course->price, $course->discount_percent)) . ' تومان '}}</span>
+                                <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
+
+                                <span class="text-success text-bold font-14">{{number_format(\App\Models\Course::calculate_discounted_price($course->price, $course->discount_percent)) . ' تومان '}}</span>
                             </li>
                         @else
                             <li class="list-group-item font-13 py-3"> قیمت دوره : {{number_format($course->price)}} تومان</li>
@@ -95,7 +97,17 @@
 
             <div class="col-lg-8"><!-- start course content -->
 
-                <img src="{{$course->get_cover()}}" class="img-fluid rounded mb-3" width="730" height="450">
+                <div class="sub-layer">
+                    <img src="{{$course->get_cover()}}" class="img-fluid rounded mb-3" width="730" height="450">
+
+                    <!-- discount percent icon -->
+                    @if($course->discount_percent)
+                        <div class="over-layer-discount">
+                            <img src="/assets/images/discount.png" width="150px">
+                        </div>
+                    @endif
+
+                </div>
 
                 <h1 class="font-14 my-3">{{$course->name}}</h1>
 
@@ -373,4 +385,20 @@
             });
         });
     </script>
+@endpush
+
+
+@push('styles')
+    <style>
+        .over-layer-discount {
+            position: absolute;
+            top: -10px;
+            right: -25px;
+            width: 100%;
+            height: 100%;
+            visibility: visible;
+            opacity: 1;
+            transition: all ease-in-out 0.2s;
+        }
+    </style>
 @endpush
