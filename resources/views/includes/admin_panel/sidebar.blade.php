@@ -127,6 +127,31 @@
                             </li>
                         </ul>
                     </li>
+
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['discounts', 'discounts_create']) ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-money"></i>
+                            <p>
+                                کدهای تخفیف
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/discounts" class="nav-link {{$sidebar_item == 'discounts' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست کدهای تخفیف</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/discounts/create" class="nav-link {{$sidebar_item == 'discounts_create' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد کد تخفیف جدید</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a href="/logout" class="nav-link">
                             <i class="nav-icon fa fa-sign-out"></i>

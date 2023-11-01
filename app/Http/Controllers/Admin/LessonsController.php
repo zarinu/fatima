@@ -46,7 +46,7 @@ class LessonsController extends Controller
             $course->increment('uploaded_count');
 
             if(!empty($validated['content'])) {
-                $content_path = $this->generateRandomString() . '.mp4';
+                $content_path = generateRandomString() . '.mp4';
                 $lesson->content_path = $content_path;
                 $validated['content']->move(public_path('media/courses/'. $course->id), $content_path);
             }
@@ -87,7 +87,7 @@ class LessonsController extends Controller
                     File::delete(public_path($lesson->get_url()));
                 }
             }
-            $content_path = $this->generateRandomString() . '.mp4';
+            $content_path = generateRandomString() . '.mp4';
             $lesson->content_path = $content_path;
             $validated['content']->move(public_path('media/courses/'. $course->id), $content_path);
         }
@@ -112,11 +112,5 @@ class LessonsController extends Controller
             'status' => 'success',
             'message' => 'درس با موفقیت حذف شد.',
         ]);
-    }
-
-    private function generateRandomString($length = 8): string
-    {
-        $characters = '0123456789abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ';
-        return substr(str_shuffle($characters), 0, $length);
     }
 }

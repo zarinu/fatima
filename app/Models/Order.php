@@ -21,7 +21,7 @@ class Order extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id', 'payment_id', 'price', 'discount_price',
+        'user_id', 'payment_id', 'discount_id', 'price', 'discount_price',
         'total_price', 'description', 'status',
     ];
 
@@ -45,6 +45,11 @@ class Order extends Model
     public function user(): BelongsTo
     {
         return $this->belongsTo(User::class);
+    }
+
+    public function discount(): BelongsTo
+    {
+        return $this->belongsTo(Discount::class);
     }
 
     public function payments(): HasMany

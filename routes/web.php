@@ -151,6 +151,18 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
             Route::get('/delete', 'delete');
         });
     });
+
+    // Discounts Management
+    Route::prefix('discounts')->controller(\App\Http\Controllers\Admin\DiscountsController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::post('/store', 'store');
+        Route::prefix('{discount}')->group(function() {
+            Route::get('/edit', 'edit');
+            Route::post('/update', 'update');
+            Route::get('/delete', 'delete');
+        });
+    });
 });
 
 //Route::middleware('auth')->group(function () {
