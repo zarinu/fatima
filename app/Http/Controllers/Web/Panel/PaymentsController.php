@@ -18,14 +18,9 @@ class PaymentsController extends Controller
         $cart = session('cart');
         $user = User::find(auth()->id());
 
-        $price = 0;
-        $discount_price = 0;
-        $total_price = 0;
-        foreach ($cart as $cart_item) {
-            $price += $cart_item['price'];
-            $discount_price += ($cart_item['price'] - $cart_item['discounted_price']);
-            $total_price += $cart_item['discounted_price'];
-        }
+        $price = $cart['price'];
+        $discount_price = $cart['total_discount_price'];
+        $total_price = $price - $discount_price;
 
         $result = $this->get_authority($total_price, $user);
         if($result['status'] == 'failed') {
@@ -38,20 +33,21 @@ class PaymentsController extends Controller
 
         $order = Order::create([
             'user_id' => $user->id,
+            'discount_id' => !empty($cart['discount_id']) ? $cart['discount_id'] : null,
             'price' => $price,
             'discount_price' => $discount_price,
             'total_price' => $total_price,
             'description' => 'پرداخت توسط درگاه بانکی زرین پال',
             'status' => 'pending',
         ]);
-        foreach ($cart as $course_id => $cart_item) {
+        foreach ($cart['items'] as $course_id => $cart_item) {
             OrderItem::create([
                 'user_id' => $user->id,
                 'order_id' => $order->id,
                 'course_id' => $course_id,
                 'price' => $cart_item['price'],
-                'discount_price' => ($cart_item['price'] - $cart_item['discounted_price']),
-                'total_price' => $cart_item['discounted_price'],
+                'discount_price' => $cart_item['discount_price'],
+                'total_price' => $cart_item['price'] - $cart_item['discount_price'],
             ]);
         }
         Payment::create([

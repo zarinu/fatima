@@ -1,8 +1,7 @@
 @extends('layouts.app')
-@section('title', 'جستجوی دوره')
+@section('title', 'سبد خرید')
 
 @section('content')
-
     <div class="container mt-4">
         @if(session('status'))
             <div class="alert alert-{{session('status')}}">
@@ -10,7 +9,7 @@
             </div>
         @endif
     </div>
-    
+
     @if(session('cart'))
         <div class="container d-flex justify-content-between mt-5 mb-4"><!-- start title-->
 
@@ -18,7 +17,7 @@
 
                 <p class="font-14 ps-2">سبد خرید </p>
 
-                <p class="font-12 ps-3 text-muted">تا آخر راه کنارتون هستیم !</p>
+                <p class="font-12 ps-3 text-muted">تا آخر راه کنارتم !</p>
 
             </div>
 
@@ -56,7 +55,7 @@
 
                             <tbody>
 
-                            @foreach(session('cart') as $id => $details)
+                            @foreach(session('cart')['items'] as $id => $details)
 
                                 <tr>
 
@@ -76,7 +75,7 @@
 
                                     <td class="text-success"><span class="me-1 pt-2 d-inline-block">{{number_format($details['discount_percent'])}}</span>٪</td>
 
-                                    <td><span class="me-1 pt-2 d-inline-block">{{number_format($details['discounted_price'])}}</span> تومان </td>
+                                    <td><span class="me-1 pt-2 d-inline-block">{{number_format($details['price'] - $details['discount_price'])}}</span> تومان </td>
 
                                     <td class="bg-light border-start">
 
@@ -94,18 +93,33 @@
 
                     </div>
 
+                    <form method="POST" action="{{route('cart.discount')}}"><!-- start discount code form -->
+                        @csrf
+                        <div class="row">
+                            <div class="col-3">
+                                <div class="form-group">
+                                    <label for="discount_code" class="control-label mr-2">کد تخفیف</label>
+
+                                    <input type="text" class="form-control form-control-lg @error('discount_code') is-invalid @enderror" id="discount_code" name="discount_code" placeholder="کد تخفیف را وارد کنید">
+                                </div>
+                                @error('discount_code')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
+                            <div class="col-1">
+                                <label></label>
+                                <input type="submit" class="btn btn-info" value="اعمال">
+                            </div>
+                        </div>
+                    </form><!-- end discount code form -->
+
                 </div><!-- end cart table -->
 
                 @php
-                    $price = 0;
-                    $discounted_price = 0;
+                    $price = session('cart')['price'];
+                    $discount_price = session('cart')['total_discount_price'];
                 @endphp
-                @foreach(session('cart') as $item)
-                    @php
-                        $price += $item['price'];
-                        $discounted_price += $item['discounted_price'];
-                    @endphp
-                @endforeach
 
                 <div class="col-lg-3"><!-- start payment box -->
 
@@ -115,17 +129,27 @@
 
                             <div class="d-flex justify-content-between">
 
-                                <p class="font-13"> مبلغ کل ({{ count((array) session('cart')) }} دوره) :</p>
+                                <p class="font-13"> مبلغ کل ({{ count((array) session('cart')['items']) }} دوره) :</p>
 
                                 <p class="font-13">{{number_format($price)}} تومان </p>
 
                             </div>
 
+                            @if(!empty(session('cart')['discount_code_price']))
+                                <div class="d-flex justify-content-between">
+
+                                    <p class="font-13">کد تخفیف :</p>
+
+                                    <p class="font-13">{{number_format(session('cart')['discount_code_price'])}} تومان </p>
+
+                                </div>
+                            @endif
+
                             <div class="d-flex justify-content-between border-bottom">
 
                                 <p class="font-13">مجموع تخفیف :</p>
 
-                                <p class="font-13">{{number_format($price - $discounted_price)}} تومان </p>
+                                <p class="font-13">{{number_format($discount_price)}} تومان </p>
 
                             </div>
 
@@ -135,7 +159,7 @@
 
                             <p class="font-13">مبلغ قابل پرداخت:</p>
 
-                            <p class="font-14">{{number_format($discounted_price)}} تومان </p>
+                            <p class="font-14">{{number_format($price - $discount_price)}} تومان </p>
 
                             @if(auth()->check())
                                 <a href="/panel/payments/create" class="btn btn-lg btn-block btn-info font-13 mb-3">پرداخت </a>

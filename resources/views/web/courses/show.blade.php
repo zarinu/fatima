@@ -64,7 +64,7 @@
 
                                 <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
 
-                                <span class="text-success text-bold font-14">{{number_format(\App\Models\Course::calculate_discounted_price($course->price, $course->discount_percent)) . ' تومان '}}</span>
+                                <span class="text-success text-bold font-14">{{number_format(calculateDiscountedPrice($course->price, $course->discount_percent)) . ' تومان '}}</span>
                             </li>
                         @else
                             <li class="list-group-item font-13 py-3"> قیمت دوره : {{number_format($course->price)}} تومان</li>

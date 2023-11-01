@@ -1,5 +1,14 @@
 <header class="d-none d-lg-block container"><!-- start header -->
 
+    @php
+        $cart = session('cart');
+        if($cart) {
+            $cart_count = count((array) $cart['items']);
+        } else {
+            $cart_count = 0;
+        }
+    @endphp
+
     <div class="row py-2">
 
         <div class="col-lg-2">
@@ -22,16 +31,16 @@
 
             <a href="#shopping-bag" class="position-relative me-5" data-bs-toggle="offcanvas"><img src="/assets/images/bag.png" class="shopping-bag-icon">
 
-                <div class="count">{{ count((array) session('cart')) }}</div>
+                <div class="count">{{ $cart_count }}</div>
             </a>
 
             <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="shopping-bag"><!-- start shopping bag side bar -->
 
-                @if(session('cart'))
+                @if($cart)
 
                     <div class="offcanvas-header mb-3"><!-- start bag header -->
 
-                        <p class="offcanvas-title font-12">سبد خرید ({{ count((array) session('cart')) }} دوره)</p>
+                        <p class="offcanvas-title font-12">سبد خرید ({{ $cart_count }} دوره)</p>
 
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
 
@@ -39,7 +48,7 @@
 
                     <div class="offcanvas-body"><!-- start bag body -->
 
-                        @foreach(session('cart') as $id => $details)
+                        @foreach($cart['items'] as $id => $details)
 
                             <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
@@ -53,7 +62,7 @@
                                         <del class="font-12 text-muted mt-3">{{number_format($details['price'])}} تومان </del>
                                     @endif
 
-                                    <p class="font-12 text-success mt-3">{{number_format($details['discounted_price'])}} تومان </p>
+                                    <p class="font-12 text-success mt-3">{{number_format($details['price'] - $details['discount_price'])}} تومان </p>
 
                                 </div>
 
@@ -65,16 +74,11 @@
 
                     </div><!-- end bag body -->
 
-                    @php $discounted_price = 0; @endphp
-                    @foreach(session('cart') as $item)
-                        @php $discounted_price += $item['discounted_price']; @endphp
-                    @endforeach
-
                     <div class="d-flex justify-content-between align-items-center px-3">
 
                         <p class="font-13">مبلغ کل :</p>
 
-                        <p class="font-13">{{number_format($discounted_price)}} تومان </p>
+                        <p class="font-13">{{number_format($cart['price'] - $cart['total_discount_price'])}} تومان </p>
 
                     </div>
 
@@ -139,17 +143,17 @@
 
             <a href="#shopping-bag-responsive" class="position-relative me-4" data-bs-toggle="offcanvas"><img src="/assets/images/bag.png" class="shopping-bag-icon"><!-- start shopping bag-->
 
-                <div class="count">{{ count((array) session('cart')) }}</div>
+                <div class="count">{{ $cart_count }}</div>
 
             </a><!-- end shopping bag-->
 
             <div class="offcanvas offcanvas-end" tabindex="-1" data-bs-scroll="true" id="shopping-bag-responsive"><!-- start shopping bag side bar -->
 
-                @if(session('cart'))
+                @if($cart)
 
                     <div class="offcanvas-header mb-3"><!-- start bag header -->
 
-                        <p class="offcanvas-title font-12">سبد خرید ({{ count((array) session('cart')) }} دوره)</p>
+                        <p class="offcanvas-title font-12">سبد خرید ({{ $cart_count }} دوره)</p>
 
                         <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas"></button>
 
@@ -157,7 +161,7 @@
 
                     <div class="offcanvas-body"><!-- start bag body -->
 
-                        @foreach(session('cart') as $id => $details)
+                        @foreach($cart['items'] as $id => $details)
 
                             <div class="cart-item d-flex align-items-center justify-content-between"><!-- start cart item -->
 
@@ -171,7 +175,7 @@
                                         <del class="font-12 text-muted mt-3">{{number_format($details['price'])}} تومان </del>
                                     @endif
 
-                                    <p class="font-12 text-success mt-3">{{number_format($details['discounted_price'])}} تومان </p>
+                                    <p class="font-12 text-success mt-3">{{number_format($details['price'] - $details['discount_price'])}} تومان </p>
 
                                 </div>
 
@@ -183,16 +187,11 @@
 
                     </div><!-- end bag body -->
 
-                    @php $discounted_price = 0; @endphp
-                    @foreach(session('cart') as $item)
-                        @php $discounted_price += $item['discounted_price']; @endphp
-                    @endforeach
-
                     <div class="d-flex justify-content-between align-items-center px-3 pt-3">
 
                         <p class="font-13">مبلغ کل :</p>
 
-                        <p class="font-13">{{number_format($discounted_price)}} تومان </p>
+                        <p class="font-13">{{number_format($cart['total_discount_price'])}} تومان </p>
 
                     </div>
 

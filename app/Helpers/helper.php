@@ -6,4 +6,8 @@ function generateRandomString($length = 8): string
     return substr(str_shuffle($characters), 0, $length);
 }
 
+function calculateDiscountedPrice($price, $discount_percent): float|int
+{
+    return $price * (100 - $discount_percent) / 100;
+}
 ?>

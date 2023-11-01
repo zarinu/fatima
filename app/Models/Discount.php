@@ -14,6 +14,7 @@ class Discount extends Model
 
     public $timestamps = true;
     protected $table = 'discounts';
+    protected $dates = ['start_at', 'expire_at'];
 
     /**
      * The attributes that are mass assignable.

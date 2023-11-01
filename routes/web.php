@@ -43,6 +43,7 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/', [CartController::class, 'index'])->name('cart.index');
         Route::get('/{course}', [CartController::class, 'addItem'])->name('cart.add');
         Route::delete('/delete', [CartController::class, 'deleteItem'])->name('cart.delete');
+        Route::post('/discount', [CartController::class, 'applyDiscountCode'])->name('cart.discount');
     });
 
     // Panel

@@ -53,7 +53,7 @@
 
                                     <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
 
-                                    <span class="text-success font-12">{{number_format($course->price * (100 - $course->discount_percent) / 100) . ' تومان '}}</span>
+                                    <span class="text-success font-12">{{number_format(calculateDiscountedPrice($course->price, $course->discount_percent)) . ' تومان '}}</span>
 
                                 @else
                                     <span class="text-success font-12">{{number_format($course->price) . ' تومان '}}</span>
