@@ -1,5 +1,6 @@
 <?php
 
+use App\Http\Controllers\Admin\ArtisanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Web\CartController;
@@ -7,7 +8,6 @@ use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\Panel\LessonsController;
 use App\Http\Controllers\Web\Panel\PaymentsController;
 use App\Http\Controllers\Web\Panel\UserPanelController;
-use Illuminate\Support\Facades\Artisan;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -16,13 +16,10 @@ use Illuminate\Support\Facades\Route;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RcourCoursesControllerouteServiceProvider and all of them will
+| routes are loaded by the RouteServiceProvider and all of them will
 | be assigned to the "web" middleware group. Make something great!
 |
 */
-
-// Php Artisan Commands
-Route::get('/artisan/{param}', function ($param) { Artisan::call($param); return 'done'; });
 
 // Web
 Route::group(['middleware' => ['web']], function () {
@@ -164,6 +161,9 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
             Route::get('/delete', 'delete');
         });
     });
+
+    // Php Artisan Commands
+    Route::get('/artisan/{param}', [ArtisanController::class, 'index']);
 });
 
 //Route::middleware('auth')->group(function () {
