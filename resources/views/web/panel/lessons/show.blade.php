@@ -12,7 +12,7 @@
         </div>
 
         <div class="row">
-            <video controls oncontextmenu="return false;">
+            <video controls oncontextmenu="return false;" id="lesson-video">
                 <source src="{{'/' . $lesson->get_url()}}" type="video/mp4">
                 Your browser does not support the video tag.
             </video>
@@ -38,3 +38,9 @@
 
     </div>
 @endsection
+
+@push('scripts')
+    <script>
+        $('#lesson-video').attr("controlslist", "nodownload")
+    </script>
+@endpush
