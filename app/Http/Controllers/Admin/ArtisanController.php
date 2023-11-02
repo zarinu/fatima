@@ -9,8 +9,8 @@ class ArtisanController extends Controller
 {
     public function index($param): string
     {
-        if($param == 'migrate') {
-            Artisan::call($param);
+        if($param === 'migrate') {
+            Artisan::call('migrate');
             return 'done';
         } else {
             return 'invalid php artisan command';

@@ -141,7 +141,7 @@ class PaymentsController extends Controller
                 if($payment->amount == $order->total_price) {
                     $order_items = $order->items;
                     foreach ($order_items as $item) {
-                        UserCourse::create([
+                        UserCourse::firstOrCreate([
                            'user_id' => $item->user_id,
                            'course_id' => $item->course_id,
                         ]);

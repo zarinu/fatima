@@ -162,6 +162,14 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
         });
     });
 
+    // Users courses Management
+    Route::prefix('users-courses')->controller(\App\Http\Controllers\Admin\UsersCoursesController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::post('/store', 'store');
+        Route::get('/{user_course}/delete', 'delete');
+    });
+
     // Php Artisan Commands
     Route::get('/artisan/{param}', [ArtisanController::class, 'index']);
 });

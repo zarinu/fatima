@@ -21,7 +21,7 @@
                                     <select class="form-control @error('order_id') is-invalid @enderror" id="order_id" name="order_id" {{!empty($payment) ? 'disabled' : ''}}>
                                         <option disabled selected>انتخاب کنید</option>
                                         @foreach(\App\Models\Order::all() as $order)
-                                            <option {{old('order_id', !empty($payment) ? $payment->order_id : null) == $order->id ? 'selected' : ''}} value="{{$order->id}}">{{'سفارش: #' . $order->id . ' / کاربر: ' . $order->user->name}}</option>
+                                            <option {{old('order_id', !empty($payment) ? $payment->order_id : (!empty(session('order_id')) ? session('order_id') : null)) == $order->id ? 'selected' : ''}} value="{{$order->id}}">{{'سفارش: #' . $order->id . ' / کاربر: ' . $order->user->name}}</option>
                                         @endforeach
                                     </select>
                                 </div>

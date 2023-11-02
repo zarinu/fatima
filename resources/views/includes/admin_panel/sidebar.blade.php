@@ -130,7 +130,7 @@
 
                     <li class="nav-item has-treeview {{in_array($sidebar_item, ['discounts', 'discounts_create']) ? 'menu-open' : ''}}">
                         <a href="#" class="nav-link">
-                            <i class="nav-icon fa fa-money"></i>
+                            <i class="nav-icon fa fa-percent"></i>
                             <p>
                                 کدهای تخفیف
                                 <i class="right fa fa-angle-left"></i>
@@ -147,6 +147,30 @@
                                 <a href="/admin/discounts/create" class="nav-link {{$sidebar_item == 'discounts_create' ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>ایجاد کد تخفیف جدید</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['users_courses', 'users_courses_create']) ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-bicycle"></i>
+                            <p>
+                                دوره های فعال کاربران
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/users-courses" class="nav-link {{$sidebar_item == 'users_courses' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست دوره های فعال کاربران</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/users-courses/create" class="nav-link {{$sidebar_item == 'users_courses_create' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>فعال کردن دوره برای کاربر</p>
                                 </a>
                             </li>
                         </ul>
