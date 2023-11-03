@@ -25,7 +25,8 @@ return new class extends Migration
             $table->integer('total_hours')->nullable();
             $table->integer('price')->nullable();
             $table->integer('discount_percent')->nullable()->unsigned();
-            $table->float('score')->nullable()->unsigned();
+            $table->float('rate')->nullable()->unsigned();
+            $table->integer('score')->nullable()->unsigned();
             $table->integer('order')->nullable();
             $table->enum('status', ['completed', 'pre-sell', 'presenting', 'not_for_sale', 'inactive'])->default('completed');
             $table->integer('uploaded_count')->nullable();

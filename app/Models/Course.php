@@ -22,6 +22,7 @@ class Course extends Model
     protected $fillable = [
         'user_id', 'name', 'summery', 'teacher_name', 'description', 'has_cover', 'has_video',
         'total_hours', 'price', 'discount_percent', 'order', 'status', 'private_description',
+        'rate', 'score',
     ];
 
     public function chapters(): HasMany
