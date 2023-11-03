@@ -80,6 +80,30 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['comments', 'comments_unread', 'comments_create']) ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-comment"></i>
+                            <p>
+                                نظرات
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/comments" class="nav-link {{$sidebar_item == 'comments' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست همه نظرات</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/comments?status=inactive" class="nav-link {{$sidebar_item == 'comments_unread' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست نظرات تایید نشده</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item has-treeview {{in_array($sidebar_item, ['orders', 'orders_create']) ? 'menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-shopping-bag"></i>

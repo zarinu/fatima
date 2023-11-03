@@ -13,7 +13,7 @@ class CommentsController extends Controller
        $validated = $request->validate([
            'parent_id' => 'nullable|integer',
            'name' => 'required|string',
-           'mobile' => ['nullable', 'integer', 'digits:11', 'regex:/(09)[0-9]{9}/'],
+           'mobile' => ['nullable', 'numeric', 'digits:11', 'regex:/(09)[0-9]{9}/'],
            'item_id' => 'required|integer',
            'content' => 'required|string',
            'rate' => 'required|integer|between:1,5',
