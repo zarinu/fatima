@@ -16,7 +16,7 @@
                     فقط کافیه نخ، سوزن و یه تیکه پارچه برداری و با من همراه شی
                 </p>
 
-                <p class="font-13"><i class="fas fa-map-marker-alt text-muted me-2"></i>من، حانیه حیدری، ۵ سال عروسک ساختم و توی اینکار حرفه ایم و کنارتم تا تو هم حرفه ای بشی.</p>
+                <p class="font-13"><i class="fas fa-map-marker-alt text-muted me-2"></i>من، حانیه حیدری، 6 سال عروسک ساختم و توی اینکار حرفه ایم و کنارتم تا تو هم حرفه ای بشی.</p>
 
                 <p class="font-13"><i class="fas fa-envelope text-muted me-2"></i> info@aroosak.com</p>
 

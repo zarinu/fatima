@@ -188,6 +188,8 @@ return [
         'password' => 'رمز عبور',
         'password_confirmation' => 'تکرار رمز عبور',
         'verify_code' => 'کد تایید',
+        'rate' => 'امتیاز',
+        'content' => 'محتوا',
     ],
 
 ];

@@ -64,4 +64,8 @@ class Course extends Model
         }
         return null;
     }
+
+    public function comments() {
+        return $this->hasMany(Comment::class, 'item_id')->where('item', 'course');
+    }
 }

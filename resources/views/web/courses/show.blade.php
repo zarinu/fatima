@@ -121,7 +121,7 @@
 
                 <h1 class="font-14 my-3">{{$course->name}}</h1>
 
-                <div id="description">{!! $course->description !!}</div>
+                <div id="course_description">{!! $course->description !!}</div>
 
                 <p class="font-14 my-3">سر فصل ها :</p>
 
@@ -199,102 +199,146 @@
 
                     <div class="tab-pane active" id="comments"><!-- start comment tab -->
 
-                        <div class="row"><!-- start comment form -->
+                        <form method="POST" action="/comments/store">
+                            @csrf
 
-                            <div class="col">
+                            <div class="row"><!-- start comment form -->
 
-                                <input type="text" class="form-control form-control-lg" placeholder="نام و نام خانوادگی">
+                                <input type="hidden" name="item_id" value="{{$course->id}}">
+
+                                <div class="col-sm-4 mb-2">
+
+                                    <input type="text" name="name" class="form-control form-control-lg @error('name') is-invalid @enderror"
+                                           placeholder="نام و نام خانوادگی" value="{{old('name')}}">
+                                    @error('name')
+                                    <div class="text-danger font-12">{{ $message }}</div>
+                                    @enderror
+
+                                </div>
+
+                                <div class="col-sm-4">
+
+                                    <input type="text" name="mobile" class="form-control form-control-lg @error('mobile') is-invalid @enderror"
+                                           placeholder="موبایل (اختیاری)" value="{{old('mobile')}}">
+                                    @error('mobile')
+                                    <div class="text-danger font-12">{{ $message }}</div>
+                                    @enderror
+
+                                </div>
+
+                                <div class="col-sm-4">
+
+                                    <span class="vazir-font font-12 line-height"> امتیاز شما به دوره </span>
+
+                                    <span class="rating-star">
+                                        <input type="radio" name="rate" value="5" {{old('rate') == 5 ? 'checked' : ''}}><span class="star"></span>
+
+                                        <input type="radio" name="rate" value="4" {{old('rate') == 4 ? 'checked' : ''}}><span class="star"></span>
+
+                                        <input type="radio" name="rate" value="3" {{old('rate') == 3 ? 'checked' : ''}}><span class="star"></span>
+
+                                        <input type="radio" name="rate" value="2" {{old('rate') == 2 ? 'checked' : ''}}><span class="star"></span>
+
+                                        <input type="radio" name="rate" value="1" {{old('rate') == 1 ? 'checked' : ''}}><span class="star"></span>
+                                    </span>
+
+                                    @error('rate')
+                                    <div class="text-danger font-12">{{ $message }}</div>
+                                    @enderror
+
+                                </div>
 
                             </div>
 
-                            <div class="col">
+                            <div class="row mt-3">
 
-                                <input type="text" class="form-control form-control-lg" placeholder="ایمیل">
+                                <div class="col-12">
 
-                            </div>
+                                    <textarea class="form-control @error('content') is-invalid @enderror" rows="5" name="content" placeholder="متن دیدگاه شما">{{old('content')}}</textarea>
 
-                        </div>
+                                    @error('content')
+                                    <div class="text-danger font-12">{{ $message }}</div>
+                                    @enderror
 
-                        <div class="row mt-3">
+                                    <button type="submit" class="btn btn-lg btn-info float-end font-13 my-3">ثبت دیدگاه</button>
 
-                            <div class="col-12">
+                                </div>
 
-                                <textarea class="form-control" rows="5" placeholder="متن دیدگاه شما"></textarea>
+                            </div><!-- end comment form -->
 
-                                <button type="submit" class="btn btn-lg btn-info float-end font-13 my-3">ثبت دیدگاه</button>
-
-                            </div>
-
-                        </div><!-- end comment form -->
+                        </form>
 
                         <div class="row"><!-- start comment box -->
 
-                            <div class="col-12 bg-light shadow-sm mb-3 p-2 pb-3"><!-- start comment item -->
+                            @foreach($comments as $comment)
+                                <div class="col-12 bg-light shadow-sm mb-3 p-2 pb-3"><!-- start comment item -->
 
-                                <div class="d-flex justify-content-between align-items-center">
+                                    <div class="d-flex justify-content-between align-items-center">
 
-                                    <div class="d-flex">
+                                        <div class="d-flex">
 
-                                        <div>
+                                            <div>
 
-                                            <img src="/assets/images/user-2.png" class="comment-pic">
+                                                <img src="/assets/images/user-2.png" class="comment-pic">
 
-                                        </div>
+                                            </div>
 
-                                        <div>
+                                            <div>
 
-                                            <span class="font-13 d-block ms-3 mt-3">کاربر دوره</span>
+                                                <span class="font-13 d-block ms-3 mt-3">{{$comment->name}}</span>
 
-                                            <div class="d-flex ms-3 mt-3">
+                                                <div class="d-flex ms-3 mt-3">
+                                                    @php
+                                                        $stars = (int)$comment->rate;
+                                                        $mute_stars = 5 - $stars;
+                                                    @endphp
+                                                    @for($x = 1; $x <= $mute_stars; $x++)
+                                                        <i class="fa fa-star me-1 font-13 text-muted"></i>
+                                                    @endfor
+                                                    @for($x = 1; $x <= $stars; $x++)
+                                                        <i class="fa fa-star me-1 font-13 text-warning"></i>
+                                                    @endfor
 
-                                                <i class="fa fa-star me-1 font-13 text-warning"></i>
-
-                                                <i class="fa fa-star me-1 font-13 text-warning"></i>
-
-                                                <i class="fa fa-star me-1 font-13 text-warning"></i>
-
-                                                <i class="fa fa-star me-1 font-13 text-warning"></i>
-
-                                                <i class="fa fa-star me-1 font-13 text-warning"></i>
+                                                </div>
 
                                             </div>
 
                                         </div>
 
-                                    </div>
-
-                                    <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> 18 مهر 1402 </span>
-
-                                </div>
-
-                                <p class="font-13 vazir-font line-height px-5 mt-3">باسلام. خیلی ممنونم از دوره بسیار خوبتون توضیحات خیلی کمک کننده بود.</p>
-
-                                <div class="d-fex px-5">
-
-                                    <span class="font-12 me-4"><i class="far fa-heart text-danger me-1"></i>(0)</span>
-
-                                    <span class="font-12 me-4"><i class="far fa-thumbs-up text-success me-1"></i>(0)</span>
-
-                                    <span class="font-12 me-4"><i class="far fa-thumbs-down text-muted me-1"></i>(0)</span>
-
-                                </div>
-
-                                <div class="bg-white shadow-sm mx-5 mt-3 p-3 rounded"><!-- start reply box -->
-
-                                    <div class="d-flex justify-content-between align-items-center">
-
-                                        <p class="font-13 text-danger">مدیر سایت</p>
-
-                                        <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> 20 مهر 1402 </span>
+                                        <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> {{\Morilog\Jalali\Jalalian::fromCarbon($comment->created_at)->format('%d %B %Y')}} </span>
 
                                     </div>
 
-                                    <p class="font-13 vazir-font line-height">نظر لطف شماست عزیز</p>
+                                    <p class="font-13 vazir-font line-height px-5 mt-3"> {{$comment->content}} </p>
 
-                                </div><!-- end reply box -->
+                                    <div class="d-fex px-5">
 
-                            </div><!-- end comment item -->
+                                        <span class="font-15 me-4"><i class="far fa-comment text-danger me-1"></i>({{count($comment->children)}})</span>
 
+                                        <span class="font-15 me-4"><i class="far fa-thumbs-up text-success me-1"></i>({{$comment->likes ?: 0}})</span>
+
+                                        <span class="font-15 me-4"><i class="far fa-thumbs-down text-muted me-1"></i>({{$comment->dislikes ?: 0}})</span>
+
+                                    </div>
+
+                                    @foreach($comment->children as $child_comment)
+                                    <div class="bg-white shadow-sm mx-5 mt-3 p-3 rounded"><!-- start reply box -->
+
+                                        <div class="d-flex justify-content-between align-items-center">
+
+                                            <p class="font-13 text-danger"> {{$child_comment->name}} </p>
+
+                                            <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> {{\Morilog\Jalali\Jalalian::fromCarbon($child_comment->created_at)->format('%d %B %Y')}} </span>
+
+                                        </div>
+
+                                        <p class="font-13 vazir-font line-height"> {{$child_comment->content}} </p>
+
+                                    </div><!-- end reply box -->
+                                    @endforeach
+
+                                </div><!-- end comment item -->
+                            @endforeach
                         </div><!-- end comment box -->
 
                     </div><!-- end comment tab -->
@@ -317,9 +361,9 @@
 
                                         <span class="font-12 text-muted me-4"><i class="fa fa-forward me-1 text-success"></i> {{\App\Models\Course::count()}} دوره </span>
 
-                                        <span class="font-12 text-muted me-4"><i class="fa fa-user me-1"></i> 5 سال تجربه </span>
+                                        <span class="font-12 text-muted me-4"><i class="fa fa-user me-1"></i> 6 سال تجربه </span>
 
-                                        <p class="font-13 line-height vazir-font text-justify my-3">من، حانیه حیدری، ۵ سال عروسک ساختم و تو اینکار حرفه ایم و کنارتم تا تو هم حرفه ای بشی</p>
+                                        <p class="font-13 line-height vazir-font text-justify my-3">من، حانیه حیدری، 6 سال عروسک ساختم و تو اینکار حرفه ایم و کنارتم تا تو هم حرفه ای بشی</p>
 
                                         <div class="teacher-social-media">
 
@@ -370,6 +414,7 @@
 @endsection
 
 @push('scripts')
+    <link href="https://stackpath.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css" rel="stylesheet">
     <script>
         var toggleButtons = document.querySelectorAll('.show-lessons-button');
         toggleButtons.forEach(function (button) {
@@ -397,7 +442,7 @@
     </script>
 
     <script>
-        $('#description *').addClass('vazir-font font-14 text-justify line-height');
+        $('#course_description *').addClass('vazir-font font-14 text-justify line-height');
     </script>
 @endpush
 
@@ -413,6 +458,42 @@
             visibility: visible;
             opacity: 1;
             transition: all ease-in-out 0.2s;
+        }
+
+        .rating-star {
+            direction: rtl;
+            font-size: 40px;
+            unicode-bidi: bidi-override;
+            display: inline-block;
+        }
+        .rating-star input {
+            opacity: 0;
+            position: relative;
+            left: -30px;
+            z-index: 2;
+            cursor: pointer;
+        }
+        .rating-star span.star:before {
+            color: #777777;
+        }
+        .rating-star span.star {
+            display: inline-block;
+            font-family: FontAwesome;
+            font-style: normal;
+            font-weight: normal;
+            position: relative;
+            z-index: 1;
+        }
+        .rating-star span {
+            margin-left: -30px;
+        }
+        .rating-star span.star:before {
+            color: #777777;
+            content:"\f006";
+        }
+        .rating-star input:hover + span.star:before, .rating-star input:hover + span.star ~ span.star:before, .rating-star input:checked + span.star:before, .rating-star input:checked + span.star ~ span.star:before {
+            color: #ffd100;
+            content:"\f005";
         }
     </style>
 @endpush

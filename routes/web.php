@@ -4,6 +4,7 @@ use App\Http\Controllers\Admin\ArtisanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Web\CartController;
+use App\Http\Controllers\Web\CommentsController;
 use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\Panel\LessonsController;
 use App\Http\Controllers\Web\Panel\PaymentsController;
@@ -41,6 +42,11 @@ Route::group(['middleware' => ['web']], function () {
         Route::get('/{course}', [CartController::class, 'addItem'])->name('cart.add');
         Route::delete('/delete', [CartController::class, 'deleteItem'])->name('cart.delete');
         Route::post('/discount', [CartController::class, 'applyDiscountCode'])->name('cart.discount');
+    });
+
+    // Comments
+    Route::group(['prefix' => 'comments'], function () {
+        Route::post('/store', [CommentsController::class, 'store']);
     });
 
     // Panel

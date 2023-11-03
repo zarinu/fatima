@@ -42,6 +42,10 @@ class CoursesController extends Controller
         ];
 
         $data['course'] = $course;
+        $data['comments'] = $course->comments()
+            ->where('status', 'active')
+            ->whereNull('parent_id')
+            ->get();
         return view('web.courses.show', $data);
     }
 }
