@@ -112,11 +112,12 @@
                                         @elseif(!empty($course->price))
                                             @if(!empty($course->discount_percent))
 
-                                                <span class="text-success m-2">{{$course->discount_percent}}<i class="fa fa-percent"></i></span>
-
-                                                <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
-
-                                                <span class="text-success font-12">{{number_format(calculateDiscountedPrice($course->price, $course->discount_percent)) . ' تومان '}}</span>
+                                                <div class="row">
+                                                    <span class="text-success text-bold font-15">{{number_format(calculateDiscountedPrice($course->price, $course->discount_percent)) . ' تومان '}}</span>
+                                                </div>
+                                                <div class="row">
+                                                    <del class="text-muted font-12">{{number_format($course->price)}}</del>
+                                                </div>
 
                                             @else
                                                 <span class="text-success font-12">{{number_format($course->price) . ' تومان '}}</span>
@@ -164,8 +165,8 @@
     <style>
         .over-layer-discount {
             position: absolute;
-            top: -8px;
-            right: 70%;
+            top: -12px;
+            left: 17px;
             width: 100%;
             height: 100%;
             visibility: visible;

@@ -60,11 +60,21 @@
                         @if(!empty($course->discount_percent))
 
                             <li class="list-group-item font-13 py-3">
-                                <span class="text-success text-bold font-18 m-3">{{$course->discount_percent}}<i class="fa fa-percent"></i> تخفیف </span>
+                                <div class="row">
 
-                                <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
+                                    <div class="col">
+                                        <span class="text-bold font-18 m-3">{{$course->discount_percent}}<i class="fa fa-percent"></i> تخفیف </span>
+                                    </div>
+                                    <div class="col">
+                                        <div class="row">
+                                            <span class="text-success text-bold font-15">{{number_format(calculateDiscountedPrice($course->price, $course->discount_percent)) . ' تومان '}}</span>
+                                        </div>
+                                        <div class="row">
+                                            <del class="text-muted font-12 me-2">{{number_format($course->price)}}</del>
+                                        </div>
+                                    </div>
 
-                                <span class="text-success text-bold font-14">{{number_format(calculateDiscountedPrice($course->price, $course->discount_percent)) . ' تومان '}}</span>
+                                </div>
                             </li>
                         @else
                             <li class="list-group-item font-13 py-3"> قیمت دوره : {{number_format($course->price)}} تومان</li>
@@ -103,7 +113,7 @@
                     <!-- discount percent icon -->
                     @if($course->discount_percent)
                         <div class="over-layer-discount">
-                            <img src="/assets/images/discount.png" width="150px">
+                            <img src="/assets/images/discount.png" width="100px">
                         </div>
                     @endif
 
@@ -392,8 +402,8 @@
     <style>
         .over-layer-discount {
             position: absolute;
-            top: -10px;
-            right: -25px;
+            top: -12px;
+            left: 17px;
             width: 100%;
             height: 100%;
             visibility: visible;
