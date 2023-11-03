@@ -18,11 +18,13 @@
             </video>
         </div>
 
-        <div class="row">
-            <p class="font-14 my-3">توضیحات جلسه :</p>
+        @if(!empty($lesson->description))
+            <div class="row">
+                <p class="font-15 my-3 text-bold">توضیحات جلسه</p>
 
-            <b class="vazir-font font-15 text-justify line-height">{!! $lesson->description ?: '.........' !!}</b>
-        </div>
+                <div id="description">{!! $lesson->description !!}</div>
+            </div>
+        @endif
 
         {{--        <div class="row">--}}
         {{--            @if($lesson->is_complete)--}}
@@ -42,5 +44,9 @@
 @push('scripts')
     <script>
         $('#lesson-video').attr("controlslist", "nodownload")
+    </script>
+
+    <script>
+        $('#description *').addClass('vazir-font font-14 text-justify line-height text-bold');
     </script>
 @endpush

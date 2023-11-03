@@ -121,7 +121,7 @@
 
                 <h1 class="font-14 my-3">{{$course->name}}</h1>
 
-                <p class="vazir-font font-13 text-justify line-height">{!! $course->description !!}</p>
+                <div id="description">{!! $course->description !!}</div>
 
                 <p class="font-14 my-3">سر فصل ها :</p>
 
@@ -394,6 +394,10 @@
                 }
             });
         });
+    </script>
+
+    <script>
+        $('#description *').addClass('vazir-font font-14 text-justify line-height');
     </script>
 @endpush
 

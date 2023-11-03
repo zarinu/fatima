@@ -35,7 +35,7 @@
 
                                             <a href="{{route('courses.show', ['course' => $course->id])}}" class="my-3 d-block font-25 text-dark">{{$course->name}}</a>
 
-                                            <p class="font-13 line-height text-justify">{!! $course->description !!}</p>
+                                            <div id="description">{!! $course->description !!}</div>
                                             <p class="font-15 line-height text-justify">{{ $course->private_description }}</p>
 
                                             <button type="button" class="btn btn-info font-13 float-end" data-bs-toggle="collapse" data-bs-target="#download1">مشاهده لینک دانلود</button>
@@ -103,3 +103,9 @@
     </div>
 
 @endsection
+
+@push('scripts')
+    <script>
+        $('#description *').addClass('font-14 line-height text-justify');
+    </script>
+@endpush
