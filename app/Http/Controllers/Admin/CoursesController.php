@@ -39,7 +39,6 @@ class CoursesController extends Controller
             'video' => 'nullable|file|mimes:mp4|max:65536', // 10MB
         ]);
 
-        $validated['uploaded_count'] = 0;
         $validated['teacher_name'] = 'حانیه حیدری';
         $validated['user_id'] = auth()->id();
 

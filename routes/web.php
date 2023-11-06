@@ -47,6 +47,8 @@ Route::group(['middleware' => ['web']], function () {
     // Comments
     Route::group(['prefix' => 'comments'], function () {
         Route::post('/store', [CommentsController::class, 'store']);
+        Route::get('/{comment}/like', [CommentsController::class, 'like']);
+        Route::get('/{comment}/dislike', [CommentsController::class, 'dislike']);
     });
 
     // Panel
@@ -135,14 +137,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     // Comments Management
     Route::prefix('comments')->controller(\App\Http\Controllers\Admin\CommentsController::class)->group(function () {
         Route::get('/', 'index');
-//        Route::get('/create', 'create');
-//        Route::post('/store', 'store');
         Route::prefix('{comment}')->group(function() {
             Route::get('/activate', 'activate');
-//            Route::get('/show', 'show');
-//            Route::get('/edit', 'edit');
-//            Route::post('/update', 'update');
-//            Route::get('/delete', 'delete');
+            Route::get('/inactivate', 'inactivate');
+            Route::get('/edit', 'edit');
+            Route::post('/update', 'update');
+            Route::get('/delete', 'delete');
         });
     });
 

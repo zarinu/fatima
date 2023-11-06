@@ -315,13 +315,13 @@
 
                                         <span class="font-15 me-4"><i class="far fa-comment text-danger me-1"></i>({{count($comment->children)}})</span>
 
-                                        <span class="font-15 me-4"><i class="far fa-thumbs-up text-success me-1"></i>({{$comment->likes ?: 0}})</span>
+                                        <span class="font-15 me-4"><a href="/comments/{{$comment->id}}/like"><i class="far fa-thumbs-up text-success me-1"></i></a>({{$comment->likes ?: 0}})</span>
 
-                                        <span class="font-15 me-4"><i class="far fa-thumbs-down text-muted me-1"></i>({{$comment->dislikes ?: 0}})</span>
+                                        <span class="font-15 me-4"><a href="/comments/{{$comment->id}}/dislike"><i class="far fa-thumbs-down text-muted me-1"></i></a>({{$comment->dislikes ?: 0}})</span>
 
                                     </div>
 
-                                    @foreach($comment->children as $child_comment)
+                                    @foreach($comment->children()->where('status', 'active')->get() as $child_comment)
                                     <div class="bg-white shadow-sm mx-5 mt-3 p-3 rounded"><!-- start reply box -->
 
                                         <div class="d-flex justify-content-between align-items-center">

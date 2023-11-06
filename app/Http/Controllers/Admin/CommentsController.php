@@ -29,67 +29,46 @@ class CommentsController extends Controller
         ]);
     }
 
-//    public function create()
-//    {
-//        $data['sidebar_item'] = 'comments_create';
-//        $data['title'] = 'ثبت دیدگاه';
-//        return view('admin.comments.form', $data);
-//    }
-//
-//    public function store(Request $request)
-//    {
-//        $validated = $request->validate([
-//            'user_id' => 'nullable|integer',
-//            'code' => 'required|string|between:3,10',
-//            'type' => 'required|in:percentage,numeric',
-//            'value' => 'required|integer',
-//            'count' => 'nullable|integer',
-//            'start_at' => 'required|date',
-//            'expire_at' => 'required|date',
-//        ]);
-//
-//        Comment::create($validated);
-//
-//        return redirect('/admin/comments')->with([
-//            'status' => 'success',
-//            'message' => 'دیدگاه با موفقیت ثبت شد.',
-//        ]);
-//    }
-//
-//    public function edit(Comment $discount)
-//    {
-//        $data['sidebar_item'] = 'comments_create';
-//        $data['title'] = 'ویرایش دیدگاه شماره ' . $discount->id . '#';
-//        $data['discount'] = $discount;
-//        return view('admin.comments.form', $data);
-//    }
-//
-//    public function update(Request $request, Comment $discount)
-//    {
-//        $validated = $request->validate([
-//            'user_id' => 'nullable|integer',
-//            'code' => 'required|string|between:3,10',
-//            'type' => 'required|in:percentage,numeric',
-//            'value' => 'required|integer',
-//            'count' => 'required|integer',
-//            'start_at' => 'required|date',
-//            'expire_at' => 'required|date',
-//        ]);
-//
-//        $discount->fill($validated)->save();
-//
-//        return redirect('/admin/comments')->with([
-//            'status' => 'success',
-//            'message' => 'دیدگاه با موفقیت ویرایش شد.',
-//        ]);
-//    }
-//
-//    public function delete(Comment $discount)
-//    {
-//        $discount->delete();
-//        return redirect('/admin/comments')->with([
-//            'status' => 'success',
-//            'message' => 'دیدگاه با موفقیت حذف شد.',
-//        ]);
-//    }
+    public function inactivate(Comment $comment) {
+        $comment->status = 'inactive';
+        $comment->save();
+
+        return back()->with([
+            'status' => 'success',
+            'message' => 'نظر با موفقیت غیرفعال گردید.',
+        ]);
+    }
+
+    public function edit(Comment $comment)
+    {
+        $data['sidebar_item'] = 'comments';
+        $data['title'] = 'ویرایش دیدگاه شماره ' . $comment->id . '#';
+        $data['comment'] = $comment;
+        return view('admin.comments.form', $data);
+    }
+
+    public function update(Request $request, Comment $comment)
+    {
+        $validated = $request->validate([
+            'name' => 'required|string',
+            'content' => 'required|string',
+            'status' => 'required|in:active,inactive',
+        ]);
+
+        $comment->fill($validated)->save();
+
+        return redirect('/admin/comments')->with([
+            'status' => 'success',
+            'message' => 'دیدگاه با موفقیت ویرایش شد.',
+        ]);
+    }
+
+    public function delete(Comment $comment)
+    {
+        $comment->delete();
+        return redirect('/admin/comments')->with([
+            'status' => 'success',
+            'message' => 'دیدگاه با موفقیت حذف شد.',
+        ]);
+    }
 }

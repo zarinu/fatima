@@ -80,7 +80,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['comments', 'comments_unread', 'comments_create']) ? 'menu-open' : ''}}">
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['comments', 'comments_unread']) ? 'menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-comment"></i>
                             <p>
