@@ -48,6 +48,14 @@
 
                     <li class="list-group-item font-13 py-3">{{$course->name}}</li>
 
+                    <li class="list-group-item font-13 py-3">
+                        امتیاز دوره :
+                        <span class="text-warning">
+                            <i class="fa fa-star" style="font-size: 18px !important;"></i>
+                            <span class="font-15">{{$course->rate}} ({{$course->score}} رای)</span>
+                        </span>
+                    </li>
+
                     <li class="list-group-item font-13 py-3">مدرس : {{$course->teacher_name}}</li>
 
                     <li class="list-group-item font-13 py-3">وضعیت دوره : {{\App\Models\Course::$statuses[$course->status]}}</li>
@@ -293,7 +301,7 @@
                                                         $mute_stars = 5 - $stars;
                                                     @endphp
                                                     @for($x = 1; $x <= $mute_stars; $x++)
-                                                        <i class="fa fa-star me-1 font-13 text-muted"></i>
+                                                        <i class="fa fa-star-o me-1 font-13 text-warning"></i>
                                                     @endfor
                                                     @for($x = 1; $x <= $stars; $x++)
                                                         <i class="fa fa-star me-1 font-13 text-warning"></i>
@@ -322,19 +330,19 @@
                                     </div>
 
                                     @foreach($comment->children()->where('status', 'active')->get() as $child_comment)
-                                    <div class="bg-white shadow-sm mx-5 mt-3 p-3 rounded"><!-- start reply box -->
+                                        <div class="bg-white shadow-sm mx-5 mt-3 p-3 rounded"><!-- start reply box -->
 
-                                        <div class="d-flex justify-content-between align-items-center">
+                                            <div class="d-flex justify-content-between align-items-center">
 
-                                            <p class="font-13 text-danger"> {{$child_comment->name}} </p>
+                                                <p class="font-13 text-danger"> {{$child_comment->name}} </p>
 
-                                            <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> {{\Morilog\Jalali\Jalalian::fromCarbon($child_comment->created_at)->format('%d %B %Y')}} </span>
+                                                <span class="font-12 text-muted"> <i class="fa fa-calendar font-14 me-2"></i> {{\Morilog\Jalali\Jalalian::fromCarbon($child_comment->created_at)->format('%d %B %Y')}} </span>
 
-                                        </div>
+                                            </div>
 
-                                        <p class="font-13 vazir-font line-height"> {{$child_comment->content}} </p>
+                                            <p class="font-13 vazir-font line-height"> {{$child_comment->content}} </p>
 
-                                    </div><!-- end reply box -->
+                                        </div><!-- end reply box -->
                                     @endforeach
 
                                 </div><!-- end comment item -->
