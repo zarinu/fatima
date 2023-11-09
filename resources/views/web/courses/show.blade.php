@@ -163,7 +163,7 @@
 
                                     <a href="{{route('lessons.show', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="m-1 lesson-field">{{$lesson->title}}</a>
 
-                                    @if($lesson->is_complete)
+                                    @if($lesson->is_complete())
                                         <div class="float-end color-green">
                                             <i class="fa fa-check-circle"></i>
                                             <span class="lesson-check-complete"> تکمیل شده </span>

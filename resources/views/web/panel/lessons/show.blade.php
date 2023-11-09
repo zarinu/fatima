@@ -5,6 +5,14 @@
 
     @include('includes.user_panel.breadcrumb')
 
+    <div class="container mt-4">
+        @if(session('status'))
+            <div class="alert alert-{{session('status')}}">
+                <span class="font-15">{{ session('message') }}</span>
+            </div>
+        @endif
+    </div>
+
     <div class="container">
 
         <div class="row mb-1">
@@ -26,17 +34,17 @@
             </div>
         @endif
 
-        {{--        <div class="row">--}}
-        {{--            @if($lesson->is_complete)--}}
-        {{--                <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete" class="btn btn-lg btn-outline-success float-end font-13 my-3 toggle-status-complete">انجام شد</a>--}}
-        {{--            @else--}}
-        {{--                <a href="/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete" class="btn btn-lg btn-outline-info float-end font-13 my-3 toggle-status-complete">علامت بزن اگر انجام شده</a>--}}
-        {{--            @endif--}}
-        {{--        </div>--}}
+        <div class="row">
+            @if($lesson->is_complete())
+                <a href="/panel/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete/0" class="btn btn-lg btn-outline-success float-end font-13 my-3 toggle-status-complete">انجام شد</a>
+            @else
+                <a href="/panel/courses/{{$course->id}}/lessons/{{$lesson->id}}/toggle-complete/1" class="btn btn-lg btn-outline-info float-end font-13 my-3 toggle-status-complete">علامت بزن اگر انجام شده</a>
+            @endif
+        </div>
 
-        {{--        <div class="row mb-2">--}}
-        {{--            <a href="#">&rsaquo; درس بعدی: الگوی پویا</a>--}}
-        {{--        </div>--}}
+        <div class="row mb-2">
+            <a href="#">&rsaquo; درس بعدی: الگوی پویا</a>
+        </div>
 
     </div>
 @endsection

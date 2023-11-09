@@ -38,6 +38,13 @@
                                             <div id="description">{!! $course->description !!}</div>
                                             <p class="font-15 line-height text-justify">{{ $course->private_description }}</p>
 
+                                            <div class="mb-3"> <!-- نوار پیشرفت دوره -->
+                                                <label class="font-15">نوار پیشرفت دوره</label>
+                                                <div class="progress">
+                                                    <div class="progress-bar progress-bar-striped progress-bar-animated bg-success" role="progressbar" style="width: {{$course->progress_percent()}}%">{{$course->progress_percent()}}%</div>
+                                                </div>
+                                            </div>
+
                                             <button type="button" class="btn btn-info font-13 float-end" data-bs-toggle="collapse" data-bs-target="#download1">مشاهده لینک دانلود</button>
 
                                         </div>
@@ -67,15 +74,15 @@
                                                         </div><!-- end course list item -->
 
                                                         <table class="table table-borderless text-right font-13">
-                                                        @foreach($chapter->lessons as $lesson)
-                                                            <tr>
+                                                            @foreach($chapter->lessons as $lesson)
+                                                                <tr>
 
-                                                                <td><a href="{{route('lessons.show', ['course' => $course->id, 'lesson' => $lesson->id])}}">{{$lesson->title}}</a></td>
+                                                                    <td><a href="{{route('lessons.show', ['course' => $course->id, 'lesson' => $lesson->id])}}">{{$lesson->title}}</a></td>
 
-                                                                <td><a href="{{route('lessons.download', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-warning text-white float-end font-12"><i class="fa fa-download align-middle me-2"></i>دانلود</a></td>
+                                                                    <td><a href="{{route('lessons.download', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-warning text-white float-end font-12"><i class="fa fa-download align-middle me-2"></i>دانلود</a></td>
 
-                                                            </tr>
-                                                        @endforeach
+                                                                </tr>
+                                                            @endforeach
                                                         </table>
                                                     </tr>
                                                 @endforeach

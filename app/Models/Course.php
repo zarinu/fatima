@@ -35,6 +35,11 @@ class Course extends Model
         return $this->hasMany(Lesson::class);
     }
 
+    public function userViewedLessons(): HasMany
+    {
+        return $this->hasMany(UserViewedLesson::class);
+    }
+
     public static array $statuses = [
         'completed' => 'تکمیل شده',
         'pre-sell' => 'پیش فروش',
@@ -67,5 +72,12 @@ class Course extends Model
 
     public function comments() {
         return $this->hasMany(Comment::class, 'item_id')->where('item', 'course');
+    }
+
+    public function progress_percent() {
+        if($this->uploaded_count == 0) {
+            return null;
+        }
+        return (int)(($this->userViewedLessons()->count()) * 100 / ($this->uploaded_count));
     }
 }

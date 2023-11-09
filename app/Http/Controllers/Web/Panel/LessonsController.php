@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Web\Panel;
 use App\Http\Controllers\Controller;
 use App\Models\Course;
 use App\Models\Lesson;
+use App\Models\UserViewedLesson;
 use Illuminate\Contracts\View\View;
 use Illuminate\Support\Facades\Response;
 
@@ -37,11 +38,21 @@ class LessonsController extends Controller
         return Response::download($lesson->get_url(), str_replace(' ', '_', $lesson->title));
     }
 
-//    public function toggle_complete(Course $course, Lesson $lesson): \Illuminate\Foundation\Application|\Illuminate\Routing\Redirector|\Illuminate\Http\RedirectResponse|\Illuminate\Contracts\Foundation\Application
-//    {
-//        $lesson->is_complete = !$lesson->is_complete;
-//        $lesson->save();
-//
-//        return back()->withInput();
-//    }
+    public function toggleComplete(Course $course, Lesson $lesson, bool $status)
+    {
+        UserViewedLesson::updateOrCreate([
+            'user_id' => auth()->id(),
+            'course_id' => $course->id,
+            'chapter_id' => $lesson->chapter->id,
+            'lesson_id' => $lesson->id,
+        ],
+        [
+            'is_complete' => $status,
+        ]);
+
+        return back()->with([
+            'status' => 'success',
+            'message' => ($status ? 'جلسه تکمیل شد.' : 'جلسه به عنوان کامل نشده علامت خورد.'),
+        ]);
+    }
 }

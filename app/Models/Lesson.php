@@ -35,4 +35,21 @@ class Lesson extends Model
     {
         return $this->belongsTo(Chapter::class);
     }
+
+    public function is_complete(): bool
+    {
+        if(!auth()->check()) {
+            return false;
+        }
+
+        $lesson_viewed = UserViewedLesson::where([
+            'user_id' => auth()->id(),
+            'lesson_id' => $this->id,
+        ])->first();
+
+        if(empty($lesson_viewed)) {
+            return false;
+        }
+        return $lesson_viewed->is_complete;
+    }
 }

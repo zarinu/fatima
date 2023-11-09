@@ -19,7 +19,7 @@ class UserViewedLesson extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'user_id', 'course_id', 'chapter_id', 'lesson_id',
+        'user_id', 'course_id', 'chapter_id', 'lesson_id', 'is_complete',
     ];
 
     public function user(): BelongsTo

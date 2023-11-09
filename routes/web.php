@@ -62,7 +62,7 @@ Route::group(['middleware' => ['web']], function () {
             Route::prefix('/{course}/lessons/{lesson}')->group(function () {
                 Route::get('/', [LessonsController::class, 'show'])->name('lessons.show');
                 Route::get('/download', [LessonsController::class, 'download'])->name('lessons.download');
-                // Route::get('/toggle-complete', [LessonsController::class, 'toggleComplete']);
+                Route::get('/toggle-complete/{status}', [LessonsController::class, 'toggleComplete']);
             });
         });
 
@@ -109,29 +109,29 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
         Route::controller(App\Http\Controllers\Admin\ChaptersController::class)
             ->prefix('{course}/chapters')->group(function () {
 
-            Route::get('/', 'index');
-            Route::get('/create', 'create');
-            Route::post('/store', 'store');
-            Route::prefix('{chapter}')->group(function() {
-                Route::get('/edit', 'edit');
-                Route::post('/update', 'update');
-                Route::get('/delete', 'delete');
+                Route::get('/', 'index');
+                Route::get('/create', 'create');
+                Route::post('/store', 'store');
+                Route::prefix('{chapter}')->group(function() {
+                    Route::get('/edit', 'edit');
+                    Route::post('/update', 'update');
+                    Route::get('/delete', 'delete');
+                });
             });
-        });
 
         // Lessons
         Route::controller(App\Http\Controllers\Admin\LessonsController::class)
             ->prefix('{course}/lessons')->group(function () {
 
-            Route::get('/', 'index');
-            Route::get('/create', 'create');
-            Route::post('/store', 'store');
-            Route::prefix('{lesson}')->group(function() {
-                Route::get('/edit', 'edit');
-                Route::post('/update', 'update');
-                Route::get('/delete', 'delete');
+                Route::get('/', 'index');
+                Route::get('/create', 'create');
+                Route::post('/store', 'store');
+                Route::prefix('{lesson}')->group(function() {
+                    Route::get('/edit', 'edit');
+                    Route::post('/update', 'update');
+                    Route::get('/delete', 'delete');
+                });
             });
-        });
     });
 
     // Comments Management
