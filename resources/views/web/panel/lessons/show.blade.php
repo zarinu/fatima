@@ -43,7 +43,9 @@
         </div>
 
         <div class="row mb-2">
-            <a href="#">&rsaquo; درس بعدی: الگوی پویا</a>
+            <a class="col font-14 btn btn-lg btn-info m-1 {{empty($lesson->previous_lesson_id) ? 'disabled' : ''}}" href="/panel/courses/{{$course->id}}/lessons/{{$lesson->previous_lesson_id}}">&#x21e8; درس قبلی </a>
+
+            <a class="col font-14 btn btn-lg btn-info m-1 {{empty($lesson->next_lesson_id) ? 'disabled' : ''}}" href="/panel/courses/{{$course->id}}/lessons/{{$lesson->next_lesson_id}}"> درس بعدی &#x21e6;</a>
         </div>
 
     </div>

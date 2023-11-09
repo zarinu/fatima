@@ -51,6 +51,13 @@ class LessonsController extends Controller
                 $validated['content']->move(public_path('media/courses/'. $course->id), $content_path);
             }
 
+            if($course->lessons()->count() > 1) {
+                $previous_lesson = $course->lessons()->whereNull('next_lesson_id')->first();
+                $lesson->previous_lesson_id = $previous_lesson->id;
+                $previous_lesson->next_lesson_id = $lesson->id;
+                $previous_lesson->save();
+            }
+
             $lesson->save();
 
             return redirect('/admin/courses/' . $course->id . '/lessons')->with([

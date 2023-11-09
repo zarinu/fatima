@@ -21,6 +21,7 @@ class Lesson extends Model
      */
     protected $fillable = [
         'course_id', 'chapter_id', 'title', 'description', 'content_path', 'order',
+        'previous_lesson_id', 'next_lesson_id',
     ];
 
     public function course() {
