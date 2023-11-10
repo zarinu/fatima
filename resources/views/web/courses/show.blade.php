@@ -450,7 +450,7 @@
     </script>
 
     <script>
-        $('#course_description *').addClass('vazir-font font-14 text-justify line-height');
+        $('#course_description *, #course_description').addClass('vazir-font font-14 text-justify line-height');
     </script>
 @endpush
 

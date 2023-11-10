@@ -113,6 +113,6 @@
 
 @push('scripts')
     <script>
-        $('#description *').addClass('font-14 line-height text-justify');
+        $('#description *, #description').addClass('font-14 line-height text-justify');
     </script>
 @endpush

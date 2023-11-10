@@ -57,6 +57,6 @@
     </script>
 
     <script>
-        $('#description *').addClass('vazir-font font-14 text-justify line-height text-bold');
+        $('#description *, #description').addClass('vazir-font font-14 text-justify line-height text-bold');
     </script>
 @endpush
