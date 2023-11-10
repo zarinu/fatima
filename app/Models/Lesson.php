@@ -37,6 +37,16 @@ class Lesson extends Model
         return $this->belongsTo(Chapter::class);
     }
 
+    public function previousLesson(): BelongsTo
+    {
+        return $this->belongsTo(Lesson::class, 'previous_lesson_id');
+    }
+
+    public function nextLesson(): BelongsTo
+    {
+        return $this->belongsTo(Lesson::class, 'next_lesson_id');
+    }
+
     public function is_complete(): bool
     {
         if(!auth()->check()) {

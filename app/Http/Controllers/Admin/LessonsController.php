@@ -113,6 +113,27 @@ class LessonsController extends Controller
         if (!empty($lesson->content_path) && File::exists(public_path($lesson->get_url()))){
             File::delete(public_path($lesson->get_url()));
         }
+
+        // change the previous and next lesson
+        if($lesson->previousLesson) {
+            if($lesson->nextLesson) {
+                $lesson->previousLesson->next_lesson_id = $lesson->nextLesson->id;
+            } else {
+                $lesson->previousLesson->next_lesson_id = null;
+            }
+
+            $lesson->previousLesson->save();
+        }
+        if($lesson->nextLesson) {
+            if($lesson->previousLesson) {
+                $lesson->nextLesson->previous_lesson_id = $lesson->previousLesson->id;
+            } else {
+                $lesson->nextLesson->previous_lesson_id = null;
+            }
+
+            $lesson->nextLesson->save();
+        }
+
         $lesson->delete();
 
         return redirect('/admin/courses/' . $course->id . '/lessons')->with([
