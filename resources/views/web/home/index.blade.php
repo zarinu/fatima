@@ -91,7 +91,47 @@
 
     </div><!-- end category boxes -->
 
-    <div class="container d-flex justify-content-between mt-5 mb-4"><!-- start title-->
+    <div class="container pt-3"><!-- start category boxes -->
+
+        <div class="container d-flex justify-content-between"><!-- start title-->
+
+            <div class="title">
+
+                <p class="font-14 ps-2">گالری تصاویر هنرجویان</p>
+
+                <p class="font-12 ps-3 text-muted">ببین افرادی مثل تو چیکار کردن...</p>
+
+            </div>
+
+            <a href="/" class="title-btn align-self-start"> همه تصاویر <i class="fa fa-arrow-left align-middle"></i></a>
+
+        </div><!-- end title-->
+
+        <div class="row">
+            <div class="owl-carousel owl-theme">
+                <div class="col">
+                    <img src="/media/students/1.jpg" style="border-radius:10px">
+                </div>
+                <div class="col">
+                    <img src="/media/students/2.jpg" style="border-radius:10px">
+                </div>
+                <div class="col">
+                    <img src="/media/students/3.jpg" style="border-radius:10px">
+                </div>
+                <div class="col">
+                    <img src="/media/students/4.jpg" style="border-radius:10px">
+                </div>
+                <div class="col">
+                    <img src="/media/students/5.jpg" style="border-radius:10px">
+                </div>
+                <div class="col">
+                    <img src="/media/students/6.jpg" style="border-radius:10px">
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="container d-flex justify-content-between mt-3"><!-- start title-->
 
         <div class="title">
 
@@ -178,7 +218,7 @@
 
                 <div class="col-12">
 
-                    <div class="owl-carousel owl-theme owl-rtl">
+                    <div class="owl-carousel owl-theme owl-rtl owl-animated-in">
 
                         <div class="item"><!-- start comment item -->
 
@@ -344,3 +384,21 @@
     </div><!-- end comment slider -->
 
 @endsection
+
+@push('scripts')
+    <script>
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            animateOut: 'slideOutDown',
+            animateIn: 'flipInX',
+            items:4,
+            nav:true,
+            loop:true,
+            autoplay:true,
+            // autoplayTimeout:1000,
+            // autoplaySpeed:5000,
+            autoplayHoverPause:true,
+        });
+        owl.trigger('play.owl.autoplay',[5000])
+    </script>
+@endpush

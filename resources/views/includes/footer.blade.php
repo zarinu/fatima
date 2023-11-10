@@ -10,7 +10,7 @@
 
                 <p class="line-height font-13 mb-1">
                     اینجا یاد میگیری حرفه ای عروسک بسازی
-                    <i class="fa fa-heart"></i>
+                    <i class="fa fa-hand-holding-heart text-warning font-18"></i>
                 </p>
                 <p class="line-height font-13 mb-4">
                     فقط کافیه نخ، سوزن و یه تیکه پارچه برداری و با من همراه شی
@@ -78,7 +78,7 @@
             <div class="col-md-12 text-center py-2">
 
                 <p class="font-13 my-4"> کلیه حقوق این سایت محفوظ است.</p>
-                <p class="font-15 my-4"> طراحی و توسعه توسط <a href="https://eitaa.com/mrs_zarin">زهرا حیدری</a> </p>
+                <p class="font-15 my-4"> طراحی و توسعه با <i class="fa fa-heart color-red"></i> توسط <a href="https://eitaa.com/mrs_zarin">زهرا حیدری</a> </p>
 
                 <a href="#"><i class="fab fa-instagram social-media"></i></a>
 
