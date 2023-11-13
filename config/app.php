@@ -186,6 +186,7 @@ return [
          * Package Service Providers...
          */
         Kavenegar\Laravel\ServiceProvider::class,
+        Intervention\Image\ImageServiceProvider::class,
 
         /*
          * Application Service Providers...
@@ -212,6 +213,7 @@ return [
     'aliases' => Facade::defaultAliases()->merge([
         // 'ExampleClass' => App\Example\ExampleClass::class,
         'Kavenegar' => Kavenegar\Laravel\Facade::class,
+        'Image' => Intervention\Image\Facades\Image::class
     ])->toArray(),
     'Vite' => \Illuminate\Support\Facades\Vite::class,
 ];
