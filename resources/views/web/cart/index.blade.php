@@ -93,13 +93,12 @@
 
                     </div>
 
-                    <form method="POST" action="{{route('cart.discount')}}"><!-- start discount code form -->
+                    <form method="POST" class="mb-2" action="{{route('cart.discount')}}"><!-- start discount code form -->
                         @csrf
+                        <label for="discount_code" class="control-label mr-2">کد تخفیف</label>
                         <div class="row">
-                            <div class="col-3">
+                            <div class="col">
                                 <div class="form-group">
-                                    <label for="discount_code" class="control-label mr-2">کد تخفیف</label>
-
                                     <input type="text" class="form-control form-control-lg @error('discount_code') is-invalid @enderror" id="discount_code" name="discount_code" placeholder="کد تخفیف را وارد کنید">
                                 </div>
                                 @error('discount_code')
@@ -107,7 +106,7 @@
                                 @enderror
                             </div>
 
-                            <div class="col-1">
+                            <div class="col">
                                 <label></label>
                                 <input type="submit" class="btn btn-info" value="اعمال">
                             </div>

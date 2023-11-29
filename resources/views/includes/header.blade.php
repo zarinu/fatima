@@ -191,7 +191,7 @@
 
                         <p class="font-13">مبلغ کل :</p>
 
-                        <p class="font-13">{{number_format($cart['total_discount_price'])}} تومان </p>
+                        <p class="font-13">{{number_format($cart['price'] - $cart['total_discount_price'])}} تومان </p>
 
                     </div>
 
