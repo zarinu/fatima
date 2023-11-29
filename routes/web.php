@@ -190,6 +190,14 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
         Route::get('/{user_course}/delete', 'delete');
     });
 
+    // Student Photos Management
+    Route::prefix('student-photos')->controller(\App\Http\Controllers\Admin\StudentPhotosController::class)->group(function () {
+        Route::get('/', 'index');
+        Route::get('/create', 'create');
+        Route::post('/store', 'store');
+        Route::get('/{student_photo}/delete', 'delete');
+    });
+
     // Php Artisan Commands
     Route::get('/artisan/{param}', [ArtisanController::class, 'index']);
 });

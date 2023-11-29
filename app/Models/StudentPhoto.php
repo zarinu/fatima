@@ -27,4 +27,9 @@ class StudentPhoto extends Model
     {
         return $this->belongsTo(Course::class);
     }
+
+    public function photo()
+    {
+        return '/media/student_photos/' . $this->id . '.jpg';
+    }
 }

@@ -200,6 +200,30 @@
                         </ul>
                     </li>
 
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['student_photos', 'student_photos_create']) ? 'menu-open' : ''}}">
+                        <a href="#" class="nav-link">
+                            <i class="nav-icon fa fa-photo"></i>
+                            <p>
+                                گالری تصاویر هنرجویان
+                                <i class="right fa fa-angle-left"></i>
+                            </p>
+                        </a>
+                        <ul class="nav nav-treeview">
+                            <li class="nav-item">
+                                <a href="/admin/student-photos" class="nav-link {{$sidebar_item == 'student_photos' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>لیست تصاویر</p>
+                                </a>
+                            </li>
+                            <li class="nav-item">
+                                <a href="/admin/student-photos/create" class="nav-link {{$sidebar_item == 'student_photos_create' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>ایجاد تصویر جدید</p>
+                                </a>
+                            </li>
+                        </ul>
+                    </li>
+
                     <li class="nav-item">
                         <a href="/logout" class="nav-link">
                             <i class="nav-icon fa fa-sign-out"></i>
