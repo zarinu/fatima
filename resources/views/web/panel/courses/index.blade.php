@@ -76,11 +76,13 @@
                                                         <table class="table table-borderless text-right font-13">
                                                             @foreach($chapter->lessons as $lesson)
                                                                 <tr>
+                                                                    <div class="row font-13 m-2">{{$lesson->title}}</div>
 
-                                                                    <td><a href="{{route('lessons.show', ['course' => $course->id, 'lesson' => $lesson->id])}}">{{$lesson->title}}</a></td>
+                                                                    <div class="row align-content-center">
+                                                                        <div class="col"><a href="{{route('lessons.show', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-info text-white float-end font-12 mb-2">مشاهده آنلاین</a></div>
 
-                                                                    <td><a href="{{route('lessons.download', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-warning text-white float-end font-12"><i class="fa fa-download align-middle me-2"></i>دانلود</a></td>
-
+                                                                        <div class="col"><a href="{{route('lessons.download', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-warning text-white float-start font-12"><i class="fa fa-download align-middle me-2"></i>دانلود درس</a></div>
+                                                                    </div>
                                                                 </tr>
                                                             @endforeach
                                                         </table>
