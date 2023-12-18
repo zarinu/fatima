@@ -3,6 +3,7 @@
 use App\Http\Controllers\Admin\ArtisanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
+use App\Http\Controllers\TestController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CommentsController;
 use App\Http\Controllers\Web\CoursesController;
@@ -21,6 +22,8 @@ use Illuminate\Support\Facades\Route;
 | be assigned to the "web" middleware group. Make something great!
 |
 */
+
+Route::get('/test/{method}', [TestController::class, 'main']);
 
 // Web
 Route::group(['middleware' => ['web']], function () {
