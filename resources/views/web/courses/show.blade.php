@@ -60,7 +60,8 @@
 
                     <li class="list-group-item font-13 py-3">وضعیت دوره : {{\App\Models\Course::$statuses[$course->status]}}</li>
 
-                    <li class="list-group-item font-13 py-3">تعداد جلسات : {{$course->uploaded_count}} جلسه </li>
+                    @php $course_hours = (int)($course->total_hours/60) @endphp
+                    <li class="list-group-item font-13 py-3">مدت زمان : {{$course_hours}} ساعت و {{$course->total_hours - $course_hours*60}} دقیقه</li>
 
                     @if($course->status == 'not_for_sale')
                         <li class="list-group-item font-13 py-3"> قیمت دوره : نامشخص </li>
