@@ -2,6 +2,7 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Kavenegar;
 //use Kavenegar\Laravel\Message\KavenegarMessage;
@@ -17,28 +18,34 @@ class TestController extends Controller
 
     public function kavenegarMessageTest() {
         try{
-            $receptor = "09034964636";
-            $token = "حانیه";
-            $token2 = "456";
-            $template="ImportantMessage";
-            //Send null for tokens not defined in the template
-            //Pass token10 and token20 as parameter 6th and 7th
-            $result = Kavenegar::VerifyLookup($receptor, $token, $token2, null, $template);
+            foreach (User::all() as $user) {
+                $receptor = $user->mobile;
+                $token = explode(' ', $user->name)[0];
+                $token2 = $user->id;
+                $template = "ImportantMessage";
+                //Send null for tokens not defined in the template
+                //Pass token10 and token20 as parameter 6th and 7th
+                $result = Kavenegar::VerifyLookup($receptor, $token, $token2, null, $template);
 //            $result = (new KavenegarMessage())->verifyLookup($template,)->to($this->notifiable->mobile);
-            if($result){
-                foreach($result as $r){
-                    echo "messageid = $r->messageid";
-                    echo "message = $r->message";
-                    echo "status = $r->status";
-                    echo "statustext = $r->statustext";
-                    echo "sender = $r->sender";
-                    echo "receptor = $r->receptor";
-                    echo "date = $r->date";
-                    echo "cost = $r->cost";
+//            if($result){
+//                foreach($result as $r){
+//                    echo "messageid = $r->messageid";
+//                    echo "message = $r->message";
+//                    echo "status = $r->status";
+//                    echo "statustext = $r->statustext";
+//                    echo "sender = $r->sender";
+//                    echo "receptor = $r->receptor";
+//                    echo "date = $r->date";
+//                    echo "cost = $r->cost";
+//                }
+//            }
+
+//            dd('پیام ارسال شد برو حال کن');
+
+                if($result) {
+                    echo $user->id;
                 }
             }
-
-            dd('پیام ارسال شد برو حال کن');
         }
         catch(\Kavenegar\Exceptions\ApiException $e){
             // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد
