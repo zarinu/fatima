@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('mobile')->unique();
             $table->boolean('has_avatar')->nullable();
             $table->timestamp('mobile_verified_at')->nullable();
-            $table->string('password');
+            $table->string('password')->nullable();
             $table->rememberToken();
             $table->timestamps();
             $table->softDeletes();

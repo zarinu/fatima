@@ -3,13 +3,14 @@
 use App\Http\Controllers\Admin\ArtisanController;
 use App\Http\Controllers\Admin\DashboardController;
 use App\Http\Controllers\Admin\UsersController;
-use App\Http\Controllers\TestController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CommentsController;
 use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\Panel\LessonsController;
 use App\Http\Controllers\Web\Panel\PaymentsController;
 use App\Http\Controllers\Web\Panel\UserPanelController;
+use App\Http\Controllers\Web\DirectLinksController;
+use App\Http\Controllers\Web\TestController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -23,10 +24,13 @@ use Illuminate\Support\Facades\Route;
 |
 */
 
-Route::get('/test/{method}', [TestController::class, 'main']);
-
 // Web
 Route::group(['middleware' => ['web']], function () {
+    // Common routes
+    Route::get('/test/{method}', [TestController::class, 'main']);
+    Route::get('/خرید-دوره-لباس-عروسک', [DirectLinksController::class, 'getBuyDollClothesCourse']);
+    Route::post('/خرید-دوره-لباس-عروسک', [DirectLinksController::class, 'buyDollClothesCourse'])->name('direct_link');
+
     // Auth
     require __DIR__.'/auth.php';
 
