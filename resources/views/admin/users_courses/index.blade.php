@@ -7,30 +7,17 @@
 
             <div class="card">
                 <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                <div class="card-body" style="overflow-x: auto;">
+                    <table id="example1" class="table table-bordered table-responsive table-responsive-xxl table-hover table-striped">
                         <thead>
                         <tr>
-                            <th>#</th>
                             <th> کاربر </th>
+                            <th> موبایل </th>
                             <th> دوره </th>
                             <th> تاریخ ثبت </th>
                             <th> غیرفعال کردن دوره برای کاربر </th>
                         </tr>
                         </thead>
-                        <tbody>
-                        @foreach($users_courses as $user_course)
-                            <tr>
-                                <td>{{$user_course->id}}</td>
-                                <td>{{$user_course->user->name}}</td>
-                                <td>{{$user_course->course->name}}</td>
-                                <td>{{$user_course->created_at}}</td>
-                                <td>
-                                    <a class="m-2" href="/admin/users-courses/{{$user_course->id}}/delete" onclick="return confirm('واقعا میخوای `{{$user_course->course->name}}` رو برای `{{$user_course->user->name}}` غیرفعال کنی حذف کنی؟');"><i class="fa fa-trash"></i></a>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
                     </table>
                 </div>
                 <!-- /.card-body -->
@@ -42,24 +29,27 @@
 
 @endsection
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables/dataTables.bootstrap4.css') }}">
-@endpush
-
 @push('scripts')
-    <script src="{{ asset('/assets/plugins/datatables/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('/assets/plugins/datatables/dataTables.bootstrap4.js') }}"></script>
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "language": {
-                    "paginate": {
-                        "next": "بعدی",
-                        "previous" : "قبلی"
-                    }
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            // Initialize
+            $('#example1').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('user_courses.grid') }}",
+                columns: [
+                    { data: 'user_name' },
+                    { data: 'user_mobile' },
+                    { data: 'course_name' },
+                    { data: 'created_at' },
+                    { data: 'action', orderable:false },
+                ],
+                "oLanguage": {
+                    "sUrl": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
                 },
-                "info" : false,
             });
         });
+
     </script>
 @endpush

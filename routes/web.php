@@ -193,6 +193,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     // Users courses Management
     Route::prefix('users-courses')->controller(\App\Http\Controllers\Admin\UsersCoursesController::class)->group(function () {
         Route::get('/', 'index');
+        Route::get('/grid', 'grid')->name('user_courses.grid');
         Route::get('/create', 'create');
         Route::post('/store', 'store');
         Route::get('/{user_course}/delete', 'delete');

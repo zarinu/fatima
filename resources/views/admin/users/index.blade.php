@@ -38,7 +38,7 @@
                     { data: 'name' },
                     { data: 'mobile' },
                     { data: 'created_at' },
-                    { data: 'action' },
+                    { data: 'action', orderable:false },
                 ],
                 "oLanguage": {
                     "sUrl": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"

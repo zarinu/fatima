@@ -8,14 +8,35 @@ use App\Models\OrderItem;
 use App\Models\Payment;
 use App\Models\UserCourse;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class UsersCoursesController extends Controller
 {
     public function index()
     {
         $data['sidebar_item'] = 'users_courses';
-        $data['users_courses'] = UserCourse::all();
         return view('admin.users_courses.index', $data);
+    }
+
+    public function grid(Request $request)
+    {
+        if($request->ajax()){
+            $data = UserCourse::query()->orderByDesc('created_at')->with(['user', 'course']);
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    return '<a href="/admin/users-courses/'.$row->id.'/delete" class="delete btn btn-danger btn-sm mt-1" onclick="return confirm(`واقعا میخوای این دوره رو برای اون خانم غیر فعال کنی؟`)">حذف دسترسی</a>';
+                })
+                ->addColumn('user_name', function ($row) { return $row->user->name; })
+                ->addColumn('user_mobile', function ($row) { return $row->user->mobile; })
+                ->addColumn('course_name', function ($row) { return $row->course->name; })
+                ->editColumn('created_at', function ($row) {
+                    return \Morilog\Jalali\Jalalian::fromCarbon($row->created_at)->format('%d %B %Y');
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('admin.users_courses.index');
     }
 
     public function create()
