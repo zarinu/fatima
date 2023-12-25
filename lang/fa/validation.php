@@ -169,6 +169,9 @@ return [
         'attribute-name' => [
             'rule-name' => 'custom-message',
         ],
+        'mobile' => [
+            'numeric' => 'اعداد موبایل را انگلیسی وارد کنید.',
+        ],
     ],
 
     /*

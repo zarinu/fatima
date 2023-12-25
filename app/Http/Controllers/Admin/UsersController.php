@@ -47,7 +47,7 @@ class UsersController extends Controller
             'name' => 'required|string|min:3',
             'mobile' => ['required', 'numeric', 'regex:/09[0-9]{9}/', 'unique:users'],
             'password' => 'nullable|string|min:6',
-        ], ['mobile.numeric' => 'اعداد موبایل را انگلیسی وارد کنید.']);
+        ]);
 
         if(empty($validated['password'])) {
             $validated['password'] = 123456789;
@@ -75,9 +75,9 @@ class UsersController extends Controller
     {
         $validated = $request->validate([
             'name' => 'required|string|min:3',
-            'mobile' => ['required', 'numeric', 'regex:/09[0-9]{9}/', 'unique:users'],
+            'mobile' => ['required', 'numeric', 'regex:/09[0-9]{9}/', 'unique:users,mobile,'.$user->id.',id'],
             'password' => 'nullable|string|min:6',
-        ], ['mobile.numeric' => 'اعداد موبایل را انگلیسی وارد کنید.']);
+        ]);
 
         if(!empty($validated['password'])) {
             $validated['password'] = Hash::make($validated['password']);
