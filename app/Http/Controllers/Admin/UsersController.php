@@ -6,14 +6,32 @@ use App\Http\Controllers\Controller;
 use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Hash;
+use Yajra\DataTables\Facades\DataTables;
 
 class UsersController extends Controller
 {
     public function index()
     {
         $data['sidebar_item'] = 'users';
-        $data['users'] = User::where('role_id', 2)->get();
         return view('admin.users.index', $data);
+    }
+
+    public function grid(Request $request)
+    {
+        if($request->ajax()){
+            $data = User::query()->where('role_id', 2)->orderByDesc('created_at');
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    return '<a href="/admin/users/'.$row->id.'/edit" class="edit btn btn-success btn-sm">ویرایش</a> <a href="/admin/users/'.$row->id.'/delete" class="delete btn btn-danger btn-sm mt-1" onclick="return confirm(`واقعا میخوای ایشون رو حذف کنی؟`)">حذف</a>';
+                })
+                ->editColumn('created_at', function ($row) {
+                    return \Morilog\Jalali\Jalalian::fromCarbon($row->created_at)->format('%d %B %Y');
+                })
+                ->rawColumns(['action'])
+                ->make(true);
+        }
+        return view('admin.users.index');
     }
 
     public function create()

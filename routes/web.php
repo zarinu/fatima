@@ -88,6 +88,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     // Users Management
     Route::prefix('users')->controller(UsersController::class)->group(function () {
         Route::get('/', 'index');
+        Route::get('/grid', 'grid')->name('users.grid');
         Route::get('/create', 'create');
         Route::post('/store', 'store');
         Route::prefix('{user}')->group(function() {

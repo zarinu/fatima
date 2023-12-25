@@ -22,6 +22,8 @@
     <!-- template rtl version -->
     <link rel="stylesheet" href="{{ asset('/assets/dist/css/custom-style.css') }}">
 
+    <link href="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.css" rel="stylesheet">
+
     @stack('styles')
 </head>
 <body class="hold-transition sidebar-mini">
@@ -101,6 +103,8 @@
 <script src="{{ asset('/assets/dist/js/pages/dashboard.js') }}"></script>
 <!-- AdminLTE for demo purposes -->
 <script src="{{ asset('/assets/dist/js/demo.js') }}"></script>
+
+<script src="https://cdn.datatables.net/v/dt/dt-1.13.8/datatables.min.js"></script>
 
 @stack('scripts')
 </body>
