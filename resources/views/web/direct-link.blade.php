@@ -12,8 +12,8 @@
     <style>
         .submit_btn {
             display: flex;
-            background: #FBC53B;
-            box-shadow: 0 9px 0 #d59900;
+            background: #ffbf1b;
+            box-shadow: 0 9px 0 #eaa800;
             border-radius: 15px;
             justify-content: center;
             align-items: center;
@@ -33,7 +33,7 @@
         }
 
         body {
-            background-image: linear-gradient(#5f4af1, #d47cea);
+            background-image: linear-gradient(rgb(89, 71, 241), rgb(349, 181, 231));
         }
 
         .direct-link-item {
