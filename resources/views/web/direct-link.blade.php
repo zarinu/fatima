@@ -45,7 +45,7 @@
 </head>
 <body>
 <div class="container">
-    <img src="{{ asset('/assets/images/clothes_course.jpg') }}" width="100%" style="border-radius: 15px;">
+    <img src="{{ asset('/assets/images/dress_course.jpg') }}" width="100%" style="border-radius: 15px;">
 
     <form method="POST" action="{{ route('direct_link') }}"><!-- start login form -->
         @csrf
