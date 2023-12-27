@@ -39,9 +39,9 @@
                 serverSide: true,
                 ajax: "{{ route('user_courses.grid') }}",
                 columns: [
-                    { data: 'user_name' },
-                    { data: 'user_mobile' },
-                    { data: 'course_name' },
+                    { data: 'user_name', name: 'user.name'},
+                    { data: 'user_mobile', name: 'user.mobile'},
+                    { data: 'course_name', name: 'course.name'},
                     { data: 'created_at' },
                     { data: 'action', orderable:false },
                 ],

@@ -21,20 +21,18 @@ class UsersCoursesController extends Controller
     public function grid(Request $request)
     {
         if($request->ajax()){
-            $data = UserCourse::query()->orderByDesc('created_at')->with(['user', 'course']);
-            return DataTables::of($data)
-                ->addIndexColumn()
+            $data = UserCourse::with(['user', 'course'])->select('user_courses.*')->orderByRaw('user_courses.created_at DESC');
+            return DataTables::eloquent($data)
                 ->addColumn('action', function($row){
                     return '<a href="/admin/users-courses/'.$row->id.'/delete" class="delete btn btn-danger btn-sm mt-1" onclick="return confirm(`واقعا میخوای این دوره رو برای اون خانم غیر فعال کنی؟`)">حذف دسترسی</a>';
                 })
-                ->addColumn('user_name', function ($row) { return $row->user->name; })
-                ->addColumn('user_mobile', function ($row) { return $row->user->mobile; })
-                ->addColumn('course_name', function ($row) { return $row->course->name; })
+                ->addColumn('user_name', function (UserCourse $row) { return $row->user->name; })
+                ->addColumn('user_mobile', function (UserCourse $row) { return $row->user->mobile; })
+                ->addColumn('course_name', function (UserCourse $row) { return $row->course->name; })
                 ->editColumn('created_at', function ($row) {
                     return \Morilog\Jalali\Jalalian::fromCarbon($row->created_at)->format('%d %B %Y');
                 })
-                ->rawColumns(['action'])
-                ->make(true);
+                ->toJson();
         }
         return view('admin.users_courses.index');
     }
