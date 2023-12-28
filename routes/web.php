@@ -30,6 +30,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::get('/test/{method}', [TestController::class, 'main']);
     Route::get('/خرید-دوره-لباس-عروسک', [DirectLinksController::class, 'getBuyDollClothesCourse']);
     Route::post('/خرید-دوره-لباس-عروسک', [DirectLinksController::class, 'buyDollClothesCourse'])->name('direct_link');
+    Route::post('/buy-directly/cart', [DirectLinksController::class, 'buyDollClothesCourseByCart'])->name('direct_link_cart');
 
     // Auth
     require __DIR__.'/auth.php';

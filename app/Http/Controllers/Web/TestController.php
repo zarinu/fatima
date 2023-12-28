@@ -60,36 +60,38 @@ class TestController extends Controller
 
     public function kavenegarExcelMessageTest() {
 //        try{
-//            $json = \File::get(public_path('/media/users_fandogh.json'));
-//            $students = json_decode($json)->Sheet1;
-//            foreach ($students as $student) {
-//                $receptor = $student->mobile;
-//                $token = explode(' ', $student->name)[0];
-//                $token2 = 'qPU26i5nHD';
-//                $template = "UserDiscount";
-                //Send null for tokens not defined in the template
-                //Pass token10 and token20 as parameter 6th and 7th
-//                $result = \Kavenegar::VerifyLookup($receptor, $token, $token2, null, $template);
-//            $result = (new KavenegarMessage())->verifyLookup($template,)->to($this->notifiable->mobile);
-//            if($result){
-//                foreach($result as $r){
-//                    echo "messageid = $r->messageid";
-//                    echo "message = $r->message";
-//                    echo "status = $r->status";
-//                    echo "statustext = $r->statustext";
-//                    echo "sender = $r->sender";
-//                    echo "receptor = $r->receptor";
-//                    echo "date = $r->date";
-//                    echo "cost = $r->cost";
-//                }
-//            }
-
+////            $json = \File::get(public_path('/media/users_fandogh.json'));
+////            $students = json_decode($json)->Sheet1;
+////            foreach ($students as $student) {
+////                $receptor = $student->mobile;
+////                $receptor = '09377819036';
+////                $token = explode(' ', $student->name)[0];
+//                $token = 'دوره‌جامع‌لباس‌عروسک';
+////                $token2 = 'qPU26i5nHD';
+//                $template = "SuccessPayment";
+////                Send null for tokens not defined in the template
+////                Pass token10 and token20 as parameter 6th and 7th
+//                $result = \Kavenegar::VerifyLookup($receptor, $token, null, null, $template);
+////            $result = (new KavenegarMessage())->verifyLookup($template,)->to($this->notifiable->mobile);
+////            if($result){
+////                foreach($result as $r){
+////                    echo "messageid = $r->messageid";
+////                    echo "message = $r->message";
+////                    echo "status = $r->status";
+////                    echo "statustext = $r->statustext";
+////                    echo "sender = $r->sender";
+////                    echo "receptor = $r->receptor";
+////                    echo "date = $r->date";
+////                    echo "cost = $r->cost";
+////                }
+////            }
+//
 //            dd('پیام ارسال شد برو حال کن');
-//                dd($student->mobile);
-//                if($result) {
-//                    echo $student->mobile;
-//                }
-//            }
+////                dd($student->mobile);
+////                if($result) {
+////                    echo $student->mobile;
+////                }
+////            }
 //        }
 //        catch(\Kavenegar\Exceptions\ApiException $e){
 //            // در صورتی که خروجی وب سرویس 200 نباشد این خطا رخ می دهد

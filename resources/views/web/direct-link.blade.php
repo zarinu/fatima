@@ -77,6 +77,14 @@
 </head>
 <body>
 <div class="container">
+    @if (session('status'))
+        <div class="card-body">
+            <div class="alert alert-{{session('status')}} alert-dismissible">
+                <h5>پیام سایت</h5>
+                {{session('message')}}
+            </div>
+        </div>
+    @endif
     <img src="{{ asset('/assets/images/dress_course.jpg') }}" width="100%" style="border-radius: 15px;">
 
     <form method="POST" action="{{ route('direct_link') }}"><!-- start login form -->
@@ -148,7 +156,8 @@
                 </h2>
                 <div id="collapseOne" class="accordion-collapse collapse show" data-bs-parent="#accordionExample" style="">
                     <div class="accordion-body">
-                        <form id="card2cardForm" action="" method="post" enctype="multipart/form-data">
+                        <form id="card2cardForm" action="{{ route('direct_link_cart') }}" method="POST" enctype="multipart/form-data">
+                            @csrf
                             <div class="form-group mb-4">
                                 <input type="text" class="form-control" name="full_name" id="fullName" value="" placeholder="نام و نام خانوادگی: مجید حسینی">
                             </div>
@@ -164,8 +173,8 @@
                             <div class="form-group mb-4">
                                 <input type="text" class="form-control pwt-datepicker-input-element" name="paid_date" id="paidDate" value="" placeholder="تاریخ واریز مبلغ">
                             </div>
-                            <div class="form-group mb-3 upload-box">
-                                <label for="file" class="form-label upload-file">
+                            <div class="form-group mb-3">
+                                <label for="file" class="form-label">
                                         <span class="d-block mb-4">
                                             <svg class="scale-2" width="24" height="24" xmlns="http://www.w3.org/2000/svg" fill-rule="evenodd" clip-rule="evenodd"><path d="M11.492 10.172l-2.5 3.064-.737-.677 3.737-4.559 3.753 4.585-.753.665-2.5-3.076v7.826h-1v-7.828zm7.008 9.828h-13c-2.481 0-4.5-2.018-4.5-4.5 0-2.178 1.555-4.038 3.698-4.424l.779-.14.043-.789c.185-3.448 3.031-6.147 6.48-6.147 3.449 0 6.295 2.699 6.478 6.147l.044.789.78.14c2.142.386 3.698 2.246 3.698 4.424 0 2.482-2.019 4.5-4.5 4.5m.978-9.908c-.212-3.951-3.472-7.092-7.478-7.092s-7.267 3.141-7.479 7.092c-2.57.463-4.521 2.706-4.521 5.408 0 3.037 2.463 5.5 5.5 5.5h13c3.037 0 5.5-2.463 5.5-5.5 0-2.702-1.951-4.945-4.522-5.408"></path></svg>
                                         </span>
@@ -174,14 +183,10 @@
                                         </span>
                                     <span class="w-full mt-2 d-block">پسوند های مجاز: jpg, .jpeg, .png,  </span>
                                 </label>
-                                <input type="file" id="file" name="file" accept=".jpg,.png,.jpeg" class="d-none" onchange="uploadFile(this)">
+                                <input type="file" id="image" name="image" accept=".jpg,.png,.jpeg">
                             </div>
-                            <input type="hidden" id="submit_form_nonce" name="submit_form_nonce" value="595ec65cfb"><input type="hidden" name="_wp_http_referer" value="/card">                                <div id="userFilesBox"></div>
 
-                            <div>
-                                <ul id="errorsBox"></ul>
-                            </div>
-                            <button class="btn btn-success w-100 p-3 mb-8" type="button" style="background-color: #8321d2" onclick="submitForm()">
+                            <button class="btn btn-success w-100 p-3 mb-8" type="submit" style="background-color: #8321d2">
                                 ثبت اطلاعات
                             </button>
                         </form>
