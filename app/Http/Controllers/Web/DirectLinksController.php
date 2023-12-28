@@ -37,14 +37,12 @@ class DirectLinksController extends Controller
 
         $course = Course::find(1);
         $course_price = '490000';
-        $total_discount_price = 0;
         if(!empty($validated['discount_code']) && $validated['discount_code'] == 'qPU26i5nHD') {
             $course_price = '390000';
-            $total_discount_price = 100000;
         }
         $cart = [
             'price' => $course_price,
-            'total_discount_price' => $total_discount_price,
+            'total_discount_price' => '0',
             'items' => [
                 $course->id => [
                     'name' => $course->name,
