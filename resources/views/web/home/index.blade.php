@@ -23,7 +23,7 @@
 
                             <i class="fas fa-chalkboard-teacher" id="chalkboard-icon"></i>
 
-                            <span>بیش از 5سال سابقه</span>
+                            <span>بیش از 6سال سابقه</span>
 
                         </div>
 

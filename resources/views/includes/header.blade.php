@@ -255,19 +255,17 @@
 
                                     <ul class="responsive-menu-level-3 ps-0"><!-- start menu level 3 -->
 
-                                        <li class="menu-item-3"><a href="/courses">آموزش عروسک روسی</a></li>
+{{--                                        <li class="menu-item-3"><a href="/courses">آموزش عروسک روسی</a></li>--}}
 
                                         <li class="menu-item-3"><a href="/courses/2">آموزش عروسک فندق</a></li>
-
-                                        <li class="menu-item-3"><a href="/courses">آموزش صورت برجسته</a></li>
 
                                     </ul><!-- end menu level 3 -->
 
                                 </li>
 
-                                <li class="menu-item-2"><a href="/courses/1">دوره های آموزش لباس عروسک</a></li>
+                                <li class="menu-item-2"><a href="/courses/1">دوره جامع آموزش لباس عروسک</a></li>
 
-                                <li class="menu-item-2"><a href="/courses">دوره های آموزش متفرقه</a></li>
+{{--                                <li class="menu-item-2"><a href="/courses">دوره های آموزش متفرقه</a></li>--}}
 
                             </ul><!-- end menu level 2 -->
 
@@ -326,7 +324,7 @@
 
                             <li><a href="/courses/2">آموزش عروسک فندق</a></li>
 
-                            <li><a href="/courses">آموزش عروسک روسی</a></li>
+{{--                            <li><a href="/courses">آموزش عروسک روسی</a></li>--}}
 
                         </ul>
 
@@ -338,7 +336,7 @@
 
                             <li class="menu-title"><a href="/courses"><i class="fa fa-angle-left align-middle text-warning me-1"></i>دوره های آموزش لباس</a></li>
 
-                            <li><a href="/courses/1">آموزش لباس عروسک</a></li>
+                            <li><a href="/courses/1">آموزش جامع لباس عروسک</a></li>
 
                         </ul>
 
