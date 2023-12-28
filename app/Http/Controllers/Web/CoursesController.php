@@ -15,7 +15,7 @@ class CoursesController extends Controller
             ['title' => 'جستجو'],
         ];
 
-        $data['courses'] = Course::where('status', '<>', 'inactive')->get();
+        $data['courses'] = Course::where('status', '<>', 'inactive')->orderByDesc('order')->get();
         return view('web.courses.index', $data);
     }
 

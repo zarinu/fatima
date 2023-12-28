@@ -2,7 +2,7 @@
 
     <div class="row">
 
-        @foreach(\App\Models\Course::where('status', '<>', 'inactive')->get() as $course)
+        @foreach(\App\Models\Course::where('status', '<>', 'inactive')->orderByDesc('order')->get() as $course)
 
             <div class="col-lg-4 col-sm-6 "><!-- start course item -->
 
