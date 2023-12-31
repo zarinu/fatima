@@ -12,6 +12,12 @@ class ArtisanController extends Controller
         if($param === 'migrate') {
             Artisan::call('migrate');
             return 'done';
+        } else if($param === 'key') {
+            Artisan::call('key:generate');
+            return 'done';
+        } else if($param === 'clear') {
+            Artisan::call('cache:clear');
+            return 'done';
         } else {
             return 'invalid php artisan command';
         }
