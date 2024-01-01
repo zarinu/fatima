@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{ asset('/assets/css/bootstrap.rtl.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
+    <link rel="icon" href="favicon.png">
     <title>آموزش عروسک سازی حیدری | @yield('title')</title>
     @stack('styles')
 </head>

@@ -37,7 +37,10 @@ class Course extends Model
 
     public function userViewedLessons(): HasMany
     {
-        return $this->hasMany(UserViewedLesson::class);
+        return $this->hasMany(UserViewedLesson::class)
+            ->where('user_id', auth()->id())
+            ->where('course_id', $this->id)
+            ->where('is_complete', true);
     }
 
     public static array $statuses = [
@@ -74,10 +77,12 @@ class Course extends Model
         return $this->hasMany(Comment::class, 'item_id')->where('item', 'course');
     }
 
-    public function progress_percent() {
-        if($this->uploaded_count == 0) {
+    public function progress_percent(): ?int
+    {
+        $lessons_count = $this->lessons()->count();
+        if($lessons_count == 0) {
             return null;
         }
-        return (int)(($this->userViewedLessons()->count()) * 100 / ($this->uploaded_count));
+        return (int)($this->userViewedLessons()->count() * 100 / $lessons_count);
     }
 }
