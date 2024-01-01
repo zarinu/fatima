@@ -61,17 +61,15 @@ Route::group(['middleware' => ['web']], function () {
 
     // Panel
     Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'panel'], function () {
-        Route::get('/', [UserPanelController::class, 'dashboard'])->name('dashboard');
+//        Route::get('/', [UserPanelController::class, 'dashboard'])->name('dashboard');
+        Route::get('/', [CoursesController::class, 'myCourses'])->name('courses.panel');
 //        Route::get('/profile', [UserPanelController::class, 'editProfile'])->name('profile.edit');
 //        Route::post('/profile', [UserPanelController::class, 'updateProfile'])->name('profile.update');
 
-        Route::prefix('courses')->group(function () {
-            Route::get('/', [CoursesController::class, 'myCourses'])->name('courses.panel');
-            Route::prefix('/{course}/lessons/{lesson}')->group(function () {
-                Route::get('/', [LessonsController::class, 'show'])->name('lessons.show');
-                Route::get('/download', [LessonsController::class, 'download'])->name('lessons.download');
-                Route::get('/toggle-complete/{status}', [LessonsController::class, 'toggleComplete']);
-            });
+        Route::prefix('/courses/{course}/lessons/{lesson}')->group(function () {
+            Route::get('/', [LessonsController::class, 'show'])->name('lessons.show');
+            Route::get('/download', [LessonsController::class, 'download'])->name('lessons.download');
+            Route::get('/toggle-complete/{status}', [LessonsController::class, 'toggleComplete']);
         });
 
         Route::group(['prefix' => 'payments'], function () {

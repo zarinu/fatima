@@ -7,6 +7,12 @@
 
         <div class="container">
 
+            <div class="row text-center">
+
+                <a class="btn btn-danger btn-lg font-15 m-1 shadow" href="{{auth()->check() ? '/panel' : '/checking'}}"> میخوای دوره‌ات رو ببینی؟ کلیک کن </a>
+
+            </div>
+
             <div class="row">
 
                 <div class="col-lg-6">
@@ -67,7 +73,11 @@
 
     </div><!-- end banner -->
 
-    <div class="d-lg-none container" style="background-image: url('/assets/images/background1.jpg')"><!-- start category boxes -->
+    <div class="text-center">
+        <a class="btn btn-danger btn-lg font-15 mb-3 shadow" href="{{auth()->check() ? '/panel' : '/checking'}}"> میخوای دوره‌ات رو ببینی؟ کلیک کن </a>
+    </div>
+
+    <div class="d-lg-none container" style="background-image: url('/assets/images/background1.jpg')"><!-- start hanie image -->
         <row class="row">
             <div class="col-md-4 col-9">
                 <img src="/assets/images/hanie_heydary_responsive.png" width="400px" height="100px" class="img-fluid">
@@ -91,51 +101,51 @@
 
     </div><!-- end category boxes -->
 
-{{--    <div><!-- start student gallery images -->--}}
+    {{--    <div><!-- start student gallery images -->--}}
 
-{{--        <div class="container d-flex justify-content-between mt-3"><!-- start title-->--}}
+    {{--        <div class="container d-flex justify-content-between mt-3"><!-- start title-->--}}
 
-{{--            <div class="title">--}}
+    {{--            <div class="title">--}}
 
-{{--                <p class="font-14 ps-2">گالری تصاویر هنرجویان</p>--}}
+    {{--                <p class="font-14 ps-2">گالری تصاویر هنرجویان</p>--}}
 
-{{--                <p class="font-12 ps-3 text-muted">ببین افرادی مثل تو چیکار کردن...</p>--}}
+    {{--                <p class="font-12 ps-3 text-muted">ببین افرادی مثل تو چیکار کردن...</p>--}}
 
-{{--            </div>--}}
+    {{--            </div>--}}
 
-{{--            <a href="/" class="title-btn align-self-start"> همه تصاویر <i class="fa fa-arrow-left align-middle"></i></a>--}}
+    {{--            <a href="/" class="title-btn align-self-start"> همه تصاویر <i class="fa fa-arrow-left align-middle"></i></a>--}}
 
-{{--        </div><!-- end title-->--}}
+    {{--        </div><!-- end title-->--}}
 
-{{--        <div class="container"><!-- start category boxes -->--}}
+    {{--        <div class="container"><!-- start category boxes -->--}}
 
-{{--            <div class="row">--}}
-{{--                <div class="col-12">--}}
-{{--                    <div class="owl-carousel owl-theme">--}}
-{{--                        <div class="item">--}}
-{{--                            <img src="/media/students/1.jpg" style="border-radius:10px">--}}
-{{--                        </div>--}}
-{{--                        <div class="item">--}}
-{{--                            <img src="/media/students/2.jpg" style="border-radius:10px">--}}
-{{--                        </div>--}}
-{{--                        <div class="item">--}}
-{{--                            <img src="/media/students/3.jpg" style="border-radius:10px">--}}
-{{--                        </div>--}}
-{{--                        <div class="item">--}}
-{{--                            <img src="/media/students/4.jpg" style="border-radius:10px">--}}
-{{--                        </div>--}}
-{{--                        <div class="item">--}}
-{{--                            <img src="/media/students/5.jpg" style="border-radius:10px">--}}
-{{--                        </div>--}}
-{{--                        <div class="item">--}}
-{{--                            <img src="/media/students/6.jpg" style="border-radius:10px">--}}
-{{--                        </div>--}}
-{{--                    </div>--}}
-{{--                </div>--}}
-{{--            </div>--}}
-{{--        </div>--}}
+    {{--            <div class="row">--}}
+    {{--                <div class="col-12">--}}
+    {{--                    <div class="owl-carousel owl-theme">--}}
+    {{--                        <div class="item">--}}
+    {{--                            <img src="/media/students/1.jpg" style="border-radius:10px">--}}
+    {{--                        </div>--}}
+    {{--                        <div class="item">--}}
+    {{--                            <img src="/media/students/2.jpg" style="border-radius:10px">--}}
+    {{--                        </div>--}}
+    {{--                        <div class="item">--}}
+    {{--                            <img src="/media/students/3.jpg" style="border-radius:10px">--}}
+    {{--                        </div>--}}
+    {{--                        <div class="item">--}}
+    {{--                            <img src="/media/students/4.jpg" style="border-radius:10px">--}}
+    {{--                        </div>--}}
+    {{--                        <div class="item">--}}
+    {{--                            <img src="/media/students/5.jpg" style="border-radius:10px">--}}
+    {{--                        </div>--}}
+    {{--                        <div class="item">--}}
+    {{--                            <img src="/media/students/6.jpg" style="border-radius:10px">--}}
+    {{--                        </div>--}}
+    {{--                    </div>--}}
+    {{--                </div>--}}
+    {{--            </div>--}}
+    {{--        </div>--}}
 
-{{--    </div><!-- end of student gallery images -->--}}
+    {{--    </div><!-- end of student gallery images -->--}}
 
     <div class="container d-flex justify-content-between mt-3"><!-- start title-->
 
