@@ -1,39 +1,59 @@
 <?php
 
 use App\Http\Controllers\Auth\AuthenticatedSessionController;
+use App\Http\Controllers\Web\Auth\CheckingController;
 use App\Http\Controllers\Auth\ConfirmablePasswordController;
 use App\Http\Controllers\Auth\EmailVerificationNotificationController;
 use App\Http\Controllers\Auth\EmailVerificationPromptController;
+use App\Http\Controllers\Web\Auth\LoginController;
 use App\Http\Controllers\Auth\NewPasswordController;
 use App\Http\Controllers\Auth\PasswordController;
 use App\Http\Controllers\Auth\PasswordResetLinkController;
+use App\Http\Controllers\Web\Auth\RegisterController;
 use App\Http\Controllers\Auth\RegisteredUserController;
 use App\Http\Controllers\Auth\VerifyEmailController;
 use App\Http\Controllers\Auth\VerifyMobileController;
 use Illuminate\Support\Facades\Route;
 
 Route::middleware('guest')->group(function () {
-    Route::get('register', [RegisteredUserController::class, 'create'])
-                ->name('register');
+    Route::get('checking', [CheckingController::class, 'create']);
 
-    Route::post('register', [RegisteredUserController::class, 'store']);
+    Route::post('checking', [CheckingController::class, 'store'])->name('auth.checking');
 
-    Route::get('login', [AuthenticatedSessionController::class, 'create'])
-                ->name('login');
+    Route::get('login', [LoginController::class, 'loginPage']);
 
-    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+    Route::post('login', [LoginController::class, 'login'])->name('login');
 
-    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
-                ->name('password.request');
+    Route::get('login-password', [LoginController::class, 'loginPassPage']);
 
-    Route::post('forgot-password', [PasswordResetLinkController::class, 'sendCode'])
-                ->name('password.mobile');
+    Route::post('login-password', [LoginController::class, 'loginPass'])->name('login.pass');
 
-    Route::get('check-code', [VerifyMobileController::class, 'enterCode'])
-        ->name('check_code.request');
+    Route::get('register', [RegisterController::class, 'create']);
 
-    Route::post('check-code', [VerifyMobileController::class, 'checkCode'])
-        ->name('check_code.mobile');
+    Route::post('register', [RegisterController::class, 'store'])->name('register');
+
+//    Route::get('register', [RegisteredUserController::class, 'create'])
+//                ->name('register');
+//
+//    Route::post('register', [RegisteredUserController::class, 'store']);
+//
+//    Route::get('login', [AuthenticatedSessionController::class, 'create'])
+//                ->name('login');
+//
+//    Route::post('login', [AuthenticatedSessionController::class, 'store']);
+//
+//    Route::get('forgot-password', [PasswordResetLinkController::class, 'create'])
+//                ->name('password.request');
+//
+//    Route::post('forgot-password', [PasswordResetLinkController::class, 'sendCode'])
+//                ->name('password.mobile');
+//
+//    Route::get('check-code', [VerifyMobileController::class, 'enterCode'])
+//        ->name('check_code.request');
+//
+//    Route::post('check-code', [VerifyMobileController::class, 'checkCode'])
+//        ->name('check_code.mobile');
+
 
 //    Route::get('reset-password/{token}', [NewPasswordController::class, 'create'])
 //                ->name('password.reset');
@@ -63,4 +83,8 @@ Route::middleware('auth')->group(function () {
 //
     Route::get('logout', [AuthenticatedSessionController::class, 'destroy'])
                 ->name('logout');
+
+    Route::get('enter-name', [RegisterController::class, 'enterName']);
+
+    Route::post('set-name', [RegisterController::class, 'setName'])->name('after_register.name');
 });

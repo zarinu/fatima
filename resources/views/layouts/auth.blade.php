@@ -9,11 +9,14 @@
     <link rel="stylesheet" href="{{ asset('/assets/fontawesome/css/all.min.css') }}">
     <link rel="stylesheet" href="{{ asset('/assets/css/style.css') }}">
     <title>آموزش عروسک سازی حیدری | @yield('title')</title>
+    @stack('styles')
 </head>
 <body class="bg-light">
     <div class="container">
         @yield('content')
         <script src="{{ asset('/assets/js/bootstrap.bundle.min.js') }}"></script>
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+        @stack('scripts')
     </div>
 </body>
 </html>

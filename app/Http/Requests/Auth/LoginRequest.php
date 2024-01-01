@@ -42,11 +42,11 @@ class LoginRequest extends FormRequest
     {
         $this->ensureIsNotRateLimited();
 
-        if (! Auth::attempt($this->only('mobile', 'password'), $this->boolean('remember'))) {
+        if (! Auth::attempt($this->only('mobile', 'password'), true)) {
             RateLimiter::hit($this->throttleKey());
 
             throw ValidationException::withMessages([
-                'mobile' => trans('auth.failed'),
+                'password' => trans('auth.password'),
             ]);
         }
 
