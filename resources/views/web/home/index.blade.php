@@ -7,12 +7,6 @@
 
         <div class="container">
 
-            <div class="row text-center">
-
-                <a class="btn btn-danger btn-lg font-15 m-1 shadow" href="{{auth()->check() ? '/panel' : '/checking'}}"> میخوای دوره‌ات رو ببینی؟ کلیک کن </a>
-
-            </div>
-
             <div class="row">
 
                 <div class="col-lg-6">
