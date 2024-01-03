@@ -25,7 +25,7 @@ class RegisterController extends Controller
         }
         $mobile = session('mobile');
 
-        $has_verification = Verification::where('mobile', $mobile)->where('action', 'verify')->where('expired_at', '>=', date('Y-m-d H:i:s'))->first();
+        $has_verification = Verification::where('mobile', $mobile)->where('action', 'verify')->where('expired_at', '>=', date('Y-m-d H:i:s'))->whereNull('verified_at')->first();
         if(!$has_verification) {
             $verification = Verification::create([
                 'mobile' => $mobile,

@@ -48,7 +48,7 @@
                                     <input type="password" class="form-control @error('password') is-invalid @enderror" id="password" name="password"
                                            placeholder="رمز را وارد کنید" value="{{old('password')}}">
 
-                                    <p class="mr-2" style="font-size: 13px">در صورت وارد نکردن رمز، ۱۲۳۴۵۶۷۸۹ به عنوان رمز ثبت خواهد شد.</p>
+{{--                                    <p class="mr-2" style="font-size: 13px">در صورت وارد نکردن رمز، ۱۲۳۴۵۶۷۸۹ به عنوان رمز ثبت خواهد شد.</p>--}}
                                 </div>
 
                                 @error('password')

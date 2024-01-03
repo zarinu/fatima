@@ -63,6 +63,7 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['middleware' => ['auth', 'verified'], 'prefix' => 'panel'], function () {
 //        Route::get('/', [UserPanelController::class, 'dashboard'])->name('dashboard');
         Route::get('/', [CoursesController::class, 'myCourses'])->name('courses.panel');
+        Route::get('/courses', [CoursesController::class, 'myCourses']);
 //        Route::get('/profile', [UserPanelController::class, 'editProfile'])->name('profile.edit');
 //        Route::post('/profile', [UserPanelController::class, 'updateProfile'])->name('profile.update');
 

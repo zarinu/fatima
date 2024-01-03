@@ -49,11 +49,9 @@ class UsersController extends Controller
             'password' => 'nullable|string|min:6',
         ]);
 
-        if(empty($validated['password'])) {
-            $validated['password'] = 123456789;
+        if(!empty($validated['password'])) {
+            $validated['password'] = Hash::make($validated['password']);
         }
-
-        $validated['password'] = Hash::make($validated['password']);
 
         User::create($validated);
 
