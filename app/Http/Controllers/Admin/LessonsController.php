@@ -37,7 +37,8 @@ class LessonsController extends Controller
             'order' => 'nullable|integer',
             'chapter_id' => 'required|integer',
             'description' => 'nullable|string',
-            'content' => 'nullable|file|mimes:mp4|max:1048576',
+            'type' => 'nullable|in:video,audio,image,file',
+            'content' => 'nullable|file|mimes:mp4,mp3,png,jpg,jpeg,pdf|max:1048576',
         ]);
 
         $validated['course_id'] = $course->id;
@@ -85,7 +86,8 @@ class LessonsController extends Controller
             'order' => 'nullable|integer',
             'chapter_id' => 'required|integer',
             'description' => 'nullable|string',
-            'content' => 'nullable|file|mimes:mp4|max:1048576',
+            'type' => 'nullable|in:video,audio,image,file',
+            'content' => 'nullable|file|mimes:mp4,mp3,png,jpg,jpeg,pdf|max:1048576',
         ]);
 
         if(!empty($validated['content'])) {

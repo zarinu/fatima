@@ -20,8 +20,15 @@ class Lesson extends Model
      * @var array<int, string>
      */
     protected $fillable = [
-        'course_id', 'chapter_id', 'title', 'description', 'content_path', 'order',
+        'course_id', 'chapter_id', 'title', 'description', 'content_path', 'type', 'order',
         'previous_lesson_id', 'next_lesson_id',
+    ];
+
+    public static array $types = [
+        'video' => 'ویدیویی',
+        'audio' => 'صوتی',
+        'image' => 'تصویری',
+        'file' => 'فایل(pdf)',
     ];
 
     public function course() {

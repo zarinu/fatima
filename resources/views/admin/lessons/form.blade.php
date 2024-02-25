@@ -81,6 +81,21 @@
                                 @endif
                             </div>
 
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label for="type" class="control-label mr-2">نوع محتوا</label>
+                                    <select class="form-control @error('type') is-invalid @enderror" id="type" name="type">
+                                        <option disabled selected>انتخاب کنید</option>
+                                        @foreach(\App\Models\Lesson::$types as $type => $caption)
+                                            <option {{old('type', !empty($lesson) ? $lesson->type : null) == $type ? 'selected' : ''}} value="{{$type}}">{{$caption}}</option>
+                                        @endforeach
+                                    </select>
+                                </div>
+                                @error('type')
+                                <div class="text-danger">{{ $message }}</div>
+                                @enderror
+                            </div>
+
                         </div>
                     </div>
                     <!-- /.card-body -->

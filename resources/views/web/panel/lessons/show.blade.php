@@ -20,10 +20,21 @@
         </div>
 
         <div class="row">
-            <video controls oncontextmenu="return false;" id="lesson-video">
-                <source src="{{'/' . $lesson->get_url()}}" type="video/mp4">
-                Your browser does not support the video tag.
-            </video>
+            @if($lesson->type == 'video')
+                <video controls oncontextmenu="return false;" id="lesson-video">
+                    <source src="{{'/' . $lesson->get_url()}}" type="video/mp4">
+                    Your browser does not support the video tag.
+                </video>
+            @elseif($lesson->type == 'audio')
+                <audio controls oncontextmenu="return false;">
+                    <source src="{{'/' . $lesson->get_url()}}" type="audio/mpeg">
+                    Your browser does not support the audio element.
+                </audio>
+            @elseif($lesson->type == 'image')
+                <img src="{{'/' . $lesson->get_url()}}" width="800px" alt="image"/>
+            @elseif($lesson->type == 'file')
+                <p class="font-14 my-3">محتوا به صورت فایل است، لطفا از طریق دکمه دانلود محتوای این جلسه را دانلود کنید. 👇👇👇👇</p>
+            @endif
         </div>
 
         @if(!empty($lesson->description))
@@ -33,6 +44,10 @@
                 <div id="description">{!! $lesson->description !!}</div>
             </div>
         @endif
+
+        <div class="row m-2">
+            <a href="{{route('lessons.download', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-warning text-white font-13"><i class="fa fa-download align-middle me-2"></i>دانلود درس</a>
+        </div>
 
         <div class="row">
             @if($lesson->is_complete())
