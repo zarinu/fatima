@@ -190,7 +190,12 @@ class LessonsController extends Controller
                 }
 
                 $new_image->resizeCanvas($new_width, $new_height, 'center', false, '#ffffff');
-                $new_image->save(public_path('media/courses/' . $course->id . '/lesson_images/' . $image_path));
+
+                $base_path = public_path('media/courses/' . $course->id . '/lesson_images');
+                if(!File::isDirectory($base_path)) {
+                    File::makeDirectory($base_path);
+                }
+                $new_image->save($base_path . '/' . $image_path);
 
                 LessonImage::create([
                     'course_id' => $course->id,
