@@ -2,6 +2,16 @@
 @section('title', $title)
 
 @section('content')
+    @if(!empty($errors->getMessages()))
+        @php
+            $has_lesson_images_error = array_filter($errors->keys(), function($key) {
+                return str_starts_with($key, 'lesson_images');
+            });
+        @endphp
+        @if(!empty($has_lesson_images_error))
+            <div class="text-danger m-2"> یکی از عکسهای درس خطا داشت لطفا حتما عکس درس را آپلود کنید. </div>
+        @endif
+    @endif
     <!-- Main content -->
     <section class="content">
         <div class="container-fluid">
@@ -96,7 +106,16 @@
                                 @enderror
                             </div>
 
+                            <div class="col-sm-3">
+                                <div class="form-group">
+                                    <label>اضافه کردن عکس درس</label>
+                                    <span id="add-lesson-image" class="btn btn-success" style="width:100%;">کلید کنید</span>
+                                </div>
+                            </div>
                         </div>
+
+                        <div id="lesson-images-container" class="row"></div>
+
                     </div>
                     <!-- /.card-body -->
                     <div class="card-footer">
@@ -134,5 +153,33 @@
                 toolbar: { fa: true }
             })
         })
+
+        $(document).ready(function(){
+            var formCount = 0;
+
+            // Function to add a new form
+            function addForm() {
+                formCount++;
+                var formHtml =
+                    '<div class="col-sm-3">' +
+                    '<div class="form-group">' +
+                    '<label class="control-label mr-2"> زیرنویس عکس '+ formCount +' </label>' +
+                    '<input type="text" class="form-control" name="lesson_images[][caption]">' +
+                    '</div>' +
+                    '</div>' +
+                    '<div class="col-sm-3">' +
+                    '<div class="form-group">' +
+                    '<label class="control-label mr-2"> محتوای عکس '+ formCount +' </label>' +
+                    '<input type="file" class="form-control" name="lesson_images[][content]">' +
+                    '</div>' +
+                    '</div>';
+                $('#lesson-images-container').append(formHtml);
+            }
+
+            // Add form when add-form button is clicked
+            $('#add-lesson-image').click(function(){
+                addForm();
+            });
+        });
     </script>
 @endpush

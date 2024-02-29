@@ -45,6 +45,21 @@
             </div>
         @endif
 
+        @if(!empty($lesson->lessonImages))
+            <div class="row">
+                <div class="col-12">
+                    <div class="owl-carousel owl-theme">
+                        @foreach($lesson->lessonImages as $image)
+                            <div class="item">
+                                <img src="{{'/' . $image->get_url()}}" style="border-radius:10px" alt="lesson image"/>
+                                <center class="text-bold font-15 mt-2">{{$image->caption}}</center>
+                            </div>
+                        @endforeach
+                    </div>
+                </div>
+            </div>
+        @endif
+
         <div class="row m-2">
             <a href="{{route('lessons.download', ['course' => $course->id, 'lesson' => $lesson->id])}}" class="btn btn-warning text-white font-13"><i class="fa fa-download align-middle me-2"></i>دانلود درس</a>
         </div>
@@ -73,5 +88,21 @@
 
     <script>
         $('#description *, #description').addClass('vazir-font font-14 text-justify line-height text-bold');
+    </script>
+
+    <script>
+        var owl = $('.owl-carousel');
+        owl.owlCarousel({
+            animateOut: 'slideOutDown',
+            animateIn: 'flipInX',
+            items:4,
+            nav:true,
+            loop:true,
+            autoplay:true,
+            // autoplayTimeout:1000,
+            // autoplaySpeed:5000,
+            autoplayHoverPause:true,
+        });
+        owl.trigger('play.owl.autoplay',[3000])
     </script>
 @endpush

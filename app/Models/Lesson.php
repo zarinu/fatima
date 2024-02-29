@@ -54,6 +54,11 @@ class Lesson extends Model
         return $this->belongsTo(Lesson::class, 'next_lesson_id');
     }
 
+    public function lessonImages(): \Illuminate\Database\Eloquent\Relations\HasMany
+    {
+        return $this->hasMany(LessonImage::class);
+    }
+
     public function is_complete(): bool
     {
         if(!auth()->check()) {
