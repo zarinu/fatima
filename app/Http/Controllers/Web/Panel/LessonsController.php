@@ -7,6 +7,7 @@ use App\Models\Course;
 use App\Models\Lesson;
 use App\Models\UserViewedLesson;
 use Illuminate\Contracts\View\View;
+use Illuminate\Support\Facades\File;
 use Illuminate\Support\Facades\Response;
 
 class LessonsController extends Controller
@@ -35,7 +36,10 @@ class LessonsController extends Controller
         if(!auth()->user()->is_my_course($course)) {
             return abort(403);
         }
-        return Response::download($lesson->get_url(), str_replace(' ', '_', $lesson->title));
+
+        $extension = File::extension('media/courses/' . $lesson->course->id . '/' . $lesson->content_path);
+        $title = str_replace(' ', '_', $lesson->title) . '.' . $extension;
+        return Response::download($lesson->get_url(), $title);
     }
 
     public function toggleComplete(Course $course, Lesson $lesson, bool $status)
