@@ -8,7 +8,6 @@ use App\Http\Controllers\Web\CommentsController;
 use App\Http\Controllers\Web\CoursesController;
 use App\Http\Controllers\Web\Panel\LessonsController;
 use App\Http\Controllers\Web\Panel\PaymentsController;
-use App\Http\Controllers\Web\Panel\UserPanelController;
 use App\Http\Controllers\Web\DirectLinksController;
 use App\Http\Controllers\Web\TestController;
 use Illuminate\Support\Facades\Route;
@@ -37,6 +36,8 @@ Route::group(['middleware' => ['web']], function () {
 
     // Home
     Route::view('/', 'web.home.index');
+
+    Route::view('/student-photos', 'web.student_photos.index');
 
     // Courses - Web
     Route::group(['prefix' => 'courses'], function () {

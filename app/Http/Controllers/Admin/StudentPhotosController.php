@@ -34,18 +34,39 @@ class StudentPhotosController extends Controller
 
         $student_photo = StudentPhoto::create($validated);
 
-        if($student_photo) {
-            $new_image = Image::make($validated['image']);
-            $new_width= 600;
-            $new_height= 800;
-            $new_image->resize($new_width, $new_height);
-            $new_image->save(public_path('media/student_photos/' . $student_photo->id . '.jpg'));
-
-            return redirect('/admin/student-photos')->with([
-                'status' => 'success',
-                'message' => 'تصویر هنرجو با موفقیت ثبت شد.',
-            ]);
+        $new_image = Image::make($validated['image']);
+        $new_width = 600;
+        $new_height = 800;
+        $width = $new_image->width();
+        $height = $new_image->height();
+        $vertical = $width < $height;
+        $horizontal = $width > $height;
+        $square = ($width == $height);
+        if ($vertical) {
+            $new_image->resize(null, $new_height, function ($constraint) {
+                $constraint->aspectRatio();
+            });
+        } else if ($horizontal or $square) {
+            $new_image->resize($new_width, null, function ($constraint) {
+                $constraint->aspectRatio();
+            });
         }
+        $new_image->resizeCanvas($new_width, $new_height, 'center', false, '#ffffff');
+
+        $new_image->resize($new_width, $new_height);
+
+        // insert a watermark
+        $watermark = Image::make(public_path('/assets/images/hani_logo.png'));
+        $watermark->resize(200, null, function ($constraint) {
+            $constraint->aspectRatio();
+        });
+        $new_image->insert($watermark, 'top-right', 10, 10);
+
+        $new_image->save(public_path('media/student_photos/' . $student_photo->id . '.jpg'));
+        return redirect('/admin/student-photos')->with([
+            'status' => 'success',
+            'message' => 'تصویر هنرجو با موفقیت ثبت شد.',
+        ]);
     }
 
     public function delete(StudentPhoto $student_photo)
