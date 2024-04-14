@@ -6,7 +6,7 @@
 
             <div class="col-lg-4"><!-- start footer info -->
 
-                <img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="Daneshar" class="mb-2">
+                <img src="/assets/images/hani_logo.png" width="184px" height="66px" alt="logo" class="mb-2">
 
                 <p class="line-height font-13 mb-1">
                     اینجا یاد میگیری حرفه ای عروسک بسازی
@@ -18,9 +18,17 @@
 
                 <p class="font-13"><i class="fas fa-map-marker-alt text-muted me-2"></i>من، حانیه حیدری، 6 سال عروسک ساختم و توی اینکار حرفه ایم و کنارتم تا تو هم حرفه ای بشی.</p>
 
-                <p class="font-13"><i class="fas fa-envelope text-muted me-2"></i> info@aroosak.com</p>
+                <p class="font-13"><i class="fas fa-envelope text-muted me-2"></i>support@aroosk.ir</p>
 
-                <p class="font-13"><i class="fa fa-phone text-muted me-2"></i>021-12345678</p>
+                <p><a src="https://eitaa.com/heydari100" class="font-13">
+                    <i class="fa fa-phone text-muted me-2"></i>
+                    ارتباط با ما در ایتا
+                </a></p>
+
+                <p><a src="https://eitaa.com/aroosak_admin" class="font-13">
+                    <i class="fa fa-user-check text-muted me-2"></i>
+                    پشتیبان سایت
+                </a></p>
 
             </div><!-- end footer info -->
 
@@ -30,13 +38,9 @@
 
                 <ul class="ps-0">
 
-                    <li class="my-3"><a href="/" class="font-13 text-dark">درباره من</a></li>
+                    <li class="my-3"><a href="#" class="font-13 text-dark">درباره من</a></li>
 
-                    <li class="my-3"><a href="/" class="font-13 text-dark">تماس با من</a></li>
-
-                    <li class="my-3"><a href="/" class="font-13 text-dark">شرایط استفاده</a></li>
-
-                    <li class="my-3"><a href="/" class="font-13 text-dark">پاسخ به پرسش‌های متداول</a></li>
+                    <li class="my-3"><a href="https://eitaa.com/heydari100" target="_blank" class="font-13 text-dark">تماس با من</a></li>
 
                 </ul>
 
@@ -80,13 +84,13 @@
                 <p class="font-13 my-4"> کلیه حقوق این سایت محفوظ است.</p>
                 <p class="font-15 my-4"> طراحی و توسعه با <i class="fa fa-heart color-red"></i> توسط <a href="https://eitaa.com/mrs_zarin">زهرا حیدری</a> </p>
 
-                <a href="#"><i class="fab fa-instagram social-media"></i></a>
+                <a href="https://eitaa.com/amozesh_arosak" target="_blank">
+                    <img class="fab social-media" width="25px" src="/assets/images/eitaa.png"/>
+                </a>
 
-                <a href="#"><i class="fab fa-twitter social-media"></i></a>
-
-                <a href="#"><i class="fab fa-youtube social-media"></i></a>
-
-                <a href="#"><i class="fab fa-telegram social-media"></i></a>
+                <a href="https://www.instagram.com/fatima_aroosak/" target="_blank">
+                    <img class="fab social-media" width="25px" src="/assets/images/instagram-gray.png"/>
+                </a>
 
             </div>
 

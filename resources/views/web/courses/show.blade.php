@@ -376,13 +376,13 @@
 
                                         <div class="teacher-social-media">
 
-                                            <a href="#"><i class="fab fa-instagram"></i></a>
+                                            <a class="m-1" href="https://eitaa.com/amozesh_arosak" target="_blank">
+                                                <img width="35px" src="/assets/images/eitaa-icon.svg" alt="eitaa">
+                                            </a>
 
-                                            <a href="#"><i class="fab fa-twitter"></i></a>
-
-                                            <a href="#"><i class="fab fa-telegram"></i></a>
-
-                                            <a href="#"><i class="fab fa-linkedin"></i></a>
+                                            <a class="m-1" href="https://www.instagram.com/fatima_aroosak/" target="_blank">
+                                                <img width="35px" src="/assets/images/instagram-icon.png" alt="instagram">
+                                            </a>
 
                                         </div>
 
