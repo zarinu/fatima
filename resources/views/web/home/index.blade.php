@@ -116,7 +116,7 @@
             <div class="row">
                 <div class="col-12">
                     <div class="owl-carousel owl-theme">
-                        @foreach(\App\Models\StudentPhoto::orderBy('order')->limit(7)->get() as $student_photo)
+                        @foreach(\App\Models\StudentPhoto::orderBy('order')->limit(30)->get() as $student_photo)
                             <div class="item">
                                 <img src="{{$student_photo->photo()}}" alt="تصویر هنرجو" style="border-radius:10px">
                             </div>

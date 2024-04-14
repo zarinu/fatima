@@ -20,7 +20,7 @@
         <div class="container"><!-- start category boxes -->
 
             <div class="row">
-                @foreach(\App\Models\StudentPhoto::all() as $student_photo)
+                @foreach(\App\Models\StudentPhoto::orderBy('order')->get() as $student_photo)
                     <div class="col-sm-6 col-6">
                         <div class="custom-card mb-3 shadow-sm">
                             <div class="sub-layer">
