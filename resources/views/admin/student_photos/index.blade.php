@@ -4,66 +4,49 @@
 @section('content')
     <section class="content">
         <div class="container-fluid">
-
             <div class="card">
                 <!-- /.card-header -->
-                <div class="card-body">
-                    <table id="example1" class="table table-bordered table-striped">
+                <div class="card-body" style="overflow-x: auto;">
+                    <table id='empTable' class="table table-bordered table-responsive table-responsive-xxl table-hover table-striped">
                         <thead>
                         <tr>
                             <th>#</th>
                             <th> عنوان </th>
+                            <th> دوره </th>
                             <th> تصویر </th>
+                            <th> اولویت </th>
                             <th> عملیات </th>
                         </tr>
                         </thead>
-                        <tbody>
-                        @foreach($student_photos as $student_photo)
-                            <tr>
-                                <td>{{$student_photo->id}}</td>
-                                <td>{{$student_photo->title ?: 'بدون عنوان'}}</td>
-
-                                <td class="image">
-                                    <img class="img-thumbnail elevation-2" width="50px" height="50px" src="{{$student_photo->photo()}}">
-                                </td>
-
-                                <td>
-                                    <div class="row">
-                                        <a class="m-2" href="/admin/student-photos/{{$student_photo->id}}/delete" onclick="return confirm('واقعا میخوای این عکس رو حذف کنی؟');"><i class="fa fa-trash"></i></a>
-                                    </div>
-                                </td>
-                            </tr>
-                        @endforeach
-                        </tbody>
                     </table>
                 </div>
-                <!-- /.card-body -->
             </div>
-            <!-- /.card -->
-        </div> <!-- /.container-fluid -->
+        </div>
     </section>
-    <!-- /.content -->
-
 @endsection
 
-@push('styles')
-    <link rel="stylesheet" href="{{ asset('/assets/plugins/datatables/dataTables.bootstrap4.css') }}">
-@endpush
-
 @push('scripts')
-    <script src="{{ asset('/assets/plugins/datatables/jquery.dataTables.js') }}"></script>
-    <script src="{{ asset('/assets/plugins/datatables/dataTables.bootstrap4.js') }}"></script>
-    <script>
-        $(function () {
-            $("#example1").DataTable({
-                "language": {
-                    "paginate": {
-                        "next": "بعدی",
-                        "previous" : "قبلی"
-                    }
+    <script type="text/javascript">
+
+        $(document).ready(function(){
+            // Initialize
+            $('#empTable').DataTable({
+                processing: true,
+                serverSide: true,
+                ajax: "{{ route('student_photos.grid') }}",
+                columns: [
+                    { data: 'id' },
+                    { data: 'title' },
+                    { data: 'course_id' },
+                    { data: 'image' },
+                    { data: 'order' },
+                    { data: 'action', orderable:false },
+                ],
+                "oLanguage": {
+                    "sUrl": "https://cdn.datatables.net/plug-ins/1.10.19/i18n/Persian.json"
                 },
-                "info" : false,
             });
         });
+
     </script>
 @endpush

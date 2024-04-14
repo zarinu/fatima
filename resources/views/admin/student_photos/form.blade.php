@@ -45,10 +45,10 @@
 
                             <div class="col-sm-4">
                                 <div class="form-group">
-                                    <label for="order" class="control-label mr-2"> ترتیب سرفصل </label>
+                                    <label for="order" class="control-label mr-2"> ترتیب عکس </label>
 
                                     <input type="number" class="form-control @error('order') is-invalid @enderror" id="order" name="order"
-                                           value="{{old('order', !empty($chapter) ? $chapter->order : null)}}">
+                                           value="{{old('order', !empty($student_photo) ? $student_photo->order : null)}}">
                                 </div>
                                 @error('order')
                                 <div class="text-danger">{{ $message }}</div>

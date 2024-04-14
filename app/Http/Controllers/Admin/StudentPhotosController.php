@@ -6,15 +6,49 @@ use App\Http\Controllers\Controller;
 use App\Models\StudentPhoto;
 use Image;
 use Illuminate\Http\Request;
+use Yajra\DataTables\Facades\DataTables;
 
 class StudentPhotosController extends Controller
 {
     public function index()
     {
         $data['sidebar_item'] = 'student_photos';
-        $data['student_photos'] = StudentPhoto::all();
         return view('admin.student_photos.index', $data);
     }
+
+    public function grid(Request $request)
+    {
+        if($request->ajax()){
+            $data = StudentPhoto::query()->orderBy('order');
+            return DataTables::of($data)
+                ->addIndexColumn()
+                ->addColumn('action', function($row){
+                    return '<a href="/admin/student-photos/'.$row->id.'/delete" class="delete btn btn-danger btn-sm mt-1" onclick="return confirm(`واقعا میخوای این عکس رو حذف کنی؟`)">حذف</a>';
+                })
+                ->addColumn('image', function($row){
+                    return '<img class="img-thumbnail elevation-2" width="50px" height="50px" src="' . $row->photo(). '">';
+                })
+                ->addColumn('order', function($row){
+                    return
+                        '<form method="GET" action="/admin/student-photos/'.$row->id.'/update-order">'.
+                        '<div class="row">'.
+                        '<div class="col"><input type="number" class="form-control" name="order" value="'.$row->order.'"></div>'.
+                        '<div><input class="btn btn-outline-info btn-sm mt-1" type="submit" value="ثبت" /></div>'.
+                        '</div>'.
+                        '</form>';
+                })
+                ->editColumn('course_id', function ($row) {
+                    return !empty($row->course) ? $row->course->name : 'نامشخص';
+                })
+                ->editColumn('title', function ($row) {
+                    return $row->title ?: 'بدون عنوان';
+                })
+                ->rawColumns(['action', 'image', 'order'])
+                ->make(true);
+        }
+        return view('admin.users.index');
+    }
+
 
     public function create()
     {
@@ -69,8 +103,22 @@ class StudentPhotosController extends Controller
         ]);
     }
 
-    public function delete(StudentPhoto $student_photo)
+    public function updateOrder(Request $request, StudentPhoto $student_photo)
     {
+        $validated = $request->validate([
+            'order' => 'required|integer',
+        ]);
+
+        $student_photo->order = $validated['order'];
+        $student_photo->save();
+
+        return redirect('/admin/student-photos')->with([
+            'status' => 'success',
+            'message' => 'اولویت تصاویر هنرجویان با موفقیت تغییر کرد.',
+        ]);
+    }
+
+    public function delete(StudentPhoto $student_photo) {
         $student_photo->delete();
         return redirect('/admin/student-photos')->with([
             'status' => 'success',

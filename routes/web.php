@@ -203,9 +203,11 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     // Student Photos Management
     Route::prefix('student-photos')->controller(\App\Http\Controllers\Admin\StudentPhotosController::class)->group(function () {
         Route::get('/', 'index');
+        Route::get('/grid', 'grid')->name('student_photos.grid');
         Route::get('/create', 'create');
         Route::post('/store', 'store');
         Route::get('/{student_photo}/delete', 'delete');
+        Route::get('/{student_photo}/update-order', 'updateOrder');
     });
 
     // Php Artisan Commands
