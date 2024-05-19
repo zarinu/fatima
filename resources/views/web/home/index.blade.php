@@ -118,7 +118,7 @@
                     <div class="owl-carousel owl-theme">
                         @foreach(\App\Models\StudentPhoto::orderBy('order')->limit(30)->get() as $student_photo)
                             <div class="item">
-                                <img src="{{$student_photo->photo()}}" alt="تصویر هنرجو" style="border-radius:10px">
+                                <img src="{{$student_photo->photo()}}" alt="تصویر هنرجو" class="student-photo">
                             </div>
                         @endforeach
                     </div>
@@ -381,6 +381,16 @@
     </div><!-- end comment slider -->
 
 @endsection
+
+@push('styles')
+    <style>
+        .student-photo {
+            border-radius:10px;
+            width: 100%;
+            height: auto;
+        }
+    </style>
+@endpush
 
 @push('scripts')
     <script>
