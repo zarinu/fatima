@@ -11,13 +11,14 @@ use Illuminate\Support\Facades\Http;
 class SendTelegramBot extends Notification implements ShouldQueue
 {
     use Queueable;
+    private array $content;
 
     /**
      * Create a new notification instance.
      */
-    public function __construct()
+    public function __construct($content)
     {
-        //
+        $this->content = $content;
     }
 
     /**
@@ -59,7 +60,7 @@ class SendTelegramBot extends Notification implements ShouldQueue
         $TokenBot = env('TELEGRAM_BOT_TOKEN');
         $ChatId =env('TELEGRAM_CHAT_ID');
 
-        $TelegramApiUrl = "https://api.telegram.org/bot{$TokenBot}/SendMessage?chat_id={$ChatId}&text=test";
+        $TelegramApiUrl = "https://api.telegram.org/bot{$TokenBot}/SendMessage?chat_id={$ChatId}&text={$this->content['text']}";
 
         $Payloads = [
             "UrlBox"       => $TelegramApiUrl,
@@ -68,7 +69,7 @@ class SendTelegramBot extends Notification implements ShouldQueue
             "MethodList"   => "POST"
         ];
 
-        try {
+//        try {
             $response = Http::withHeaders([
                 'Content-Type' => 'application/json',
             ])->withOptions([
@@ -77,15 +78,16 @@ class SendTelegramBot extends Notification implements ShouldQueue
 
             if ($response->successful()) {
                 $result = $response->body();
-//                $regex = "~\{(?:[^{}]|(?R))*\}~";
-//                preg_match_all($regex, $result, $matches, PREG_OFFSET_CAPTURE);
-//                dd($matches[0][15][0]);
+                $regex = "~\{(?:[^{}]|(?R))*\}~";
+                preg_match_all($regex, $result, $matches, PREG_OFFSET_CAPTURE);
+                $result = $matches[0][15][0];
             } else {
                 $result = $response->body();
                 throw new \Exception($result);
             }
-        } catch (\Exception $e) {
-            $result = $e->getMessage();
-        }
+//        } catch (\Exception $e) {
+//            $result = $e->getMessage();
+//        }
+        logger($result);
     }
 }
