@@ -4,9 +4,11 @@ namespace App\Http\Controllers\Web;
 
 use App\Http\Controllers\Controller;
 
+use App\Models\User;
 use Illuminate\Http\Request;
 use Kavenegar\Laravel\Message\KavenegarMessage;
 use Maatwebsite\Excel\Facades\Excel;
+use Illuminate\Support\Facades\Notification;
 
 class TestController extends Controller
 {
@@ -101,5 +103,9 @@ class TestController extends Controller
 //            // در زمانی که مشکلی در برقرای ارتباط با وب سرویس وجود داشته باشد این خطا رخ می دهد
 //            echo $e->errorMessage();
 //        }
+    }
+
+    public function telegram() {
+        Notification::send(User::where('role_id', 1)->first(), new \App\Notifications\SendTelegramBot());
     }
 }
