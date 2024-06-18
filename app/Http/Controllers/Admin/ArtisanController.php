@@ -18,6 +18,10 @@ class ArtisanController extends Controller
         } else if($param === 'clear') {
             Artisan::call('cache:clear');
             return 'done';
+        } else if($param === 'config') {
+            Artisan::call('config:clear');
+            Artisan::call('config:cache');
+            return Artisan::call('env');
         } else {
             return 'invalid php artisan command';
         }
