@@ -69,7 +69,8 @@ class SendTelegramBot extends Notification implements ShouldQueue
             "MethodList"   => "POST"
         ];
 
-//        try {
+        try {
+            logger("*** this is httpdebug : `" + $HttpDebug + "` and this is the payload `" + $Payloads +"`");
             $response = Http::withHeaders([
                 'Content-Type' => 'application/json',
             ])->withOptions([
@@ -85,9 +86,9 @@ class SendTelegramBot extends Notification implements ShouldQueue
                 $result = $response->body();
                 throw new \Exception($result);
             }
-//        } catch (\Exception $e) {
-//            $result = $e->getMessage();
-//        }
+        } catch (\Exception $e) {
+            $result = $e->getMessage();
+        }
         logger($result);
     }
 }

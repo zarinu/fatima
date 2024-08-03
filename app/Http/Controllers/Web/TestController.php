@@ -108,4 +108,8 @@ class TestController extends Controller
     public function telegram() {
         Notification::send(User::where('role_id', 1)->first(), new \App\Notifications\SendTelegramBot(['text' => 'zahra heydari']));
     }
+
+    public function throwError() {
+        return $unknowen_variable;
+    }
 }
