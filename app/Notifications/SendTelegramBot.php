@@ -70,7 +70,6 @@ class SendTelegramBot extends Notification implements ShouldQueue
         ];
 
         try {
-            logger("*** this is httpdebug : `" + $HttpDebug + "` and this is the payload `" + $Payloads +"`");
             $response = Http::withHeaders([
                 'Content-Type' => 'application/json',
             ])->withOptions([
