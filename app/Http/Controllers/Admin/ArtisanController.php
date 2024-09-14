@@ -18,8 +18,10 @@ class ArtisanController extends Controller
         } else if($param === 'clear') {
             Artisan::call('cache:clear');
             return 'done';
-        } else if($param === 'config') {
+        } else if($param === 'config-clear') {
             Artisan::call('config:clear');
+            return 'done';
+        } else if($param === 'config-cache') {
             Artisan::call('config:cache');
             return 'done';
         } else {
