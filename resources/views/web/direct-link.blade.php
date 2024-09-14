@@ -113,7 +113,7 @@
 
         </div>
 
-        <button type="submit" class="submit_btn">ثبت نام و شروع آموزش</button>
+        <button type="submit" id="register-and-payment-btn" class="submit_btn">ثبت نام و شروع آموزش</button>
 
     </form><!-- end login form -->
 
