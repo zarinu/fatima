@@ -87,7 +87,7 @@ class PaymentsController extends Controller
         }
 
         $post_data = [
-            "merchant_id" => env('ZARINPAL_MERCHANT_ID'),
+            "merchant_id" => config('payment.zarinpal.merchant_id'),
             "amount" => $payment->amount,
             "authority" => $authority,
         ];
@@ -170,7 +170,7 @@ class PaymentsController extends Controller
     private function get_authority($total_price, $user): array
     {
         $post_data = [
-            "merchant_id" => env('ZARINPAL_MERCHANT_ID'),
+            "merchant_id" => config('payment.zarinpal.merchant_id'),
             "amount" => $total_price,
             "currency" => "IRT",
             "callback_url" => url("/panel/payments/verify"),

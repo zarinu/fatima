@@ -47,6 +47,6 @@ class Payment extends Model
     }
 
     public static function paymentUrl($url_type) {
-        return config('payment.zarinpal')[env('ZARINPAL_STATUS')][$url_type];
+        return config('payment.zarinpal')[config('payment.zarinpal.status')][$url_type];
     }
 }

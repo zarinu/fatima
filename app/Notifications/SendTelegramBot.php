@@ -56,9 +56,9 @@ class SendTelegramBot extends Notification implements ShouldQueue
 
     public function toTelegram($notifiable)
     {
-        $HttpDebug = env('TELEGRAM_URL_PROXY');
-        $TokenBot = env('TELEGRAM_BOT_TOKEN');
-        $ChatId =env('TELEGRAM_CHAT_ID');
+        $HttpDebug = config('telegram.telegram_url_proxy');
+        $TokenBot = config('telegram.telegram_bot_token');
+        $ChatId = config('telegram.telegram_chat_id');
 
         $TelegramApiUrl = "https://api.telegram.org/bot{$TokenBot}/SendMessage?chat_id={$ChatId}&text={$this->content['text']}";
 

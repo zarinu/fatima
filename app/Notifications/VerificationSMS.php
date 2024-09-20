@@ -20,6 +20,6 @@ class VerificationSMS extends KavenegarBaseNotification implements ShouldQueue
     public function toKavenegar($notifiable): KavenegarMessage
     {
         return (new KavenegarMessage())
-            ->verifyLookup(env('SMS_VERIFY_TEMPLATE', 'Verify'),[$this->notifiable->code])->to($this->notifiable->mobile);
+            ->verifyLookup(config('kavenegar.template'),[$this->notifiable->code])->to($this->notifiable->mobile);
     }
 }
