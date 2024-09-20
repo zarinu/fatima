@@ -14,8 +14,11 @@
                 @csrf
 
                 @error('mobile')
-                    <div class="alert alert-danger font-12 m-0 mb-2">{{ $message }}</div>
+                <div class="alert alert-danger font-12 m-0 mb-2">{{ $message }}</div>
                 @enderror
+                @if (session('withError'))
+                    <div class="alert alert-danger font-12 m-0 mb-2">لطفا شماره تماس خودتون رو وارد کنید</div>
+                @endif
                 <div class="input-group signup-form mb-4">
 
                     <span class="input-group-text"><i class="fa fa-phone"></i></span>
@@ -58,4 +61,16 @@
             font-weight: bold !important;
         }
     </style>
+@endpush
+
+@push('scripts')
+
+    <script>
+        @if (session('withError'))
+        document.cookie.split(";").forEach(function(cookie) {
+            document.cookie = cookie.split("=")[0] + "=;expires=Thu, 01 Jan 1970 00:00:00 UTC; path=/;";
+        });
+        @endif
+    </script>
+
 @endpush

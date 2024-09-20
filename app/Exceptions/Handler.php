@@ -63,7 +63,7 @@ class Handler extends ExceptionHandler
     {
         if ($exception instanceof TokenMismatchException) {
             $this->logTokenMismatch($request);
-            return redirect()->back()->withInput($request->except('_token'));
+            return redirect()->back()->withInput($request->except('_token'))->with('withError', true);
         }
 
         return parent::render($request, $exception);
