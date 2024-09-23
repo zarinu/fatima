@@ -9,6 +9,9 @@ use App\Models\Payment;
 use App\Models\UserCourse;
 use Illuminate\Http\Request;
 use Yajra\DataTables\Facades\DataTables;
+use App\Imports\UserCoursesImport;
+use Maatwebsite\Excel\Facades\Excel;
+use Maatwebsite\Excel\Validators\ValidationException;
 
 class UsersCoursesController extends Controller
 {
@@ -73,6 +76,43 @@ class UsersCoursesController extends Controller
             'status' => 'success',
             'message' => 'دوره برای کاربر با موفقیت فعال شد.',
         ]);
+    }
+
+    public function batchCreate()
+    {
+        $data['sidebar_item'] = 'users_courses_batch_create';
+        $data['title'] = 'فعال سازی دوره با اکسل';
+        return view('admin.users_courses.batch_activation', $data);
+    }
+
+    public function batchStore(Request $request)
+    {
+        // Validate the file format
+        $request->validate([
+            'excel_file' => 'required|mimes:xlsx,xls',
+        ]);
+
+        try {
+            // Handle the file upload and import
+            Excel::import(new UserCoursesImport(), $request->file('excel_file'));
+
+            return redirect('/admin/users-courses')->with([
+                'status' => 'success',
+                'message' => 'دوره ها برای تمام کاربران با موفقیت فعال شد.',
+            ]);
+        } catch (ValidationException $e) {
+            // Handle validation failure
+            $failures = $e->failures();
+
+            foreach ($failures as $failure) {
+                $failure->row(); // ردیفی که ولیدیشن آن رد شده
+                $failure->attribute(); // ستونی که مشکل دارد
+                $failure->errors(); // پیام‌های خطا
+                $failure->values(); // مقادیر ردیف
+            }
+            logger($failures);
+            return back()->with('error', 'Validation failed on row ' . $failure->row() . ': ' . implode(', ', $failure->errors()));
+        }
     }
 
     public function delete(UserCourse $user_course)

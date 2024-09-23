@@ -176,7 +176,7 @@
                         </ul>
                     </li>
 
-                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['users_courses', 'users_courses_create']) ? 'menu-open' : ''}}">
+                    <li class="nav-item has-treeview {{in_array($sidebar_item, ['users_courses', 'users_courses_create', 'users_courses_batch_create']) ? 'menu-open' : ''}}">
                         <a href="#" class="nav-link">
                             <i class="nav-icon fa fa-bicycle"></i>
                             <p>
@@ -195,6 +195,13 @@
                                 <a href="/admin/users-courses/create" class="nav-link {{$sidebar_item == 'users_courses_create' ? 'active' : ''}}">
                                     <i class="fa fa-circle-o nav-icon"></i>
                                     <p>فعال کردن دوره برای کاربر</p>
+                                </a>
+                            </li>
+
+                            <li class="nav-item">
+                                <a href="/admin/users-courses/batch-create" class="nav-link {{$sidebar_item == 'users_courses_batch_create' ? 'active' : ''}}">
+                                    <i class="fa fa-circle-o nav-icon"></i>
+                                    <p>فعال سازی دوره با اکسل</p>
                                 </a>
                             </li>
                         </ul>

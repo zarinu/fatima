@@ -197,6 +197,11 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
         Route::get('/grid', 'grid')->name('user_courses.grid');
         Route::get('/create', 'create');
         Route::post('/store', 'store');
+
+        // Mass activation of users courses
+        Route::get('/batch-create', 'batchCreate');
+        Route::post('/batch-store', 'batchStore');
+
         Route::get('/{user_course}/delete', 'delete');
     });
 
