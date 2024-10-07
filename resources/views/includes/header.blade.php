@@ -271,7 +271,7 @@
 
                         </li>
 
-                        <li class="menu-item"><a href="/">بلاگ</a></li>
+                        <li class="menu-item"><a href="/articles">بلاگ</a></li>
 
                         <li class="menu-item"><a href="https://eitaa.com/heydari100" target="_blank">تماس با ما</a></li>
 
@@ -346,7 +346,7 @@
 
             </li>
 
-            <li><a href="/">بلاگ</a></li>
+            <li><a href="/articles">بلاگ</a></li>
 
             <li><a href="https://eitaa.com/heydari100" target="_blank">تماس با ما</a></li>
 

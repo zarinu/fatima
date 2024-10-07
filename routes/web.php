@@ -6,6 +6,7 @@ use App\Http\Controllers\Admin\UsersController;
 use App\Http\Controllers\Web\CartController;
 use App\Http\Controllers\Web\CommentsController;
 use App\Http\Controllers\Web\CoursesController;
+use App\Http\Controllers\Web\ArticlesController as ArticlesWebController;
 use App\Http\Controllers\Web\Panel\LessonsController;
 use App\Http\Controllers\Web\Panel\PaymentsController;
 use App\Http\Controllers\Web\DirectLinksController;
@@ -43,6 +44,12 @@ Route::group(['middleware' => ['web']], function () {
     Route::group(['prefix' => 'courses'], function () {
         Route::get('/', [CoursesController::class, 'index'])->name('courses.index');
         Route::get('/{course}', [CoursesController::class, 'show'])->name('courses.show');
+    });
+
+    // Articles
+    Route::group(['prefix' => 'articles'], function () {
+        Route::get('/', [ArticlesWebController::class, 'index'])->name('articles.index');
+        Route::get('/{article}', [ArticlesWebController::class, 'show'])->name('articles.show');
     });
 
     // Cart
@@ -141,6 +148,12 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
                     Route::get('/delete', 'delete');
                 });
             });
+    });
+
+    // Articles Management
+    Route::prefix('articles')->controller(\App\Http\Controllers\Admin\ArticlesController::class)->group(function () {
+        Route::get('/create', 'create');
+        Route::post('/store', 'store');
     });
 
     // Comments Management
