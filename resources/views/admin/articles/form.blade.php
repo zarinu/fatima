@@ -177,22 +177,27 @@
     <script src="{{ asset('/assets/plugins/ckeditor/ckeditor.js') }}"></script>
     <script>
         $(function () {
-            // Replace the <textarea id="editor1"> with a CKEditor
-            // instance, using default configuration.
             ClassicEditor
-                .create(document.querySelector('#editor1'))
-                .then(function (editor) {
-                    // The editor instance
+                .create(document.querySelector('#editor1'), {
+                    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'imageUpload'],
+                    ckfinder: {
+                        uploadUrl: '/admin/articles/upload-image', // Laravel route for image upload
+                        headers: {
+                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Include CSRF token in headers
+                        }
+                    }
                 })
-                .catch(function (error) {
-                    console.error(error)
+                .then(editor => {
+                    // The editor instance is ready
                 })
-
-            // bootstrap WYSIHTML5 - text editor
+                .catch(error => {
+                    console.error(error);
+                });
 
             $('.textarea').wysihtml5({
                 toolbar: { fa: true }
-            })
-        })
+            });
+        });
+
     </script>
 @endpush

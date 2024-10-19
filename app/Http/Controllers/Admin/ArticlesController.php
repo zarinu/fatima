@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Admin;
 use App\Http\Controllers\Controller;
 use App\Models\Article;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Storage;
 
 class ArticlesController extends Controller
 {
@@ -60,5 +61,28 @@ class ArticlesController extends Controller
             $article->has_image = true;
             $validated['image']->storeAs('/articles/' . $article->id, 'image.jpg', 'public_media');
         }
+    }
+
+    public function uploadImage(Request $request)
+    {
+        // Check if the request has a file
+        if ($request->hasFile('upload')) {
+            // Validate the file type
+            $request->validate([
+                'upload' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+            ]);
+
+            // Store the file and get its path
+            $path = $request->file('upload')->store('public/uploads');
+
+            // Get the public URL of the stored file
+            $url = Storage::url($path);
+
+            // Return the URL as a JSON response for CKEditor
+            return response()->json(['url' => $url]);
+        }
+
+        // If no file was uploaded, return an error
+        return response()->json(['error' => 'No file uploaded'], 400);
     }
 }

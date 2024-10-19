@@ -154,6 +154,7 @@ Route::group(['middleware' => ['auth', 'admin'], 'prefix' => 'admin'], function 
     Route::prefix('articles')->controller(\App\Http\Controllers\Admin\ArticlesController::class)->group(function () {
         Route::get('/create', 'create');
         Route::post('/store', 'store');
+        Route::post('/upload-image', 'uploadImage');
     });
 
     // Comments Management
