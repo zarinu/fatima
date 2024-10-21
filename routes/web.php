@@ -28,9 +28,12 @@ use Illuminate\Support\Facades\Route;
 Route::group(['middleware' => ['web']], function () {
     // Common routes
     Route::get('/test/{method}', [TestController::class, 'main']);
-    Route::get('/خرید-دوره-لباس-عروسک', [DirectLinksController::class, 'getBuyDollClothesCourse']);
-    Route::post('/خرید-دوره-لباس-عروسک', [DirectLinksController::class, 'buyDollClothesCourse'])->name('direct_link');
-    Route::post('/buy-directly/cart', [DirectLinksController::class, 'buyDollClothesCourseByCart'])->name('direct_link_cart');
+    Route::get('/خرید-دوره-فندق', [DirectLinksController::class, 'showFandogh']);
+    Route::post('/خرید-دوره-فندق', [DirectLinksController::class, 'purchaseFandogh'])->name('purchase-fandogh');
+
+    Route::get('/خرید-دوره-فندق-و-لباس', [DirectLinksController::class, 'showFandoghDress']);
+    Route::post('/خرید-دوره-فندق-و-لباس', [DirectLinksController::class, 'purchaseFandoghDress'])->name('purchase-fandogh-dress');
+//    Route::post('/buy-directly/cart', [DirectLinksController::class, 'buyDollClothesCourseByCart'])->name('direct_link_cart');
 
     // Auth
     require __DIR__.'/auth.php';

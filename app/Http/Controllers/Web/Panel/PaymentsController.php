@@ -8,6 +8,7 @@ use App\Models\User;
 use App\Models\OrderItem;
 use App\Models\Payment;
 use App\Models\UserCourse;
+use App\Notifications\SuccessPayment;
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
 
@@ -148,6 +149,11 @@ class PaymentsController extends Controller
                         $item->course->increment('users_count');
                     }
                 }
+
+                // پیامک های خرید با موفقیت دوره
+                $user = $payment->user;
+                $user->notify(new SuccessPayment($user->mobile, 'SuccessPayment', 'دوره'));
+                $user->notify(new SuccessPayment($user->mobile, 'getChannelLink', '@poshtibani_arosak'));
 
                 return redirect('/panel')->with([
                     'status' => 'success',
