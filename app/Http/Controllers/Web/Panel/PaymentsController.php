@@ -153,7 +153,7 @@ class PaymentsController extends Controller
                 // پیامک های خرید با موفقیت دوره
                 $user = $payment->user;
                 $user->notify(new SuccessPayment($user->mobile, 'SuccessPayment', 'دوره'));
-                $user->notify(new SuccessPayment($user->mobile, 'getChannelLink', '@poshtibani_arosak'));
+                $user->notify(new SuccessPayment($user->mobile, 'getChannelLink', 'https://eitaa.com/poshtibani_arosak'));
 
                 return redirect('/panel')->with([
                     'status' => 'success',
