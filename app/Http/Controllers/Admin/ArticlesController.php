@@ -69,20 +69,28 @@ class ArticlesController extends Controller
         if ($request->hasFile('upload')) {
             // Validate the file type
             $request->validate([
-                'upload' => 'image|mimes:jpeg,png,jpg,gif,svg|max:2048'
+                'upload' => 'required|image|mimes:jpeg,png,jpg,gif,svg|max:2048'
             ]);
 
             // Store the file and get its path
-            $path = $request->file('upload')->store('public/uploads');
+            $originName = $request->file('upload')->getClientOriginalName();
+            $fileName = pathinfo($originName, PATHINFO_FILENAME);
+            $extension = $request->file('upload')->getClientOriginalExtension();
+            $fileName = $fileName . '_' . time() . '.' . $extension;
+            $request->file('upload')->storeAs('/article_uploads', $fileName, 'public_media');
 
-            // Get the public URL of the stored file
-            $url = Storage::url($path);
-
-            // Return the URL as a JSON response for CKEditor
-            return response()->json(['url' => $url]);
+            $url = asset('media/article_uploads/' . $fileName);
+            return response()->json([
+                'uploaded' => true,
+                'url' => $url,
+                'fileName' => $fileName,
+            ]);
         }
 
-        // If no file was uploaded, return an error
-        return response()->json(['error' => 'No file uploaded'], 400);
+        // در صورت وجود خطا
+        return response()->json([
+            'uploaded' => false,
+            'error' => ['message' => 'File upload failed.']
+        ], 400);
     }
 }

@@ -15,15 +15,17 @@
 
     <div class="container">
 
-        <div class="row">
+        @if($article->has_image)
+            <div class="row">
 
-            <div class="col-12">
+                <div class="col-12">
 
-                <img src="/media/articles/{{$article->id}}/image.jpg" class="article-pic"><!-- article image -->
+                    <img src="/media/articles/{{$article->id}}/image.jpg" class="article-pic"><!-- article image -->
+
+                </div>
 
             </div>
-
-        </div>
+        @endif
 
         <div class="row"><!-- start article content-->
 
@@ -200,7 +202,9 @@
 
                     <div class="card shadow-sm mb-3 article-card">
 
-                        <img src="/media/articles/{{$suggestion_article->id}}/image.jpg" class="img-fluid">
+                        @if($suggestion_article->has_image)
+                            <img src="/media/articles/{{$suggestion_article->id}}/image.jpg" class="img-fluid">
+                        @endif
 
                         <div class="card-body">
 

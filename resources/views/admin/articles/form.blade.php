@@ -43,12 +43,12 @@
                             <div class="col-sm-4">
                                 <div class="form-group">
                                     <label for="status" class="control-label mr-2">وضعیت مقاله</label>
-                                        <select class="form-control @error('status') is-invalid @enderror" id="status" name="status">
-                                            <option disabled selected>انتخاب کنید</option>
-                                            @foreach(\App\Models\Article::$statuses as $key => $value)
-                                                <option {{old('status', !empty($articles) ? $articles->status : null) == $key ? 'selected' : ''}} value="{{$key}}">{{$value}}</option>
-                                            @endforeach
-                                        </select>
+                                    <select class="form-control @error('status') is-invalid @enderror" id="status" name="status">
+                                        <option disabled selected>انتخاب کنید</option>
+                                        @foreach(\App\Models\Article::$statuses as $key => $value)
+                                            <option {{old('status', !empty($articles) ? $articles->status : null) == $key ? 'selected' : ''}} value="{{$key}}">{{$value}}</option>
+                                        @endforeach
+                                    </select>
                                 </div>
                                 @error('status')
                                 <div class="text-danger">{{ $message }}</div>
@@ -127,11 +127,11 @@
                                     @enderror
                                 </div>
                                 @if(!empty($articles) && $articles->has_image)
-                                <div class="mr-xl-5">
-                                    <strong class="text-success">عکس فعلی در زیر نمایش داده شده است.</strong>
-                                    <p class="text-success"> برای تغییر دکمه browse را انتخاب کنید.</p>
-                                    <img src="{{$articles->get_image()}}" width="200px" height="200px">
-                                </div>
+                                    <div class="mr-xl-5">
+                                        <strong class="text-success">عکس فعلی در زیر نمایش داده شده است.</strong>
+                                        <p class="text-success"> برای تغییر دکمه browse را انتخاب کنید.</p>
+                                        <img src="{{$articles->get_image()}}" width="200px" height="200px">
+                                    </div>
                                 @endif
                             </div>
 
@@ -142,7 +142,7 @@
                                         <input type="file" class="form-control" id="video" name="video">
                                     </div>
                                     @error('video')
-                                    <div class="text-danger">{{ $message }}</div>
+{{--                                    <div class="text-danger">{{ $message }}</div>--}}
                                     @enderror
                                 </div>
                                 @if(!empty($articles) && $articles->has_video)
@@ -174,29 +174,26 @@
 @endsection
 
 @push('scripts')
-    <script src="{{ asset('/assets/plugins/ckeditor/ckeditor.js') }}"></script>
+    <script src="{{ asset('/assets/plugins/ckeditor/ckeditor5.js') }}"></script>
+{{--    <script src="https://cdn.ckeditor.com/ckeditor5/36.0.1/classic/ckeditor.js"></script>--}}
     <script>
-        $(function () {
-            ClassicEditor
-                .create(document.querySelector('#editor1'), {
-                    toolbar: ['heading', '|', 'bold', 'italic', 'link', 'bulletedList', 'numberedList', 'blockQuote', 'imageUpload'],
-                    ckfinder: {
-                        uploadUrl: '/admin/articles/upload-image', // Laravel route for image upload
-                        headers: {
-                            'X-CSRF-TOKEN': document.querySelector('meta[name="csrf-token"]').getAttribute('content') // Include CSRF token in headers
-                        }
-                    }
-                })
-                .then(editor => {
-                    // The editor instance is ready
-                })
-                .catch(error => {
-                    console.error(error);
-                });
-
-            $('.textarea').wysihtml5({
-                toolbar: { fa: true }
-            });
+        ClassicEditor
+            .create( document.querySelector( '#editor1' ), {
+                ckfinder: {
+                    uploadUrl: '{{route('editor.upload').'?_token='.csrf_token()}}'
+                },
+                language: {
+                    content: 'fa'
+                }
+            })
+            .then( editor => {
+                console.log( editor );
+            })
+            .catch( error => {
+                console.error( error );
+            })
+        $('.textarea').wysihtml5({
+            toolbar: { fa: true }
         });
 
     </script>
