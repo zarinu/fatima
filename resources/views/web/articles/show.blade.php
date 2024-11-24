@@ -15,6 +15,8 @@
 
     <div class="container">
 
+        <h2 class="font-18 mt-5 mb-4">{{$article->title}}</h2>
+
         @if($article->has_image)
             <div class="row">
 
@@ -30,8 +32,6 @@
         <div class="row"><!-- start article content-->
 
             <div class="col-lg-12">
-
-                <h1 class="font-18 mt-5 mb-4">{{$article->title}}</h1>
 
                 <div class="mb-3">
 
@@ -285,6 +285,30 @@
         .rating-star input:hover + span.star:before, .rating-star input:hover + span.star ~ span.star:before, .rating-star input:checked + span.star:before, .rating-star input:checked + span.star ~ span.star:before {
             color: #ffd100;
             content:"\f005";
+        }
+
+        img {
+            max-width: 100%; /* Ensures the image does not exceed the container's width */
+            height: auto; /* Maintains the aspect ratio */
+            display: block; /* Removes extra space below the image */
+            margin: 0 auto; /* Centers the image if needed */
+        }
+
+        .image {
+            text-align: center; /* Ensures the figure or container aligns the image */
+        }
+
+        figure.image {
+            margin: 20px auto; /* Adds spacing around the figure for better layout */
+            max-width: 90%; /* Restricts the figure's maximum width */
+        }
+
+        body {
+            line-height: 2.2; /* فاصله خطوط را افزایش می‌دهد */
+        }
+
+        p, li {
+            line-height: 2.2; /* تنظیم فاصله خطوط برای پاراگراف‌ها و آیتم‌های لیست */
         }
     </style>
 @endpush
